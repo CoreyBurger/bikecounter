@@ -15,6 +15,6 @@ heatmap = altair.Chart(data).transform_timeunit(
     altair.Color('mean(Count):Q')
 )
 
-chart = heatmap #+ points
+chart = heatmap
    
 chart.save('altairTest.json')

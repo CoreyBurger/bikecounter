@@ -8,15 +8,23 @@ import os
 
 #define constants
 workingDir = os.getcwd()
+yesterday = datetime.date.today() - datetime.timedelta(1)
+yesterday = yesterday.strftime('%Y-%m-%d')
 
 #load data
 countFile = "counts-100117730.csv"
 data = pandas.read_csv(countFile,parse_dates=['Date'])
 
-#
+#resample to daily count
 dailyCount = data.resample('D',on='Date').sum()
 dailyCount['Day'] = dailyCount.index
 dailyCount = dailyCount.loc[dailyCount['Day'] >= '2015-01-01']
+
+#get yesterdays count   
+yesterdayCount = dailyCount.loc[dailyCount['Day']==yesterday]['Count'][0]
+
+#determine rank
+dailyRank = dailyCount.loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
 
 heatmap = altair.Chart(dailyCount).mark_rect().encode(
     altair.X('day(Day):O'),

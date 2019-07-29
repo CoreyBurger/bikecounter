@@ -11,20 +11,40 @@
   </script>
   <script src="leaflet-providers.js">
   </script>
+  <link href="https://fonts.googleapis.com/css?family=B612" rel="stylesheet"/>
  </head>
+ <style>
+  body{
+   font-family: 'B612';
+   background-color:white;
+}
+.container {right: 0; text-align: center;}
+.container .left, .container .centre, .container .right { display: inline-block; }
+.container .left { float: left; }
+.container .centre { margin: 0 auto; }
+.container .right { float: right; }
+.clear { clear: both; }
+ </style>
  <body>
-  <div id="counterName">
-   <h1>
-   </h1>
+  <div class="container" id="firstRow" style="width:75%">
+   <div class="left" id="counterName">
+    <h1>
+     Galloping Goose at Harbour Rd
+    </h1>
+    Yesterday saw 2377 bike rides, the 83rd busiest day of 2019 and 433rd busiest overall.
+   </div>
+   <div class="right" id="counterMap" style="width: 300px; height: 300px;">
+    <script>
+     var countmap = L.map('counterMap').setView([48.432613, -123.3782], 15);var marker = L.marker([48.432613, -123.37829]).addTo(countmap);var background = L.tileLayer.provider('Stamen.Toner').addTo(countmap);
+    </script>
+   </div>
+   <div class="clear">
+   </div>
   </div>
-  <div id="counterMap" style="width: 600px; height: 400px;">
-   <script>
-    var countmap = L.map('counterMap').setView([48.432613, -123.3782], 15);var marker = L.marker([48.432613, -123.37829]).addTo(countmap);var background = L.tileLayer.provider('Stamen.Toner').addTo(countmap);
-   </script>
-  </div>
-  <div id="vis1">
-   <script>
-    var testV1Spec ={
+  <div class="container" id="secondRow">
+   <div class="left" id="vis1">
+    <script>
+     var testV1Spec ={
   "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json",
   "config": {
     "mark": {
@@ -35,11 +55,8355 @@
       "width": 400
     }
   },
-  "data": {
-    "name": "data-a51ea3b316819e1874416298c7af6838"
-  },
   "datasets": {
-    "data-a51ea3b316819e1874416298c7af6838": [
+    "data-8629bd25d903a98946434c7182f7a801": [
+      {
+        "Count": 435,
+        "Day": "2015-01-01T00:00:00",
+        "MonthlyCumSum": 435
+      },
+      {
+        "Count": 467,
+        "Day": "2015-01-02T00:00:00",
+        "MonthlyCumSum": 902
+      },
+      {
+        "Count": 505,
+        "Day": "2015-01-03T00:00:00",
+        "MonthlyCumSum": 1407
+      },
+      {
+        "Count": 139,
+        "Day": "2015-01-04T00:00:00",
+        "MonthlyCumSum": 1546
+      },
+      {
+        "Count": 732,
+        "Day": "2015-01-05T00:00:00",
+        "MonthlyCumSum": 2278
+      },
+      {
+        "Count": 1228,
+        "Day": "2015-01-06T00:00:00",
+        "MonthlyCumSum": 3506
+      },
+      {
+        "Count": 1333,
+        "Day": "2015-01-07T00:00:00",
+        "MonthlyCumSum": 4839
+      },
+      {
+        "Count": 1376,
+        "Day": "2015-01-08T00:00:00",
+        "MonthlyCumSum": 6215
+      },
+      {
+        "Count": 1258,
+        "Day": "2015-01-09T00:00:00",
+        "MonthlyCumSum": 7473
+      },
+      {
+        "Count": 498,
+        "Day": "2015-01-10T00:00:00",
+        "MonthlyCumSum": 7971
+      },
+      {
+        "Count": 465,
+        "Day": "2015-01-11T00:00:00",
+        "MonthlyCumSum": 8436
+      },
+      {
+        "Count": 1330,
+        "Day": "2015-01-12T00:00:00",
+        "MonthlyCumSum": 9766
+      },
+      {
+        "Count": 1400,
+        "Day": "2015-01-13T00:00:00",
+        "MonthlyCumSum": 11166
+      },
+      {
+        "Count": 1327,
+        "Day": "2015-01-14T00:00:00",
+        "MonthlyCumSum": 12493
+      },
+      {
+        "Count": 1205,
+        "Day": "2015-01-15T00:00:00",
+        "MonthlyCumSum": 13698
+      },
+      {
+        "Count": 1287,
+        "Day": "2015-01-16T00:00:00",
+        "MonthlyCumSum": 14985
+      },
+      {
+        "Count": 472,
+        "Day": "2015-01-17T00:00:00",
+        "MonthlyCumSum": 15457
+      },
+      {
+        "Count": 210,
+        "Day": "2015-01-18T00:00:00",
+        "MonthlyCumSum": 15667
+      },
+      {
+        "Count": 1365,
+        "Day": "2015-01-19T00:00:00",
+        "MonthlyCumSum": 17032
+      },
+      {
+        "Count": 1401,
+        "Day": "2015-01-20T00:00:00",
+        "MonthlyCumSum": 18433
+      },
+      {
+        "Count": 1350,
+        "Day": "2015-01-21T00:00:00",
+        "MonthlyCumSum": 19783
+      },
+      {
+        "Count": 974,
+        "Day": "2015-01-22T00:00:00",
+        "MonthlyCumSum": 20757
+      },
+      {
+        "Count": 866,
+        "Day": "2015-01-23T00:00:00",
+        "MonthlyCumSum": 21623
+      },
+      {
+        "Count": 370,
+        "Day": "2015-01-24T00:00:00",
+        "MonthlyCumSum": 21993
+      },
+      {
+        "Count": 769,
+        "Day": "2015-01-25T00:00:00",
+        "MonthlyCumSum": 22762
+      },
+      {
+        "Count": 1332,
+        "Day": "2015-01-26T00:00:00",
+        "MonthlyCumSum": 24094
+      },
+      {
+        "Count": 1457,
+        "Day": "2015-01-27T00:00:00",
+        "MonthlyCumSum": 25551
+      },
+      {
+        "Count": 1388,
+        "Day": "2015-01-28T00:00:00",
+        "MonthlyCumSum": 26939
+      },
+      {
+        "Count": 1542,
+        "Day": "2015-01-29T00:00:00",
+        "MonthlyCumSum": 28481
+      },
+      {
+        "Count": 1344,
+        "Day": "2015-01-30T00:00:00",
+        "MonthlyCumSum": 29825
+      },
+      {
+        "Count": 784,
+        "Day": "2015-01-31T00:00:00",
+        "MonthlyCumSum": 30609
+      },
+      {
+        "Count": 385,
+        "Day": "2015-02-01T00:00:00",
+        "MonthlyCumSum": 385
+      },
+      {
+        "Count": 1085,
+        "Day": "2015-02-02T00:00:00",
+        "MonthlyCumSum": 1470
+      },
+      {
+        "Count": 1278,
+        "Day": "2015-02-03T00:00:00",
+        "MonthlyCumSum": 2748
+      },
+      {
+        "Count": 1188,
+        "Day": "2015-02-04T00:00:00",
+        "MonthlyCumSum": 3936
+      },
+      {
+        "Count": 851,
+        "Day": "2015-02-05T00:00:00",
+        "MonthlyCumSum": 4787
+      },
+      {
+        "Count": 715,
+        "Day": "2015-02-06T00:00:00",
+        "MonthlyCumSum": 5502
+      },
+      {
+        "Count": 396,
+        "Day": "2015-02-07T00:00:00",
+        "MonthlyCumSum": 5898
+      },
+      {
+        "Count": 820,
+        "Day": "2015-02-08T00:00:00",
+        "MonthlyCumSum": 6718
+      },
+      {
+        "Count": 489,
+        "Day": "2015-02-09T00:00:00",
+        "MonthlyCumSum": 7207
+      },
+      {
+        "Count": 1430,
+        "Day": "2015-02-10T00:00:00",
+        "MonthlyCumSum": 8637
+      },
+      {
+        "Count": 1526,
+        "Day": "2015-02-11T00:00:00",
+        "MonthlyCumSum": 10163
+      },
+      {
+        "Count": 1150,
+        "Day": "2015-02-12T00:00:00",
+        "MonthlyCumSum": 11313
+      },
+      {
+        "Count": 1121,
+        "Day": "2015-02-13T00:00:00",
+        "MonthlyCumSum": 12434
+      },
+      {
+        "Count": 984,
+        "Day": "2015-02-14T00:00:00",
+        "MonthlyCumSum": 13418
+      },
+      {
+        "Count": 1234,
+        "Day": "2015-02-15T00:00:00",
+        "MonthlyCumSum": 14652
+      },
+      {
+        "Count": 1559,
+        "Day": "2015-02-16T00:00:00",
+        "MonthlyCumSum": 16211
+      },
+      {
+        "Count": 1704,
+        "Day": "2015-02-17T00:00:00",
+        "MonthlyCumSum": 17915
+      },
+      {
+        "Count": 1592,
+        "Day": "2015-02-18T00:00:00",
+        "MonthlyCumSum": 19507
+      },
+      {
+        "Count": 1128,
+        "Day": "2015-02-19T00:00:00",
+        "MonthlyCumSum": 20635
+      },
+      {
+        "Count": 1269,
+        "Day": "2015-02-20T00:00:00",
+        "MonthlyCumSum": 21904
+      },
+      {
+        "Count": 1415,
+        "Day": "2015-02-21T00:00:00",
+        "MonthlyCumSum": 23319
+      },
+      {
+        "Count": 1166,
+        "Day": "2015-02-22T00:00:00",
+        "MonthlyCumSum": 24485
+      },
+      {
+        "Count": 1618,
+        "Day": "2015-02-23T00:00:00",
+        "MonthlyCumSum": 26103
+      },
+      {
+        "Count": 1704,
+        "Day": "2015-02-24T00:00:00",
+        "MonthlyCumSum": 27807
+      },
+      {
+        "Count": 1322,
+        "Day": "2015-02-25T00:00:00",
+        "MonthlyCumSum": 29129
+      },
+      {
+        "Count": 1201,
+        "Day": "2015-02-26T00:00:00",
+        "MonthlyCumSum": 30330
+      },
+      {
+        "Count": 825,
+        "Day": "2015-02-27T00:00:00",
+        "MonthlyCumSum": 31155
+      },
+      {
+        "Count": 1269,
+        "Day": "2015-02-28T00:00:00",
+        "MonthlyCumSum": 32424
+      },
+      {
+        "Count": 1068,
+        "Day": "2015-03-01T00:00:00",
+        "MonthlyCumSum": 1068
+      },
+      {
+        "Count": 1614,
+        "Day": "2015-03-02T00:00:00",
+        "MonthlyCumSum": 2682
+      },
+      {
+        "Count": 1761,
+        "Day": "2015-03-03T00:00:00",
+        "MonthlyCumSum": 4443
+      },
+      {
+        "Count": 1683,
+        "Day": "2015-03-04T00:00:00",
+        "MonthlyCumSum": 6126
+      },
+      {
+        "Count": 1583,
+        "Day": "2015-03-05T00:00:00",
+        "MonthlyCumSum": 7709
+      },
+      {
+        "Count": 1490,
+        "Day": "2015-03-06T00:00:00",
+        "MonthlyCumSum": 9199
+      },
+      {
+        "Count": 1498,
+        "Day": "2015-03-07T00:00:00",
+        "MonthlyCumSum": 10697
+      },
+      {
+        "Count": 1409,
+        "Day": "2015-03-08T00:00:00",
+        "MonthlyCumSum": 12106
+      },
+      {
+        "Count": 1631,
+        "Day": "2015-03-09T00:00:00",
+        "MonthlyCumSum": 13737
+      },
+      {
+        "Count": 1610,
+        "Day": "2015-03-10T00:00:00",
+        "MonthlyCumSum": 15347
+      },
+      {
+        "Count": 1393,
+        "Day": "2015-03-11T00:00:00",
+        "MonthlyCumSum": 16740
+      },
+      {
+        "Count": 1561,
+        "Day": "2015-03-12T00:00:00",
+        "MonthlyCumSum": 18301
+      },
+      {
+        "Count": 1453,
+        "Day": "2015-03-13T00:00:00",
+        "MonthlyCumSum": 19754
+      },
+      {
+        "Count": 564,
+        "Day": "2015-03-14T00:00:00",
+        "MonthlyCumSum": 20318
+      },
+      {
+        "Count": 179,
+        "Day": "2015-03-15T00:00:00",
+        "MonthlyCumSum": 20497
+      },
+      {
+        "Count": 1454,
+        "Day": "2015-03-16T00:00:00",
+        "MonthlyCumSum": 21951
+      },
+      {
+        "Count": 1724,
+        "Day": "2015-03-17T00:00:00",
+        "MonthlyCumSum": 23675
+      },
+      {
+        "Count": 1815,
+        "Day": "2015-03-18T00:00:00",
+        "MonthlyCumSum": 25490
+      },
+      {
+        "Count": 1189,
+        "Day": "2015-03-19T00:00:00",
+        "MonthlyCumSum": 26679
+      },
+      {
+        "Count": 1043,
+        "Day": "2015-03-20T00:00:00",
+        "MonthlyCumSum": 27722
+      },
+      {
+        "Count": 936,
+        "Day": "2015-03-21T00:00:00",
+        "MonthlyCumSum": 28658
+      },
+      {
+        "Count": 909,
+        "Day": "2015-03-22T00:00:00",
+        "MonthlyCumSum": 29567
+      },
+      {
+        "Count": 1464,
+        "Day": "2015-03-23T00:00:00",
+        "MonthlyCumSum": 31031
+      },
+      {
+        "Count": 1815,
+        "Day": "2015-03-24T00:00:00",
+        "MonthlyCumSum": 32846
+      },
+      {
+        "Count": 1170,
+        "Day": "2015-03-25T00:00:00",
+        "MonthlyCumSum": 34016
+      },
+      {
+        "Count": 1786,
+        "Day": "2015-03-26T00:00:00",
+        "MonthlyCumSum": 35802
+      },
+      {
+        "Count": 1688,
+        "Day": "2015-03-27T00:00:00",
+        "MonthlyCumSum": 37490
+      },
+      {
+        "Count": 993,
+        "Day": "2015-03-28T00:00:00",
+        "MonthlyCumSum": 38483
+      },
+      {
+        "Count": 380,
+        "Day": "2015-03-29T00:00:00",
+        "MonthlyCumSum": 38863
+      },
+      {
+        "Count": 1833,
+        "Day": "2015-03-30T00:00:00",
+        "MonthlyCumSum": 40696
+      },
+      {
+        "Count": 1628,
+        "Day": "2015-03-31T00:00:00",
+        "MonthlyCumSum": 42324
+      },
+      {
+        "Count": 1526,
+        "Day": "2015-04-01T00:00:00",
+        "MonthlyCumSum": 1526
+      },
+      {
+        "Count": 1516,
+        "Day": "2015-04-02T00:00:00",
+        "MonthlyCumSum": 3042
+      },
+      {
+        "Count": 905,
+        "Day": "2015-04-03T00:00:00",
+        "MonthlyCumSum": 3947
+      },
+      {
+        "Count": 1021,
+        "Day": "2015-04-04T00:00:00",
+        "MonthlyCumSum": 4968
+      },
+      {
+        "Count": 1206,
+        "Day": "2015-04-05T00:00:00",
+        "MonthlyCumSum": 6174
+      },
+      {
+        "Count": 1288,
+        "Day": "2015-04-06T00:00:00",
+        "MonthlyCumSum": 7462
+      },
+      {
+        "Count": 1993,
+        "Day": "2015-04-07T00:00:00",
+        "MonthlyCumSum": 9455
+      },
+      {
+        "Count": 2089,
+        "Day": "2015-04-08T00:00:00",
+        "MonthlyCumSum": 11544
+      },
+      {
+        "Count": 2046,
+        "Day": "2015-04-09T00:00:00",
+        "MonthlyCumSum": 13590
+      },
+      {
+        "Count": 1242,
+        "Day": "2015-04-10T00:00:00",
+        "MonthlyCumSum": 14832
+      },
+      {
+        "Count": 966,
+        "Day": "2015-04-11T00:00:00",
+        "MonthlyCumSum": 15798
+      },
+      {
+        "Count": 1118,
+        "Day": "2015-04-12T00:00:00",
+        "MonthlyCumSum": 16916
+      },
+      {
+        "Count": 1240,
+        "Day": "2015-04-13T00:00:00",
+        "MonthlyCumSum": 18156
+      },
+      {
+        "Count": 1795,
+        "Day": "2015-04-14T00:00:00",
+        "MonthlyCumSum": 19951
+      },
+      {
+        "Count": 1824,
+        "Day": "2015-04-15T00:00:00",
+        "MonthlyCumSum": 21775
+      },
+      {
+        "Count": 2021,
+        "Day": "2015-04-16T00:00:00",
+        "MonthlyCumSum": 23796
+      },
+      {
+        "Count": 1903,
+        "Day": "2015-04-17T00:00:00",
+        "MonthlyCumSum": 25699
+      },
+      {
+        "Count": 1625,
+        "Day": "2015-04-18T00:00:00",
+        "MonthlyCumSum": 27324
+      },
+      {
+        "Count": 1757,
+        "Day": "2015-04-19T00:00:00",
+        "MonthlyCumSum": 29081
+      },
+      {
+        "Count": 2311,
+        "Day": "2015-04-20T00:00:00",
+        "MonthlyCumSum": 31392
+      },
+      {
+        "Count": 1832,
+        "Day": "2015-04-21T00:00:00",
+        "MonthlyCumSum": 33224
+      },
+      {
+        "Count": 1972,
+        "Day": "2015-04-22T00:00:00",
+        "MonthlyCumSum": 35196
+      },
+      {
+        "Count": 1410,
+        "Day": "2015-04-23T00:00:00",
+        "MonthlyCumSum": 36606
+      },
+      {
+        "Count": 1363,
+        "Day": "2015-04-24T00:00:00",
+        "MonthlyCumSum": 37969
+      },
+      {
+        "Count": 999,
+        "Day": "2015-04-25T00:00:00",
+        "MonthlyCumSum": 38968
+      },
+      {
+        "Count": 1052,
+        "Day": "2015-04-26T00:00:00",
+        "MonthlyCumSum": 40020
+      },
+      {
+        "Count": 1764,
+        "Day": "2015-04-27T00:00:00",
+        "MonthlyCumSum": 41784
+      },
+      {
+        "Count": 1780,
+        "Day": "2015-04-28T00:00:00",
+        "MonthlyCumSum": 43564
+      },
+      {
+        "Count": 2085,
+        "Day": "2015-04-29T00:00:00",
+        "MonthlyCumSum": 45649
+      },
+      {
+        "Count": 1955,
+        "Day": "2015-04-30T00:00:00",
+        "MonthlyCumSum": 47604
+      },
+      {
+        "Count": 1920,
+        "Day": "2015-05-01T00:00:00",
+        "MonthlyCumSum": 1920
+      },
+      {
+        "Count": 1685,
+        "Day": "2015-05-02T00:00:00",
+        "MonthlyCumSum": 3605
+      },
+      {
+        "Count": 1784,
+        "Day": "2015-05-03T00:00:00",
+        "MonthlyCumSum": 5389
+      },
+      {
+        "Count": 2078,
+        "Day": "2015-05-04T00:00:00",
+        "MonthlyCumSum": 7467
+      },
+      {
+        "Count": 1791,
+        "Day": "2015-05-05T00:00:00",
+        "MonthlyCumSum": 9258
+      },
+      {
+        "Count": 2185,
+        "Day": "2015-05-06T00:00:00",
+        "MonthlyCumSum": 11443
+      },
+      {
+        "Count": 2414,
+        "Day": "2015-05-07T00:00:00",
+        "MonthlyCumSum": 13857
+      },
+      {
+        "Count": 2240,
+        "Day": "2015-05-08T00:00:00",
+        "MonthlyCumSum": 16097
+      },
+      {
+        "Count": 1863,
+        "Day": "2015-05-09T00:00:00",
+        "MonthlyCumSum": 17960
+      },
+      {
+        "Count": 1458,
+        "Day": "2015-05-10T00:00:00",
+        "MonthlyCumSum": 19418
+      },
+      {
+        "Count": 1997,
+        "Day": "2015-05-11T00:00:00",
+        "MonthlyCumSum": 21415
+      },
+      {
+        "Count": 2157,
+        "Day": "2015-05-12T00:00:00",
+        "MonthlyCumSum": 23572
+      },
+      {
+        "Count": 2054,
+        "Day": "2015-05-13T00:00:00",
+        "MonthlyCumSum": 25626
+      },
+      {
+        "Count": 2227,
+        "Day": "2015-05-14T00:00:00",
+        "MonthlyCumSum": 27853
+      },
+      {
+        "Count": 2055,
+        "Day": "2015-05-15T00:00:00",
+        "MonthlyCumSum": 29908
+      },
+      {
+        "Count": 1557,
+        "Day": "2015-05-16T00:00:00",
+        "MonthlyCumSum": 31465
+      },
+      {
+        "Count": 1835,
+        "Day": "2015-05-17T00:00:00",
+        "MonthlyCumSum": 33300
+      },
+      {
+        "Count": 2087,
+        "Day": "2015-05-18T00:00:00",
+        "MonthlyCumSum": 35387
+      },
+      {
+        "Count": 2431,
+        "Day": "2015-05-19T00:00:00",
+        "MonthlyCumSum": 37818
+      },
+      {
+        "Count": 2721,
+        "Day": "2015-05-20T00:00:00",
+        "MonthlyCumSum": 40539
+      },
+      {
+        "Count": 2405,
+        "Day": "2015-05-21T00:00:00",
+        "MonthlyCumSum": 42944
+      },
+      {
+        "Count": 2041,
+        "Day": "2015-05-22T00:00:00",
+        "MonthlyCumSum": 44985
+      },
+      {
+        "Count": 1681,
+        "Day": "2015-05-23T00:00:00",
+        "MonthlyCumSum": 46666
+      },
+      {
+        "Count": 1741,
+        "Day": "2015-05-24T00:00:00",
+        "MonthlyCumSum": 48407
+      },
+      {
+        "Count": 3169,
+        "Day": "2015-05-25T00:00:00",
+        "MonthlyCumSum": 51576
+      },
+      {
+        "Count": 2882,
+        "Day": "2015-05-26T00:00:00",
+        "MonthlyCumSum": 54458
+      },
+      {
+        "Count": 3180,
+        "Day": "2015-05-27T00:00:00",
+        "MonthlyCumSum": 57638
+      },
+      {
+        "Count": 2943,
+        "Day": "2015-05-28T00:00:00",
+        "MonthlyCumSum": 60581
+      },
+      {
+        "Count": 2911,
+        "Day": "2015-05-29T00:00:00",
+        "MonthlyCumSum": 63492
+      },
+      {
+        "Count": 1910,
+        "Day": "2015-05-30T00:00:00",
+        "MonthlyCumSum": 65402
+      },
+      {
+        "Count": 1540,
+        "Day": "2015-05-31T00:00:00",
+        "MonthlyCumSum": 66942
+      },
+      {
+        "Count": 2137,
+        "Day": "2015-06-01T00:00:00",
+        "MonthlyCumSum": 2137
+      },
+      {
+        "Count": 2073,
+        "Day": "2015-06-02T00:00:00",
+        "MonthlyCumSum": 4210
+      },
+      {
+        "Count": 2296,
+        "Day": "2015-06-03T00:00:00",
+        "MonthlyCumSum": 6506
+      },
+      {
+        "Count": 2490,
+        "Day": "2015-06-04T00:00:00",
+        "MonthlyCumSum": 8996
+      },
+      {
+        "Count": 2448,
+        "Day": "2015-06-05T00:00:00",
+        "MonthlyCumSum": 11444
+      },
+      {
+        "Count": 2021,
+        "Day": "2015-06-06T00:00:00",
+        "MonthlyCumSum": 13465
+      },
+      {
+        "Count": 2168,
+        "Day": "2015-06-07T00:00:00",
+        "MonthlyCumSum": 15633
+      },
+      {
+        "Count": 2728,
+        "Day": "2015-06-08T00:00:00",
+        "MonthlyCumSum": 18361
+      },
+      {
+        "Count": 2805,
+        "Day": "2015-06-09T00:00:00",
+        "MonthlyCumSum": 21166
+      },
+      {
+        "Count": 2713,
+        "Day": "2015-06-10T00:00:00",
+        "MonthlyCumSum": 23879
+      },
+      {
+        "Count": 2527,
+        "Day": "2015-06-11T00:00:00",
+        "MonthlyCumSum": 26406
+      },
+      {
+        "Count": 2329,
+        "Day": "2015-06-12T00:00:00",
+        "MonthlyCumSum": 28735
+      },
+      {
+        "Count": 1907,
+        "Day": "2015-06-13T00:00:00",
+        "MonthlyCumSum": 30642
+      },
+      {
+        "Count": 1887,
+        "Day": "2015-06-14T00:00:00",
+        "MonthlyCumSum": 32529
+      },
+      {
+        "Count": 2683,
+        "Day": "2015-06-15T00:00:00",
+        "MonthlyCumSum": 35212
+      },
+      {
+        "Count": 2637,
+        "Day": "2015-06-16T00:00:00",
+        "MonthlyCumSum": 37849
+      },
+      {
+        "Count": 2756,
+        "Day": "2015-06-17T00:00:00",
+        "MonthlyCumSum": 40605
+      },
+      {
+        "Count": 2196,
+        "Day": "2015-06-18T00:00:00",
+        "MonthlyCumSum": 42801
+      },
+      {
+        "Count": 2136,
+        "Day": "2015-06-19T00:00:00",
+        "MonthlyCumSum": 44937
+      },
+      {
+        "Count": 2033,
+        "Day": "2015-06-20T00:00:00",
+        "MonthlyCumSum": 46970
+      },
+      {
+        "Count": 2594,
+        "Day": "2015-06-21T00:00:00",
+        "MonthlyCumSum": 49564
+      },
+      {
+        "Count": 2502,
+        "Day": "2015-06-22T00:00:00",
+        "MonthlyCumSum": 52066
+      },
+      {
+        "Count": 2613,
+        "Day": "2015-06-23T00:00:00",
+        "MonthlyCumSum": 54679
+      },
+      {
+        "Count": 2475,
+        "Day": "2015-06-24T00:00:00",
+        "MonthlyCumSum": 57154
+      },
+      {
+        "Count": 2876,
+        "Day": "2015-06-25T00:00:00",
+        "MonthlyCumSum": 60030
+      },
+      {
+        "Count": 2412,
+        "Day": "2015-06-26T00:00:00",
+        "MonthlyCumSum": 62442
+      },
+      {
+        "Count": 1772,
+        "Day": "2015-06-27T00:00:00",
+        "MonthlyCumSum": 64214
+      },
+      {
+        "Count": 1449,
+        "Day": "2015-06-28T00:00:00",
+        "MonthlyCumSum": 65663
+      },
+      {
+        "Count": 2558,
+        "Day": "2015-06-29T00:00:00",
+        "MonthlyCumSum": 68221
+      },
+      {
+        "Count": 2637,
+        "Day": "2015-06-30T00:00:00",
+        "MonthlyCumSum": 70858
+      },
+      {
+        "Count": 2783,
+        "Day": "2015-07-01T00:00:00",
+        "MonthlyCumSum": 2783
+      },
+      {
+        "Count": 2562,
+        "Day": "2015-07-02T00:00:00",
+        "MonthlyCumSum": 5345
+      },
+      {
+        "Count": 2405,
+        "Day": "2015-07-03T00:00:00",
+        "MonthlyCumSum": 7750
+      },
+      {
+        "Count": 2088,
+        "Day": "2015-07-04T00:00:00",
+        "MonthlyCumSum": 9838
+      },
+      {
+        "Count": 1752,
+        "Day": "2015-07-05T00:00:00",
+        "MonthlyCumSum": 11590
+      },
+      {
+        "Count": 2466,
+        "Day": "2015-07-06T00:00:00",
+        "MonthlyCumSum": 14056
+      },
+      {
+        "Count": 2574,
+        "Day": "2015-07-07T00:00:00",
+        "MonthlyCumSum": 16630
+      },
+      {
+        "Count": 2737,
+        "Day": "2015-07-08T00:00:00",
+        "MonthlyCumSum": 19367
+      },
+      {
+        "Count": 2660,
+        "Day": "2015-07-09T00:00:00",
+        "MonthlyCumSum": 22027
+      },
+      {
+        "Count": 2318,
+        "Day": "2015-07-10T00:00:00",
+        "MonthlyCumSum": 24345
+      },
+      {
+        "Count": 1476,
+        "Day": "2015-07-11T00:00:00",
+        "MonthlyCumSum": 25821
+      },
+      {
+        "Count": 1586,
+        "Day": "2015-07-12T00:00:00",
+        "MonthlyCumSum": 27407
+      },
+      {
+        "Count": 2561,
+        "Day": "2015-07-13T00:00:00",
+        "MonthlyCumSum": 29968
+      },
+      {
+        "Count": 2842,
+        "Day": "2015-07-14T00:00:00",
+        "MonthlyCumSum": 32810
+      },
+      {
+        "Count": 2709,
+        "Day": "2015-07-15T00:00:00",
+        "MonthlyCumSum": 35519
+      },
+      {
+        "Count": 2758,
+        "Day": "2015-07-16T00:00:00",
+        "MonthlyCumSum": 38277
+      },
+      {
+        "Count": 2426,
+        "Day": "2015-07-17T00:00:00",
+        "MonthlyCumSum": 40703
+      },
+      {
+        "Count": 2128,
+        "Day": "2015-07-18T00:00:00",
+        "MonthlyCumSum": 42831
+      },
+      {
+        "Count": 2070,
+        "Day": "2015-07-19T00:00:00",
+        "MonthlyCumSum": 44901
+      },
+      {
+        "Count": 2384,
+        "Day": "2015-07-20T00:00:00",
+        "MonthlyCumSum": 47285
+      },
+      {
+        "Count": 2534,
+        "Day": "2015-07-21T00:00:00",
+        "MonthlyCumSum": 49819
+      },
+      {
+        "Count": 2748,
+        "Day": "2015-07-22T00:00:00",
+        "MonthlyCumSum": 52567
+      },
+      {
+        "Count": 2566,
+        "Day": "2015-07-23T00:00:00",
+        "MonthlyCumSum": 55133
+      },
+      {
+        "Count": 1042,
+        "Day": "2015-07-24T00:00:00",
+        "MonthlyCumSum": 56175
+      },
+      {
+        "Count": 1509,
+        "Day": "2015-07-25T00:00:00",
+        "MonthlyCumSum": 57684
+      },
+      {
+        "Count": 1649,
+        "Day": "2015-07-26T00:00:00",
+        "MonthlyCumSum": 59333
+      },
+      {
+        "Count": 2585,
+        "Day": "2015-07-27T00:00:00",
+        "MonthlyCumSum": 61918
+      },
+      {
+        "Count": 2763,
+        "Day": "2015-07-28T00:00:00",
+        "MonthlyCumSum": 64681
+      },
+      {
+        "Count": 2920,
+        "Day": "2015-07-29T00:00:00",
+        "MonthlyCumSum": 67601
+      },
+      {
+        "Count": 2663,
+        "Day": "2015-07-30T00:00:00",
+        "MonthlyCumSum": 70264
+      },
+      {
+        "Count": 2342,
+        "Day": "2015-07-31T00:00:00",
+        "MonthlyCumSum": 72606
+      },
+      {
+        "Count": 1907,
+        "Day": "2015-08-01T00:00:00",
+        "MonthlyCumSum": 1907
+      },
+      {
+        "Count": 1998,
+        "Day": "2015-08-02T00:00:00",
+        "MonthlyCumSum": 3905
+      },
+      {
+        "Count": 1959,
+        "Day": "2015-08-03T00:00:00",
+        "MonthlyCumSum": 5864
+      },
+      {
+        "Count": 2465,
+        "Day": "2015-08-04T00:00:00",
+        "MonthlyCumSum": 8329
+      },
+      {
+        "Count": 1928,
+        "Day": "2015-08-05T00:00:00",
+        "MonthlyCumSum": 10257
+      },
+      {
+        "Count": 2453,
+        "Day": "2015-08-06T00:00:00",
+        "MonthlyCumSum": 12710
+      },
+      {
+        "Count": 2384,
+        "Day": "2015-08-07T00:00:00",
+        "MonthlyCumSum": 15094
+      },
+      {
+        "Count": 1401,
+        "Day": "2015-08-08T00:00:00",
+        "MonthlyCumSum": 16495
+      },
+      {
+        "Count": 1786,
+        "Day": "2015-08-09T00:00:00",
+        "MonthlyCumSum": 18281
+      },
+      {
+        "Count": 2329,
+        "Day": "2015-08-10T00:00:00",
+        "MonthlyCumSum": 20610
+      },
+      {
+        "Count": 2861,
+        "Day": "2015-08-11T00:00:00",
+        "MonthlyCumSum": 23471
+      },
+      {
+        "Count": 3073,
+        "Day": "2015-08-12T00:00:00",
+        "MonthlyCumSum": 26544
+      },
+      {
+        "Count": 2635,
+        "Day": "2015-08-13T00:00:00",
+        "MonthlyCumSum": 29179
+      },
+      {
+        "Count": 1574,
+        "Day": "2015-08-14T00:00:00",
+        "MonthlyCumSum": 30753
+      },
+      {
+        "Count": 1530,
+        "Day": "2015-08-15T00:00:00",
+        "MonthlyCumSum": 32283
+      },
+      {
+        "Count": 1882,
+        "Day": "2015-08-16T00:00:00",
+        "MonthlyCumSum": 34165
+      },
+      {
+        "Count": 2494,
+        "Day": "2015-08-17T00:00:00",
+        "MonthlyCumSum": 36659
+      },
+      {
+        "Count": 2772,
+        "Day": "2015-08-18T00:00:00",
+        "MonthlyCumSum": 39431
+      },
+      {
+        "Count": 2704,
+        "Day": "2015-08-19T00:00:00",
+        "MonthlyCumSum": 42135
+      },
+      {
+        "Count": 2624,
+        "Day": "2015-08-20T00:00:00",
+        "MonthlyCumSum": 44759
+      },
+      {
+        "Count": 2360,
+        "Day": "2015-08-21T00:00:00",
+        "MonthlyCumSum": 47119
+      },
+      {
+        "Count": 1968,
+        "Day": "2015-08-22T00:00:00",
+        "MonthlyCumSum": 49087
+      },
+      {
+        "Count": 1870,
+        "Day": "2015-08-23T00:00:00",
+        "MonthlyCumSum": 50957
+      },
+      {
+        "Count": 2433,
+        "Day": "2015-08-24T00:00:00",
+        "MonthlyCumSum": 53390
+      },
+      {
+        "Count": 2593,
+        "Day": "2015-08-25T00:00:00",
+        "MonthlyCumSum": 55983
+      },
+      {
+        "Count": 2523,
+        "Day": "2015-08-26T00:00:00",
+        "MonthlyCumSum": 58506
+      },
+      {
+        "Count": 2463,
+        "Day": "2015-08-27T00:00:00",
+        "MonthlyCumSum": 60969
+      },
+      {
+        "Count": 1564,
+        "Day": "2015-08-28T00:00:00",
+        "MonthlyCumSum": 62533
+      },
+      {
+        "Count": 637,
+        "Day": "2015-08-29T00:00:00",
+        "MonthlyCumSum": 63170
+      },
+      {
+        "Count": 1505,
+        "Day": "2015-08-30T00:00:00",
+        "MonthlyCumSum": 64675
+      },
+      {
+        "Count": 1285,
+        "Day": "2015-08-31T00:00:00",
+        "MonthlyCumSum": 65960
+      },
+      {
+        "Count": 1896,
+        "Day": "2015-09-01T00:00:00",
+        "MonthlyCumSum": 1896
+      },
+      {
+        "Count": 1557,
+        "Day": "2015-09-02T00:00:00",
+        "MonthlyCumSum": 3453
+      },
+      {
+        "Count": 1604,
+        "Day": "2015-09-03T00:00:00",
+        "MonthlyCumSum": 5057
+      },
+      {
+        "Count": 1852,
+        "Day": "2015-09-04T00:00:00",
+        "MonthlyCumSum": 6909
+      },
+      {
+        "Count": 1625,
+        "Day": "2015-09-05T00:00:00",
+        "MonthlyCumSum": 8534
+      },
+      {
+        "Count": 993,
+        "Day": "2015-09-06T00:00:00",
+        "MonthlyCumSum": 9527
+      },
+      {
+        "Count": 1737,
+        "Day": "2015-09-07T00:00:00",
+        "MonthlyCumSum": 11264
+      },
+      {
+        "Count": 2096,
+        "Day": "2015-09-08T00:00:00",
+        "MonthlyCumSum": 13360
+      },
+      {
+        "Count": 2477,
+        "Day": "2015-09-09T00:00:00",
+        "MonthlyCumSum": 15837
+      },
+      {
+        "Count": 2560,
+        "Day": "2015-09-10T00:00:00",
+        "MonthlyCumSum": 18397
+      },
+      {
+        "Count": 2165,
+        "Day": "2015-09-11T00:00:00",
+        "MonthlyCumSum": 20562
+      },
+      {
+        "Count": 1638,
+        "Day": "2015-09-12T00:00:00",
+        "MonthlyCumSum": 22200
+      },
+      {
+        "Count": 1465,
+        "Day": "2015-09-13T00:00:00",
+        "MonthlyCumSum": 23665
+      },
+      {
+        "Count": 1937,
+        "Day": "2015-09-14T00:00:00",
+        "MonthlyCumSum": 25602
+      },
+      {
+        "Count": 2241,
+        "Day": "2015-09-15T00:00:00",
+        "MonthlyCumSum": 27843
+      },
+      {
+        "Count": 2120,
+        "Day": "2015-09-16T00:00:00",
+        "MonthlyCumSum": 29963
+      },
+      {
+        "Count": 1863,
+        "Day": "2015-09-17T00:00:00",
+        "MonthlyCumSum": 31826
+      },
+      {
+        "Count": 1569,
+        "Day": "2015-09-18T00:00:00",
+        "MonthlyCumSum": 33395
+      },
+      {
+        "Count": 970,
+        "Day": "2015-09-19T00:00:00",
+        "MonthlyCumSum": 34365
+      },
+      {
+        "Count": 681,
+        "Day": "2015-09-20T00:00:00",
+        "MonthlyCumSum": 35046
+      },
+      {
+        "Count": 2047,
+        "Day": "2015-09-21T00:00:00",
+        "MonthlyCumSum": 37093
+      },
+      {
+        "Count": 2374,
+        "Day": "2015-09-22T00:00:00",
+        "MonthlyCumSum": 39467
+      },
+      {
+        "Count": 2241,
+        "Day": "2015-09-23T00:00:00",
+        "MonthlyCumSum": 41708
+      },
+      {
+        "Count": 1666,
+        "Day": "2015-09-24T00:00:00",
+        "MonthlyCumSum": 43374
+      },
+      {
+        "Count": 1442,
+        "Day": "2015-09-25T00:00:00",
+        "MonthlyCumSum": 44816
+      },
+      {
+        "Count": 1407,
+        "Day": "2015-09-26T00:00:00",
+        "MonthlyCumSum": 46223
+      },
+      {
+        "Count": 1410,
+        "Day": "2015-09-27T00:00:00",
+        "MonthlyCumSum": 47633
+      },
+      {
+        "Count": 2059,
+        "Day": "2015-09-28T00:00:00",
+        "MonthlyCumSum": 49692
+      },
+      {
+        "Count": 2287,
+        "Day": "2015-09-29T00:00:00",
+        "MonthlyCumSum": 51979
+      },
+      {
+        "Count": 2174,
+        "Day": "2015-09-30T00:00:00",
+        "MonthlyCumSum": 54153
+      },
+      {
+        "Count": 2060,
+        "Day": "2015-10-01T00:00:00",
+        "MonthlyCumSum": 2060
+      },
+      {
+        "Count": 1776,
+        "Day": "2015-10-02T00:00:00",
+        "MonthlyCumSum": 3836
+      },
+      {
+        "Count": 1604,
+        "Day": "2015-10-03T00:00:00",
+        "MonthlyCumSum": 5440
+      },
+      {
+        "Count": 1488,
+        "Day": "2015-10-04T00:00:00",
+        "MonthlyCumSum": 6928
+      },
+      {
+        "Count": 2014,
+        "Day": "2015-10-05T00:00:00",
+        "MonthlyCumSum": 8942
+      },
+      {
+        "Count": 2050,
+        "Day": "2015-10-06T00:00:00",
+        "MonthlyCumSum": 10992
+      },
+      {
+        "Count": 1222,
+        "Day": "2015-10-07T00:00:00",
+        "MonthlyCumSum": 12214
+      },
+      {
+        "Count": 1605,
+        "Day": "2015-10-08T00:00:00",
+        "MonthlyCumSum": 13819
+      },
+      {
+        "Count": 1565,
+        "Day": "2015-10-09T00:00:00",
+        "MonthlyCumSum": 15384
+      },
+      {
+        "Count": 596,
+        "Day": "2015-10-10T00:00:00",
+        "MonthlyCumSum": 15980
+      },
+      {
+        "Count": 1032,
+        "Day": "2015-10-11T00:00:00",
+        "MonthlyCumSum": 17012
+      },
+      {
+        "Count": 365,
+        "Day": "2015-10-12T00:00:00",
+        "MonthlyCumSum": 17377
+      },
+      {
+        "Count": 1844,
+        "Day": "2015-10-13T00:00:00",
+        "MonthlyCumSum": 19221
+      },
+      {
+        "Count": 2098,
+        "Day": "2015-10-14T00:00:00",
+        "MonthlyCumSum": 21319
+      },
+      {
+        "Count": 2056,
+        "Day": "2015-10-15T00:00:00",
+        "MonthlyCumSum": 23375
+      },
+      {
+        "Count": 2111,
+        "Day": "2015-10-16T00:00:00",
+        "MonthlyCumSum": 25486
+      },
+      {
+        "Count": 1013,
+        "Day": "2015-10-17T00:00:00",
+        "MonthlyCumSum": 26499
+      },
+      {
+        "Count": 1093,
+        "Day": "2015-10-18T00:00:00",
+        "MonthlyCumSum": 27592
+      },
+      {
+        "Count": 1538,
+        "Day": "2015-10-19T00:00:00",
+        "MonthlyCumSum": 29130
+      },
+      {
+        "Count": 2014,
+        "Day": "2015-10-20T00:00:00",
+        "MonthlyCumSum": 31144
+      },
+      {
+        "Count": 1664,
+        "Day": "2015-10-21T00:00:00",
+        "MonthlyCumSum": 32808
+      },
+      {
+        "Count": 1793,
+        "Day": "2015-10-22T00:00:00",
+        "MonthlyCumSum": 34601
+      },
+      {
+        "Count": 1697,
+        "Day": "2015-10-23T00:00:00",
+        "MonthlyCumSum": 36298
+      },
+      {
+        "Count": 957,
+        "Day": "2015-10-24T00:00:00",
+        "MonthlyCumSum": 37255
+      },
+      {
+        "Count": 805,
+        "Day": "2015-10-25T00:00:00",
+        "MonthlyCumSum": 38060
+      },
+      {
+        "Count": 1600,
+        "Day": "2015-10-26T00:00:00",
+        "MonthlyCumSum": 39660
+      },
+      {
+        "Count": 2112,
+        "Day": "2015-10-27T00:00:00",
+        "MonthlyCumSum": 41772
+      },
+      {
+        "Count": 1268,
+        "Day": "2015-10-28T00:00:00",
+        "MonthlyCumSum": 43040
+      },
+      {
+        "Count": 1463,
+        "Day": "2015-10-29T00:00:00",
+        "MonthlyCumSum": 44503
+      },
+      {
+        "Count": 1125,
+        "Day": "2015-10-30T00:00:00",
+        "MonthlyCumSum": 45628
+      },
+      {
+        "Count": 302,
+        "Day": "2015-10-31T00:00:00",
+        "MonthlyCumSum": 45930
+      },
+      {
+        "Count": 401,
+        "Day": "2015-11-01T00:00:00",
+        "MonthlyCumSum": 401
+      },
+      {
+        "Count": 1840,
+        "Day": "2015-11-02T00:00:00",
+        "MonthlyCumSum": 2241
+      },
+      {
+        "Count": 1983,
+        "Day": "2015-11-03T00:00:00",
+        "MonthlyCumSum": 4224
+      },
+      {
+        "Count": 1776,
+        "Day": "2015-11-04T00:00:00",
+        "MonthlyCumSum": 6000
+      },
+      {
+        "Count": 1740,
+        "Day": "2015-11-05T00:00:00",
+        "MonthlyCumSum": 7740
+      },
+      {
+        "Count": 1286,
+        "Day": "2015-11-06T00:00:00",
+        "MonthlyCumSum": 9026
+      },
+      {
+        "Count": 392,
+        "Day": "2015-11-07T00:00:00",
+        "MonthlyCumSum": 9418
+      },
+      {
+        "Count": 735,
+        "Day": "2015-11-08T00:00:00",
+        "MonthlyCumSum": 10153
+      },
+      {
+        "Count": 1692,
+        "Day": "2015-11-09T00:00:00",
+        "MonthlyCumSum": 11845
+      },
+      {
+        "Count": 1577,
+        "Day": "2015-11-10T00:00:00",
+        "MonthlyCumSum": 13422
+      },
+      {
+        "Count": 996,
+        "Day": "2015-11-11T00:00:00",
+        "MonthlyCumSum": 14418
+      },
+      {
+        "Count": 1108,
+        "Day": "2015-11-12T00:00:00",
+        "MonthlyCumSum": 15526
+      },
+      {
+        "Count": 929,
+        "Day": "2015-11-13T00:00:00",
+        "MonthlyCumSum": 16455
+      },
+      {
+        "Count": 441,
+        "Day": "2015-11-14T00:00:00",
+        "MonthlyCumSum": 16896
+      },
+      {
+        "Count": 806,
+        "Day": "2015-11-15T00:00:00",
+        "MonthlyCumSum": 17702
+      },
+      {
+        "Count": 1205,
+        "Day": "2015-11-16T00:00:00",
+        "MonthlyCumSum": 18907
+      },
+      {
+        "Count": 703,
+        "Day": "2015-11-17T00:00:00",
+        "MonthlyCumSum": 19610
+      },
+      {
+        "Count": 1456,
+        "Day": "2015-11-18T00:00:00",
+        "MonthlyCumSum": 21066
+      },
+      {
+        "Count": 1603,
+        "Day": "2015-11-19T00:00:00",
+        "MonthlyCumSum": 22669
+      },
+      {
+        "Count": 1375,
+        "Day": "2015-11-20T00:00:00",
+        "MonthlyCumSum": 24044
+      },
+      {
+        "Count": 922,
+        "Day": "2015-11-21T00:00:00",
+        "MonthlyCumSum": 24966
+      },
+      {
+        "Count": 869,
+        "Day": "2015-11-22T00:00:00",
+        "MonthlyCumSum": 25835
+      },
+      {
+        "Count": 1170,
+        "Day": "2015-11-23T00:00:00",
+        "MonthlyCumSum": 27005
+      },
+      {
+        "Count": 1330,
+        "Day": "2015-11-24T00:00:00",
+        "MonthlyCumSum": 28335
+      },
+      {
+        "Count": 1443,
+        "Day": "2015-11-25T00:00:00",
+        "MonthlyCumSum": 29778
+      },
+      {
+        "Count": 1425,
+        "Day": "2015-11-26T00:00:00",
+        "MonthlyCumSum": 31203
+      },
+      {
+        "Count": 1151,
+        "Day": "2015-11-27T00:00:00",
+        "MonthlyCumSum": 32354
+      },
+      {
+        "Count": 620,
+        "Day": "2015-11-28T00:00:00",
+        "MonthlyCumSum": 32974
+      },
+      {
+        "Count": 516,
+        "Day": "2015-11-29T00:00:00",
+        "MonthlyCumSum": 33490
+      },
+      {
+        "Count": 1140,
+        "Day": "2015-11-30T00:00:00",
+        "MonthlyCumSum": 34630
+      },
+      {
+        "Count": 1269,
+        "Day": "2015-12-01T00:00:00",
+        "MonthlyCumSum": 1269
+      },
+      {
+        "Count": 1332,
+        "Day": "2015-12-02T00:00:00",
+        "MonthlyCumSum": 2601
+      },
+      {
+        "Count": 957,
+        "Day": "2015-12-03T00:00:00",
+        "MonthlyCumSum": 3558
+      },
+      {
+        "Count": 1149,
+        "Day": "2015-12-04T00:00:00",
+        "MonthlyCumSum": 4707
+      },
+      {
+        "Count": 223,
+        "Day": "2015-12-05T00:00:00",
+        "MonthlyCumSum": 4930
+      },
+      {
+        "Count": 595,
+        "Day": "2015-12-06T00:00:00",
+        "MonthlyCumSum": 5525
+      },
+      {
+        "Count": 1122,
+        "Day": "2015-12-07T00:00:00",
+        "MonthlyCumSum": 6647
+      },
+      {
+        "Count": 976,
+        "Day": "2015-12-08T00:00:00",
+        "MonthlyCumSum": 7623
+      },
+      {
+        "Count": 985,
+        "Day": "2015-12-09T00:00:00",
+        "MonthlyCumSum": 8608
+      },
+      {
+        "Count": 868,
+        "Day": "2015-12-10T00:00:00",
+        "MonthlyCumSum": 9476
+      },
+      {
+        "Count": 1294,
+        "Day": "2015-12-11T00:00:00",
+        "MonthlyCumSum": 10770
+      },
+      {
+        "Count": 298,
+        "Day": "2015-12-12T00:00:00",
+        "MonthlyCumSum": 11068
+      },
+      {
+        "Count": 250,
+        "Day": "2015-12-13T00:00:00",
+        "MonthlyCumSum": 11318
+      },
+      {
+        "Count": 1299,
+        "Day": "2015-12-14T00:00:00",
+        "MonthlyCumSum": 12617
+      },
+      {
+        "Count": 1206,
+        "Day": "2015-12-15T00:00:00",
+        "MonthlyCumSum": 13823
+      },
+      {
+        "Count": 1345,
+        "Day": "2015-12-16T00:00:00",
+        "MonthlyCumSum": 15168
+      },
+      {
+        "Count": 833,
+        "Day": "2015-12-17T00:00:00",
+        "MonthlyCumSum": 16001
+      },
+      {
+        "Count": 936,
+        "Day": "2015-12-18T00:00:00",
+        "MonthlyCumSum": 16937
+      },
+      {
+        "Count": 532,
+        "Day": "2015-12-19T00:00:00",
+        "MonthlyCumSum": 17469
+      },
+      {
+        "Count": 473,
+        "Day": "2015-12-20T00:00:00",
+        "MonthlyCumSum": 17942
+      },
+      {
+        "Count": 735,
+        "Day": "2015-12-21T00:00:00",
+        "MonthlyCumSum": 18677
+      },
+      {
+        "Count": 799,
+        "Day": "2015-12-22T00:00:00",
+        "MonthlyCumSum": 19476
+      },
+      {
+        "Count": 547,
+        "Day": "2015-12-23T00:00:00",
+        "MonthlyCumSum": 20023
+      },
+      {
+        "Count": 543,
+        "Day": "2015-12-24T00:00:00",
+        "MonthlyCumSum": 20566
+      },
+      {
+        "Count": 266,
+        "Day": "2015-12-25T00:00:00",
+        "MonthlyCumSum": 20832
+      },
+      {
+        "Count": 330,
+        "Day": "2015-12-26T00:00:00",
+        "MonthlyCumSum": 21162
+      },
+      {
+        "Count": 195,
+        "Day": "2015-12-27T00:00:00",
+        "MonthlyCumSum": 21357
+      },
+      {
+        "Count": 560,
+        "Day": "2015-12-28T00:00:00",
+        "MonthlyCumSum": 21917
+      },
+      {
+        "Count": 810,
+        "Day": "2015-12-29T00:00:00",
+        "MonthlyCumSum": 22727
+      },
+      {
+        "Count": 835,
+        "Day": "2015-12-30T00:00:00",
+        "MonthlyCumSum": 23562
+      },
+      {
+        "Count": 694,
+        "Day": "2015-12-31T00:00:00",
+        "MonthlyCumSum": 24256
+      },
+      {
+        "Count": 394,
+        "Day": "2016-01-01T00:00:00",
+        "MonthlyCumSum": 394
+      },
+      {
+        "Count": 416,
+        "Day": "2016-01-02T00:00:00",
+        "MonthlyCumSum": 810
+      },
+      {
+        "Count": 376,
+        "Day": "2016-01-03T00:00:00",
+        "MonthlyCumSum": 1186
+      },
+      {
+        "Count": 974,
+        "Day": "2016-01-04T00:00:00",
+        "MonthlyCumSum": 2160
+      },
+      {
+        "Count": 964,
+        "Day": "2016-01-05T00:00:00",
+        "MonthlyCumSum": 3124
+      },
+      {
+        "Count": 1347,
+        "Day": "2016-01-06T00:00:00",
+        "MonthlyCumSum": 4471
+      },
+      {
+        "Count": 1277,
+        "Day": "2016-01-07T00:00:00",
+        "MonthlyCumSum": 5748
+      },
+      {
+        "Count": 1258,
+        "Day": "2016-01-08T00:00:00",
+        "MonthlyCumSum": 7006
+      },
+      {
+        "Count": 921,
+        "Day": "2016-01-09T00:00:00",
+        "MonthlyCumSum": 7927
+      },
+      {
+        "Count": 896,
+        "Day": "2016-01-10T00:00:00",
+        "MonthlyCumSum": 8823
+      },
+      {
+        "Count": 1191,
+        "Day": "2016-01-11T00:00:00",
+        "MonthlyCumSum": 10014
+      },
+      {
+        "Count": 1167,
+        "Day": "2016-01-12T00:00:00",
+        "MonthlyCumSum": 11181
+      },
+      {
+        "Count": 1381,
+        "Day": "2016-01-13T00:00:00",
+        "MonthlyCumSum": 12562
+      },
+      {
+        "Count": 1440,
+        "Day": "2016-01-14T00:00:00",
+        "MonthlyCumSum": 14002
+      },
+      {
+        "Count": 1200,
+        "Day": "2016-01-15T00:00:00",
+        "MonthlyCumSum": 15202
+      },
+      {
+        "Count": 594,
+        "Day": "2016-01-16T00:00:00",
+        "MonthlyCumSum": 15796
+      },
+      {
+        "Count": 493,
+        "Day": "2016-01-17T00:00:00",
+        "MonthlyCumSum": 16289
+      },
+      {
+        "Count": 1402,
+        "Day": "2016-01-18T00:00:00",
+        "MonthlyCumSum": 17691
+      },
+      {
+        "Count": 1362,
+        "Day": "2016-01-19T00:00:00",
+        "MonthlyCumSum": 19053
+      },
+      {
+        "Count": 1425,
+        "Day": "2016-01-20T00:00:00",
+        "MonthlyCumSum": 20478
+      },
+      {
+        "Count": 884,
+        "Day": "2016-01-21T00:00:00",
+        "MonthlyCumSum": 21362
+      },
+      {
+        "Count": 1212,
+        "Day": "2016-01-22T00:00:00",
+        "MonthlyCumSum": 22574
+      },
+      {
+        "Count": 862,
+        "Day": "2016-01-23T00:00:00",
+        "MonthlyCumSum": 23436
+      },
+      {
+        "Count": 812,
+        "Day": "2016-01-24T00:00:00",
+        "MonthlyCumSum": 24248
+      },
+      {
+        "Count": 1485,
+        "Day": "2016-01-25T00:00:00",
+        "MonthlyCumSum": 25733
+      },
+      {
+        "Count": 1134,
+        "Day": "2016-01-26T00:00:00",
+        "MonthlyCumSum": 26867
+      },
+      {
+        "Count": 1356,
+        "Day": "2016-01-27T00:00:00",
+        "MonthlyCumSum": 28223
+      },
+      {
+        "Count": 1281,
+        "Day": "2016-01-28T00:00:00",
+        "MonthlyCumSum": 29504
+      },
+      {
+        "Count": 1026,
+        "Day": "2016-01-29T00:00:00",
+        "MonthlyCumSum": 30530
+      },
+      {
+        "Count": 596,
+        "Day": "2016-01-30T00:00:00",
+        "MonthlyCumSum": 31126
+      },
+      {
+        "Count": 502,
+        "Day": "2016-01-31T00:00:00",
+        "MonthlyCumSum": 31628
+      },
+      {
+        "Count": 1326,
+        "Day": "2016-02-01T00:00:00",
+        "MonthlyCumSum": 1326
+      },
+      {
+        "Count": 1391,
+        "Day": "2016-02-02T00:00:00",
+        "MonthlyCumSum": 2717
+      },
+      {
+        "Count": 1228,
+        "Day": "2016-02-03T00:00:00",
+        "MonthlyCumSum": 3945
+      },
+      {
+        "Count": 1267,
+        "Day": "2016-02-04T00:00:00",
+        "MonthlyCumSum": 5212
+      },
+      {
+        "Count": 1136,
+        "Day": "2016-02-05T00:00:00",
+        "MonthlyCumSum": 6348
+      },
+      {
+        "Count": 760,
+        "Day": "2016-02-06T00:00:00",
+        "MonthlyCumSum": 7108
+      },
+      {
+        "Count": 696,
+        "Day": "2016-02-07T00:00:00",
+        "MonthlyCumSum": 7804
+      },
+      {
+        "Count": 1326,
+        "Day": "2016-02-08T00:00:00",
+        "MonthlyCumSum": 9130
+      },
+      {
+        "Count": 1789,
+        "Day": "2016-02-09T00:00:00",
+        "MonthlyCumSum": 10919
+      },
+      {
+        "Count": 1288,
+        "Day": "2016-02-10T00:00:00",
+        "MonthlyCumSum": 12207
+      },
+      {
+        "Count": 1192,
+        "Day": "2016-02-11T00:00:00",
+        "MonthlyCumSum": 13399
+      },
+      {
+        "Count": 1153,
+        "Day": "2016-02-12T00:00:00",
+        "MonthlyCumSum": 14552
+      },
+      {
+        "Count": 481,
+        "Day": "2016-02-13T00:00:00",
+        "MonthlyCumSum": 15033
+      },
+      {
+        "Count": 477,
+        "Day": "2016-02-14T00:00:00",
+        "MonthlyCumSum": 15510
+      },
+      {
+        "Count": 763,
+        "Day": "2016-02-15T00:00:00",
+        "MonthlyCumSum": 16273
+      },
+      {
+        "Count": 1621,
+        "Day": "2016-02-16T00:00:00",
+        "MonthlyCumSum": 17894
+      },
+      {
+        "Count": 1111,
+        "Day": "2016-02-17T00:00:00",
+        "MonthlyCumSum": 19005
+      },
+      {
+        "Count": 1520,
+        "Day": "2016-02-18T00:00:00",
+        "MonthlyCumSum": 20525
+      },
+      {
+        "Count": 1074,
+        "Day": "2016-02-19T00:00:00",
+        "MonthlyCumSum": 21599
+      },
+      {
+        "Count": 1165,
+        "Day": "2016-02-20T00:00:00",
+        "MonthlyCumSum": 22764
+      },
+      {
+        "Count": 622,
+        "Day": "2016-02-21T00:00:00",
+        "MonthlyCumSum": 23386
+      },
+      {
+        "Count": 1382,
+        "Day": "2016-02-22T00:00:00",
+        "MonthlyCumSum": 24768
+      },
+      {
+        "Count": 1690,
+        "Day": "2016-02-23T00:00:00",
+        "MonthlyCumSum": 26458
+      },
+      {
+        "Count": 1708,
+        "Day": "2016-02-24T00:00:00",
+        "MonthlyCumSum": 28166
+      },
+      {
+        "Count": 1767,
+        "Day": "2016-02-25T00:00:00",
+        "MonthlyCumSum": 29933
+      },
+      {
+        "Count": 1264,
+        "Day": "2016-02-26T00:00:00",
+        "MonthlyCumSum": 31197
+      },
+      {
+        "Count": 954,
+        "Day": "2016-02-27T00:00:00",
+        "MonthlyCumSum": 32151
+      },
+      {
+        "Count": 548,
+        "Day": "2016-02-28T00:00:00",
+        "MonthlyCumSum": 32699
+      },
+      {
+        "Count": 1494,
+        "Day": "2016-02-29T00:00:00",
+        "MonthlyCumSum": 34193
+      },
+      {
+        "Count": 965,
+        "Day": "2016-03-01T00:00:00",
+        "MonthlyCumSum": 965
+      },
+      {
+        "Count": 1464,
+        "Day": "2016-03-02T00:00:00",
+        "MonthlyCumSum": 2429
+      },
+      {
+        "Count": 1552,
+        "Day": "2016-03-03T00:00:00",
+        "MonthlyCumSum": 3981
+      },
+      {
+        "Count": 1233,
+        "Day": "2016-03-04T00:00:00",
+        "MonthlyCumSum": 5214
+      },
+      {
+        "Count": 1355,
+        "Day": "2016-03-05T00:00:00",
+        "MonthlyCumSum": 6569
+      },
+      {
+        "Count": 922,
+        "Day": "2016-03-06T00:00:00",
+        "MonthlyCumSum": 7491
+      },
+      {
+        "Count": 1203,
+        "Day": "2016-03-07T00:00:00",
+        "MonthlyCumSum": 8694
+      },
+      {
+        "Count": 1610,
+        "Day": "2016-03-08T00:00:00",
+        "MonthlyCumSum": 10304
+      },
+      {
+        "Count": 1184,
+        "Day": "2016-03-09T00:00:00",
+        "MonthlyCumSum": 11488
+      },
+      {
+        "Count": 1185,
+        "Day": "2016-03-10T00:00:00",
+        "MonthlyCumSum": 12673
+      },
+      {
+        "Count": 1417,
+        "Day": "2016-03-11T00:00:00",
+        "MonthlyCumSum": 14090
+      },
+      {
+        "Count": 853,
+        "Day": "2016-03-12T00:00:00",
+        "MonthlyCumSum": 14943
+      },
+      {
+        "Count": 269,
+        "Day": "2016-03-13T00:00:00",
+        "MonthlyCumSum": 15212
+      },
+      {
+        "Count": 1027,
+        "Day": "2016-03-14T00:00:00",
+        "MonthlyCumSum": 16239
+      },
+      {
+        "Count": 1576,
+        "Day": "2016-03-15T00:00:00",
+        "MonthlyCumSum": 17815
+      },
+      {
+        "Count": 1770,
+        "Day": "2016-03-16T00:00:00",
+        "MonthlyCumSum": 19585
+      },
+      {
+        "Count": 1770,
+        "Day": "2016-03-17T00:00:00",
+        "MonthlyCumSum": 21355
+      },
+      {
+        "Count": 1624,
+        "Day": "2016-03-18T00:00:00",
+        "MonthlyCumSum": 22979
+      },
+      {
+        "Count": 1097,
+        "Day": "2016-03-19T00:00:00",
+        "MonthlyCumSum": 24076
+      },
+      {
+        "Count": 728,
+        "Day": "2016-03-20T00:00:00",
+        "MonthlyCumSum": 24804
+      },
+      {
+        "Count": 1311,
+        "Day": "2016-03-21T00:00:00",
+        "MonthlyCumSum": 26115
+      },
+      {
+        "Count": 1796,
+        "Day": "2016-03-22T00:00:00",
+        "MonthlyCumSum": 27911
+      },
+      {
+        "Count": 1251,
+        "Day": "2016-03-23T00:00:00",
+        "MonthlyCumSum": 29162
+      },
+      {
+        "Count": 1161,
+        "Day": "2016-03-24T00:00:00",
+        "MonthlyCumSum": 30323
+      },
+      {
+        "Count": 1538,
+        "Day": "2016-03-25T00:00:00",
+        "MonthlyCumSum": 31861
+      },
+      {
+        "Count": 1383,
+        "Day": "2016-03-26T00:00:00",
+        "MonthlyCumSum": 33244
+      },
+      {
+        "Count": 797,
+        "Day": "2016-03-27T00:00:00",
+        "MonthlyCumSum": 34041
+      },
+      {
+        "Count": 1612,
+        "Day": "2016-03-28T00:00:00",
+        "MonthlyCumSum": 35653
+      },
+      {
+        "Count": 2183,
+        "Day": "2016-03-29T00:00:00",
+        "MonthlyCumSum": 37836
+      },
+      {
+        "Count": 2396,
+        "Day": "2016-03-30T00:00:00",
+        "MonthlyCumSum": 40232
+      },
+      {
+        "Count": 2256,
+        "Day": "2016-03-31T00:00:00",
+        "MonthlyCumSum": 42488
+      },
+      {
+        "Count": 2172,
+        "Day": "2016-04-01T00:00:00",
+        "MonthlyCumSum": 2172
+      },
+      {
+        "Count": 1799,
+        "Day": "2016-04-02T00:00:00",
+        "MonthlyCumSum": 3971
+      },
+      {
+        "Count": 1439,
+        "Day": "2016-04-03T00:00:00",
+        "MonthlyCumSum": 5410
+      },
+      {
+        "Count": 1720,
+        "Day": "2016-04-04T00:00:00",
+        "MonthlyCumSum": 7130
+      },
+      {
+        "Count": 1606,
+        "Day": "2016-04-05T00:00:00",
+        "MonthlyCumSum": 8736
+      },
+      {
+        "Count": 2238,
+        "Day": "2016-04-06T00:00:00",
+        "MonthlyCumSum": 10974
+      },
+      {
+        "Count": 2452,
+        "Day": "2016-04-07T00:00:00",
+        "MonthlyCumSum": 13426
+      },
+      {
+        "Count": 2338,
+        "Day": "2016-04-08T00:00:00",
+        "MonthlyCumSum": 15764
+      },
+      {
+        "Count": 1653,
+        "Day": "2016-04-09T00:00:00",
+        "MonthlyCumSum": 17417
+      },
+      {
+        "Count": 1378,
+        "Day": "2016-04-10T00:00:00",
+        "MonthlyCumSum": 18795
+      },
+      {
+        "Count": 2037,
+        "Day": "2016-04-11T00:00:00",
+        "MonthlyCumSum": 20832
+      },
+      {
+        "Count": 1725,
+        "Day": "2016-04-12T00:00:00",
+        "MonthlyCumSum": 22557
+      },
+      {
+        "Count": 1931,
+        "Day": "2016-04-13T00:00:00",
+        "MonthlyCumSum": 24488
+      },
+      {
+        "Count": 1864,
+        "Day": "2016-04-14T00:00:00",
+        "MonthlyCumSum": 26352
+      },
+      {
+        "Count": 1950,
+        "Day": "2016-04-15T00:00:00",
+        "MonthlyCumSum": 28302
+      },
+      {
+        "Count": 1421,
+        "Day": "2016-04-16T00:00:00",
+        "MonthlyCumSum": 29723
+      },
+      {
+        "Count": 1793,
+        "Day": "2016-04-17T00:00:00",
+        "MonthlyCumSum": 31516
+      },
+      {
+        "Count": 2580,
+        "Day": "2016-04-18T00:00:00",
+        "MonthlyCumSum": 34096
+      },
+      {
+        "Count": 2706,
+        "Day": "2016-04-19T00:00:00",
+        "MonthlyCumSum": 36802
+      },
+      {
+        "Count": 2704,
+        "Day": "2016-04-20T00:00:00",
+        "MonthlyCumSum": 39506
+      },
+      {
+        "Count": 2375,
+        "Day": "2016-04-21T00:00:00",
+        "MonthlyCumSum": 41881
+      },
+      {
+        "Count": 1557,
+        "Day": "2016-04-22T00:00:00",
+        "MonthlyCumSum": 43438
+      },
+      {
+        "Count": 1506,
+        "Day": "2016-04-23T00:00:00",
+        "MonthlyCumSum": 44944
+      },
+      {
+        "Count": 1125,
+        "Day": "2016-04-24T00:00:00",
+        "MonthlyCumSum": 46069
+      },
+      {
+        "Count": 2325,
+        "Day": "2016-04-25T00:00:00",
+        "MonthlyCumSum": 48394
+      },
+      {
+        "Count": 2319,
+        "Day": "2016-04-26T00:00:00",
+        "MonthlyCumSum": 50713
+      },
+      {
+        "Count": 2289,
+        "Day": "2016-04-27T00:00:00",
+        "MonthlyCumSum": 53002
+      },
+      {
+        "Count": 2323,
+        "Day": "2016-04-28T00:00:00",
+        "MonthlyCumSum": 55325
+      },
+      {
+        "Count": 1983,
+        "Day": "2016-04-29T00:00:00",
+        "MonthlyCumSum": 57308
+      },
+      {
+        "Count": 1647,
+        "Day": "2016-04-30T00:00:00",
+        "MonthlyCumSum": 58955
+      },
+      {
+        "Count": 1981,
+        "Day": "2016-05-01T00:00:00",
+        "MonthlyCumSum": 1981
+      },
+      {
+        "Count": 2750,
+        "Day": "2016-05-02T00:00:00",
+        "MonthlyCumSum": 4731
+      },
+      {
+        "Count": 2265,
+        "Day": "2016-05-03T00:00:00",
+        "MonthlyCumSum": 6996
+      },
+      {
+        "Count": 2002,
+        "Day": "2016-05-04T00:00:00",
+        "MonthlyCumSum": 8998
+      },
+      {
+        "Count": 2598,
+        "Day": "2016-05-05T00:00:00",
+        "MonthlyCumSum": 11596
+      },
+      {
+        "Count": 2532,
+        "Day": "2016-05-06T00:00:00",
+        "MonthlyCumSum": 14128
+      },
+      {
+        "Count": 1889,
+        "Day": "2016-05-07T00:00:00",
+        "MonthlyCumSum": 16017
+      },
+      {
+        "Count": 1253,
+        "Day": "2016-05-08T00:00:00",
+        "MonthlyCumSum": 17270
+      },
+      {
+        "Count": 2643,
+        "Day": "2016-05-09T00:00:00",
+        "MonthlyCumSum": 19913
+      },
+      {
+        "Count": 2853,
+        "Day": "2016-05-10T00:00:00",
+        "MonthlyCumSum": 22766
+      },
+      {
+        "Count": 2760,
+        "Day": "2016-05-11T00:00:00",
+        "MonthlyCumSum": 25526
+      },
+      {
+        "Count": 2813,
+        "Day": "2016-05-12T00:00:00",
+        "MonthlyCumSum": 28339
+      },
+      {
+        "Count": 2590,
+        "Day": "2016-05-13T00:00:00",
+        "MonthlyCumSum": 30929
+      },
+      {
+        "Count": 1598,
+        "Day": "2016-05-14T00:00:00",
+        "MonthlyCumSum": 32527
+      },
+      {
+        "Count": 1287,
+        "Day": "2016-05-15T00:00:00",
+        "MonthlyCumSum": 33814
+      },
+      {
+        "Count": 2280,
+        "Day": "2016-05-16T00:00:00",
+        "MonthlyCumSum": 36094
+      },
+      {
+        "Count": 2639,
+        "Day": "2016-05-17T00:00:00",
+        "MonthlyCumSum": 38733
+      },
+      {
+        "Count": 2322,
+        "Day": "2016-05-18T00:00:00",
+        "MonthlyCumSum": 41055
+      },
+      {
+        "Count": 2068,
+        "Day": "2016-05-19T00:00:00",
+        "MonthlyCumSum": 43123
+      },
+      {
+        "Count": 2006,
+        "Day": "2016-05-20T00:00:00",
+        "MonthlyCumSum": 45129
+      },
+      {
+        "Count": 1583,
+        "Day": "2016-05-21T00:00:00",
+        "MonthlyCumSum": 46712
+      },
+      {
+        "Count": 1700,
+        "Day": "2016-05-22T00:00:00",
+        "MonthlyCumSum": 48412
+      },
+      {
+        "Count": 1522,
+        "Day": "2016-05-23T00:00:00",
+        "MonthlyCumSum": 49934
+      },
+      {
+        "Count": 2119,
+        "Day": "2016-05-24T00:00:00",
+        "MonthlyCumSum": 52053
+      },
+      {
+        "Count": 2731,
+        "Day": "2016-05-25T00:00:00",
+        "MonthlyCumSum": 54784
+      },
+      {
+        "Count": 2311,
+        "Day": "2016-05-26T00:00:00",
+        "MonthlyCumSum": 57095
+      },
+      {
+        "Count": 1838,
+        "Day": "2016-05-27T00:00:00",
+        "MonthlyCumSum": 58933
+      },
+      {
+        "Count": 699,
+        "Day": "2016-05-28T00:00:00",
+        "MonthlyCumSum": 59632
+      },
+      {
+        "Count": 1670,
+        "Day": "2016-05-29T00:00:00",
+        "MonthlyCumSum": 61302
+      },
+      {
+        "Count": 3412,
+        "Day": "2016-05-30T00:00:00",
+        "MonthlyCumSum": 64714
+      },
+      {
+        "Count": 3105,
+        "Day": "2016-05-31T00:00:00",
+        "MonthlyCumSum": 67819
+      },
+      {
+        "Count": 2714,
+        "Day": "2016-06-01T00:00:00",
+        "MonthlyCumSum": 2714
+      },
+      {
+        "Count": 2439,
+        "Day": "2016-06-02T00:00:00",
+        "MonthlyCumSum": 5153
+      },
+      {
+        "Count": 2898,
+        "Day": "2016-06-03T00:00:00",
+        "MonthlyCumSum": 8051
+      },
+      {
+        "Count": 1820,
+        "Day": "2016-06-04T00:00:00",
+        "MonthlyCumSum": 9871
+      },
+      {
+        "Count": 2104,
+        "Day": "2016-06-05T00:00:00",
+        "MonthlyCumSum": 11975
+      },
+      {
+        "Count": 2839,
+        "Day": "2016-06-06T00:00:00",
+        "MonthlyCumSum": 14814
+      },
+      {
+        "Count": 2836,
+        "Day": "2016-06-07T00:00:00",
+        "MonthlyCumSum": 17650
+      },
+      {
+        "Count": 2295,
+        "Day": "2016-06-08T00:00:00",
+        "MonthlyCumSum": 19945
+      },
+      {
+        "Count": 2394,
+        "Day": "2016-06-09T00:00:00",
+        "MonthlyCumSum": 22339
+      },
+      {
+        "Count": 2091,
+        "Day": "2016-06-10T00:00:00",
+        "MonthlyCumSum": 24430
+      },
+      {
+        "Count": 1421,
+        "Day": "2016-06-11T00:00:00",
+        "MonthlyCumSum": 25851
+      },
+      {
+        "Count": 1759,
+        "Day": "2016-06-12T00:00:00",
+        "MonthlyCumSum": 27610
+      },
+      {
+        "Count": 2053,
+        "Day": "2016-06-13T00:00:00",
+        "MonthlyCumSum": 29663
+      },
+      {
+        "Count": 2026,
+        "Day": "2016-06-14T00:00:00",
+        "MonthlyCumSum": 31689
+      },
+      {
+        "Count": 2339,
+        "Day": "2016-06-15T00:00:00",
+        "MonthlyCumSum": 34028
+      },
+      {
+        "Count": 2460,
+        "Day": "2016-06-16T00:00:00",
+        "MonthlyCumSum": 36488
+      },
+      {
+        "Count": 2368,
+        "Day": "2016-06-17T00:00:00",
+        "MonthlyCumSum": 38856
+      },
+      {
+        "Count": 1070,
+        "Day": "2016-06-18T00:00:00",
+        "MonthlyCumSum": 39926
+      },
+      {
+        "Count": 2471,
+        "Day": "2016-06-19T00:00:00",
+        "MonthlyCumSum": 42397
+      },
+      {
+        "Count": 2596,
+        "Day": "2016-06-20T00:00:00",
+        "MonthlyCumSum": 44993
+      },
+      {
+        "Count": 2697,
+        "Day": "2016-06-21T00:00:00",
+        "MonthlyCumSum": 47690
+      },
+      {
+        "Count": 2410,
+        "Day": "2016-06-22T00:00:00",
+        "MonthlyCumSum": 50100
+      },
+      {
+        "Count": 1542,
+        "Day": "2016-06-23T00:00:00",
+        "MonthlyCumSum": 51642
+      },
+      {
+        "Count": 2073,
+        "Day": "2016-06-24T00:00:00",
+        "MonthlyCumSum": 53715
+      },
+      {
+        "Count": 1933,
+        "Day": "2016-06-25T00:00:00",
+        "MonthlyCumSum": 55648
+      },
+      {
+        "Count": 1996,
+        "Day": "2016-06-26T00:00:00",
+        "MonthlyCumSum": 57644
+      },
+      {
+        "Count": 2728,
+        "Day": "2016-06-27T00:00:00",
+        "MonthlyCumSum": 60372
+      },
+      {
+        "Count": 2876,
+        "Day": "2016-06-28T00:00:00",
+        "MonthlyCumSum": 63248
+      },
+      {
+        "Count": 2876,
+        "Day": "2016-06-29T00:00:00",
+        "MonthlyCumSum": 66124
+      },
+      {
+        "Count": 2497,
+        "Day": "2016-06-30T00:00:00",
+        "MonthlyCumSum": 68621
+      },
+      {
+        "Count": 1856,
+        "Day": "2016-07-01T00:00:00",
+        "MonthlyCumSum": 1856
+      },
+      {
+        "Count": 1978,
+        "Day": "2016-07-02T00:00:00",
+        "MonthlyCumSum": 3834
+      },
+      {
+        "Count": 1829,
+        "Day": "2016-07-03T00:00:00",
+        "MonthlyCumSum": 5663
+      },
+      {
+        "Count": 2310,
+        "Day": "2016-07-04T00:00:00",
+        "MonthlyCumSum": 7973
+      },
+      {
+        "Count": 2477,
+        "Day": "2016-07-05T00:00:00",
+        "MonthlyCumSum": 10450
+      },
+      {
+        "Count": 2900,
+        "Day": "2016-07-06T00:00:00",
+        "MonthlyCumSum": 13350
+      },
+      {
+        "Count": 1557,
+        "Day": "2016-07-07T00:00:00",
+        "MonthlyCumSum": 14907
+      },
+      {
+        "Count": 1899,
+        "Day": "2016-07-08T00:00:00",
+        "MonthlyCumSum": 16806
+      },
+      {
+        "Count": 1638,
+        "Day": "2016-07-09T00:00:00",
+        "MonthlyCumSum": 18444
+      },
+      {
+        "Count": 2146,
+        "Day": "2016-07-10T00:00:00",
+        "MonthlyCumSum": 20590
+      },
+      {
+        "Count": 2465,
+        "Day": "2016-07-11T00:00:00",
+        "MonthlyCumSum": 23055
+      },
+      {
+        "Count": 2585,
+        "Day": "2016-07-12T00:00:00",
+        "MonthlyCumSum": 25640
+      },
+      {
+        "Count": 2791,
+        "Day": "2016-07-13T00:00:00",
+        "MonthlyCumSum": 28431
+      },
+      {
+        "Count": 2718,
+        "Day": "2016-07-14T00:00:00",
+        "MonthlyCumSum": 31149
+      },
+      {
+        "Count": 2601,
+        "Day": "2016-07-15T00:00:00",
+        "MonthlyCumSum": 33750
+      },
+      {
+        "Count": 1798,
+        "Day": "2016-07-16T00:00:00",
+        "MonthlyCumSum": 35548
+      },
+      {
+        "Count": 2044,
+        "Day": "2016-07-17T00:00:00",
+        "MonthlyCumSum": 37592
+      },
+      {
+        "Count": 2424,
+        "Day": "2016-07-18T00:00:00",
+        "MonthlyCumSum": 40016
+      },
+      {
+        "Count": 2525,
+        "Day": "2016-07-19T00:00:00",
+        "MonthlyCumSum": 42541
+      },
+      {
+        "Count": 2797,
+        "Day": "2016-07-20T00:00:00",
+        "MonthlyCumSum": 45338
+      },
+      {
+        "Count": 2896,
+        "Day": "2016-07-21T00:00:00",
+        "MonthlyCumSum": 48234
+      },
+      {
+        "Count": 2122,
+        "Day": "2016-07-22T00:00:00",
+        "MonthlyCumSum": 50356
+      },
+      {
+        "Count": 1923,
+        "Day": "2016-07-23T00:00:00",
+        "MonthlyCumSum": 52279
+      },
+      {
+        "Count": 2397,
+        "Day": "2016-07-24T00:00:00",
+        "MonthlyCumSum": 54676
+      },
+      {
+        "Count": 2551,
+        "Day": "2016-07-25T00:00:00",
+        "MonthlyCumSum": 57227
+      },
+      {
+        "Count": 2830,
+        "Day": "2016-07-26T00:00:00",
+        "MonthlyCumSum": 60057
+      },
+      {
+        "Count": 2949,
+        "Day": "2016-07-27T00:00:00",
+        "MonthlyCumSum": 63006
+      },
+      {
+        "Count": 2638,
+        "Day": "2016-07-28T00:00:00",
+        "MonthlyCumSum": 65644
+      },
+      {
+        "Count": 2448,
+        "Day": "2016-07-29T00:00:00",
+        "MonthlyCumSum": 68092
+      },
+      {
+        "Count": 1770,
+        "Day": "2016-07-30T00:00:00",
+        "MonthlyCumSum": 69862
+      },
+      {
+        "Count": 1947,
+        "Day": "2016-07-31T00:00:00",
+        "MonthlyCumSum": 71809
+      },
+      {
+        "Count": 1907,
+        "Day": "2016-08-01T00:00:00",
+        "MonthlyCumSum": 1907
+      },
+      {
+        "Count": 2160,
+        "Day": "2016-08-02T00:00:00",
+        "MonthlyCumSum": 4067
+      },
+      {
+        "Count": 2682,
+        "Day": "2016-08-03T00:00:00",
+        "MonthlyCumSum": 6749
+      },
+      {
+        "Count": 2725,
+        "Day": "2016-08-04T00:00:00",
+        "MonthlyCumSum": 9474
+      },
+      {
+        "Count": 2503,
+        "Day": "2016-08-05T00:00:00",
+        "MonthlyCumSum": 11977
+      },
+      {
+        "Count": 1847,
+        "Day": "2016-08-06T00:00:00",
+        "MonthlyCumSum": 13824
+      },
+      {
+        "Count": 1525,
+        "Day": "2016-08-07T00:00:00",
+        "MonthlyCumSum": 15349
+      },
+      {
+        "Count": 2535,
+        "Day": "2016-08-08T00:00:00",
+        "MonthlyCumSum": 17884
+      },
+      {
+        "Count": 2424,
+        "Day": "2016-08-09T00:00:00",
+        "MonthlyCumSum": 20308
+      },
+      {
+        "Count": 2410,
+        "Day": "2016-08-10T00:00:00",
+        "MonthlyCumSum": 22718
+      },
+      {
+        "Count": 2742,
+        "Day": "2016-08-11T00:00:00",
+        "MonthlyCumSum": 25460
+      },
+      {
+        "Count": 2540,
+        "Day": "2016-08-12T00:00:00",
+        "MonthlyCumSum": 28000
+      },
+      {
+        "Count": 1993,
+        "Day": "2016-08-13T00:00:00",
+        "MonthlyCumSum": 29993
+      },
+      {
+        "Count": 1996,
+        "Day": "2016-08-14T00:00:00",
+        "MonthlyCumSum": 31989
+      },
+      {
+        "Count": 2722,
+        "Day": "2016-08-15T00:00:00",
+        "MonthlyCumSum": 34711
+      },
+      {
+        "Count": 2865,
+        "Day": "2016-08-16T00:00:00",
+        "MonthlyCumSum": 37576
+      },
+      {
+        "Count": 2488,
+        "Day": "2016-08-17T00:00:00",
+        "MonthlyCumSum": 40064
+      },
+      {
+        "Count": 2610,
+        "Day": "2016-08-18T00:00:00",
+        "MonthlyCumSum": 42674
+      },
+      {
+        "Count": 2474,
+        "Day": "2016-08-19T00:00:00",
+        "MonthlyCumSum": 45148
+      },
+      {
+        "Count": 1694,
+        "Day": "2016-08-20T00:00:00",
+        "MonthlyCumSum": 46842
+      },
+      {
+        "Count": 1553,
+        "Day": "2016-08-21T00:00:00",
+        "MonthlyCumSum": 48395
+      },
+      {
+        "Count": 2653,
+        "Day": "2016-08-22T00:00:00",
+        "MonthlyCumSum": 51048
+      },
+      {
+        "Count": 2838,
+        "Day": "2016-08-23T00:00:00",
+        "MonthlyCumSum": 53886
+      },
+      {
+        "Count": 2684,
+        "Day": "2016-08-24T00:00:00",
+        "MonthlyCumSum": 56570
+      },
+      {
+        "Count": 2655,
+        "Day": "2016-08-25T00:00:00",
+        "MonthlyCumSum": 59225
+      },
+      {
+        "Count": 2314,
+        "Day": "2016-08-26T00:00:00",
+        "MonthlyCumSum": 61539
+      },
+      {
+        "Count": 1751,
+        "Day": "2016-08-27T00:00:00",
+        "MonthlyCumSum": 63290
+      },
+      {
+        "Count": 956,
+        "Day": "2016-08-28T00:00:00",
+        "MonthlyCumSum": 64246
+      },
+      {
+        "Count": 2516,
+        "Day": "2016-08-29T00:00:00",
+        "MonthlyCumSum": 66762
+      },
+      {
+        "Count": 2570,
+        "Day": "2016-08-30T00:00:00",
+        "MonthlyCumSum": 69332
+      },
+      {
+        "Count": 1605,
+        "Day": "2016-08-31T00:00:00",
+        "MonthlyCumSum": 70937
+      },
+      {
+        "Count": 1822,
+        "Day": "2016-09-01T00:00:00",
+        "MonthlyCumSum": 1822
+      },
+      {
+        "Count": 1343,
+        "Day": "2016-09-02T00:00:00",
+        "MonthlyCumSum": 3165
+      },
+      {
+        "Count": 1666,
+        "Day": "2016-09-03T00:00:00",
+        "MonthlyCumSum": 4831
+      },
+      {
+        "Count": 1923,
+        "Day": "2016-09-04T00:00:00",
+        "MonthlyCumSum": 6754
+      },
+      {
+        "Count": 1175,
+        "Day": "2016-09-05T00:00:00",
+        "MonthlyCumSum": 7929
+      },
+      {
+        "Count": 1820,
+        "Day": "2016-09-06T00:00:00",
+        "MonthlyCumSum": 9749
+      },
+      {
+        "Count": 2170,
+        "Day": "2016-09-07T00:00:00",
+        "MonthlyCumSum": 11919
+      },
+      {
+        "Count": 2413,
+        "Day": "2016-09-08T00:00:00",
+        "MonthlyCumSum": 14332
+      },
+      {
+        "Count": 2289,
+        "Day": "2016-09-09T00:00:00",
+        "MonthlyCumSum": 16621
+      },
+      {
+        "Count": 1809,
+        "Day": "2016-09-10T00:00:00",
+        "MonthlyCumSum": 18430
+      },
+      {
+        "Count": 1800,
+        "Day": "2016-09-11T00:00:00",
+        "MonthlyCumSum": 20230
+      },
+      {
+        "Count": 2586,
+        "Day": "2016-09-12T00:00:00",
+        "MonthlyCumSum": 22816
+      },
+      {
+        "Count": 2687,
+        "Day": "2016-09-13T00:00:00",
+        "MonthlyCumSum": 25503
+      },
+      {
+        "Count": 2664,
+        "Day": "2016-09-14T00:00:00",
+        "MonthlyCumSum": 28167
+      },
+      {
+        "Count": 2521,
+        "Day": "2016-09-15T00:00:00",
+        "MonthlyCumSum": 30688
+      },
+      {
+        "Count": 2004,
+        "Day": "2016-09-16T00:00:00",
+        "MonthlyCumSum": 32692
+      },
+      {
+        "Count": 546,
+        "Day": "2016-09-17T00:00:00",
+        "MonthlyCumSum": 33238
+      },
+      {
+        "Count": 1482,
+        "Day": "2016-09-18T00:00:00",
+        "MonthlyCumSum": 34720
+      },
+      {
+        "Count": 1510,
+        "Day": "2016-09-19T00:00:00",
+        "MonthlyCumSum": 36230
+      },
+      {
+        "Count": 2302,
+        "Day": "2016-09-20T00:00:00",
+        "MonthlyCumSum": 38532
+      },
+      {
+        "Count": 2557,
+        "Day": "2016-09-21T00:00:00",
+        "MonthlyCumSum": 41089
+      },
+      {
+        "Count": 2446,
+        "Day": "2016-09-22T00:00:00",
+        "MonthlyCumSum": 43535
+      },
+      {
+        "Count": 1425,
+        "Day": "2016-09-23T00:00:00",
+        "MonthlyCumSum": 44960
+      },
+      {
+        "Count": 1439,
+        "Day": "2016-09-24T00:00:00",
+        "MonthlyCumSum": 46399
+      },
+      {
+        "Count": 1257,
+        "Day": "2016-09-25T00:00:00",
+        "MonthlyCumSum": 47656
+      },
+      {
+        "Count": 2297,
+        "Day": "2016-09-26T00:00:00",
+        "MonthlyCumSum": 49953
+      },
+      {
+        "Count": 2398,
+        "Day": "2016-09-27T00:00:00",
+        "MonthlyCumSum": 52351
+      },
+      {
+        "Count": 2400,
+        "Day": "2016-09-28T00:00:00",
+        "MonthlyCumSum": 54751
+      },
+      {
+        "Count": 2215,
+        "Day": "2016-09-29T00:00:00",
+        "MonthlyCumSum": 56966
+      },
+      {
+        "Count": 1958,
+        "Day": "2016-09-30T00:00:00",
+        "MonthlyCumSum": 58924
+      },
+      {
+        "Count": 854,
+        "Day": "2016-10-01T00:00:00",
+        "MonthlyCumSum": 854
+      },
+      {
+        "Count": 1011,
+        "Day": "2016-10-02T00:00:00",
+        "MonthlyCumSum": 1865
+      },
+      {
+        "Count": 1873,
+        "Day": "2016-10-03T00:00:00",
+        "MonthlyCumSum": 3738
+      },
+      {
+        "Count": 1725,
+        "Day": "2016-10-04T00:00:00",
+        "MonthlyCumSum": 5463
+      },
+      {
+        "Count": 2027,
+        "Day": "2016-10-05T00:00:00",
+        "MonthlyCumSum": 7490
+      },
+      {
+        "Count": 1560,
+        "Day": "2016-10-06T00:00:00",
+        "MonthlyCumSum": 9050
+      },
+      {
+        "Count": 1195,
+        "Day": "2016-10-07T00:00:00",
+        "MonthlyCumSum": 10245
+      },
+      {
+        "Count": 338,
+        "Day": "2016-10-08T00:00:00",
+        "MonthlyCumSum": 10583
+      },
+      {
+        "Count": 970,
+        "Day": "2016-10-09T00:00:00",
+        "MonthlyCumSum": 11553
+      },
+      {
+        "Count": 1037,
+        "Day": "2016-10-10T00:00:00",
+        "MonthlyCumSum": 12590
+      },
+      {
+        "Count": 2068,
+        "Day": "2016-10-11T00:00:00",
+        "MonthlyCumSum": 14658
+      },
+      {
+        "Count": 1925,
+        "Day": "2016-10-12T00:00:00",
+        "MonthlyCumSum": 16583
+      },
+      {
+        "Count": 986,
+        "Day": "2016-10-13T00:00:00",
+        "MonthlyCumSum": 17569
+      },
+      {
+        "Count": 721,
+        "Day": "2016-10-14T00:00:00",
+        "MonthlyCumSum": 18290
+      },
+      {
+        "Count": 226,
+        "Day": "2016-10-15T00:00:00",
+        "MonthlyCumSum": 18516
+      },
+      {
+        "Count": 591,
+        "Day": "2016-10-16T00:00:00",
+        "MonthlyCumSum": 19107
+      },
+      {
+        "Count": 1565,
+        "Day": "2016-10-17T00:00:00",
+        "MonthlyCumSum": 20672
+      },
+      {
+        "Count": 1711,
+        "Day": "2016-10-18T00:00:00",
+        "MonthlyCumSum": 22383
+      },
+      {
+        "Count": 1607,
+        "Day": "2016-10-19T00:00:00",
+        "MonthlyCumSum": 23990
+      },
+      {
+        "Count": 1494,
+        "Day": "2016-10-20T00:00:00",
+        "MonthlyCumSum": 25484
+      },
+      {
+        "Count": 1428,
+        "Day": "2016-10-21T00:00:00",
+        "MonthlyCumSum": 26912
+      },
+      {
+        "Count": 836,
+        "Day": "2016-10-22T00:00:00",
+        "MonthlyCumSum": 27748
+      },
+      {
+        "Count": 1141,
+        "Day": "2016-10-23T00:00:00",
+        "MonthlyCumSum": 28889
+      },
+      {
+        "Count": 1654,
+        "Day": "2016-10-24T00:00:00",
+        "MonthlyCumSum": 30543
+      },
+      {
+        "Count": 1902,
+        "Day": "2016-10-25T00:00:00",
+        "MonthlyCumSum": 32445
+      },
+      {
+        "Count": 1195,
+        "Day": "2016-10-26T00:00:00",
+        "MonthlyCumSum": 33640
+      },
+      {
+        "Count": 1465,
+        "Day": "2016-10-27T00:00:00",
+        "MonthlyCumSum": 35105
+      },
+      {
+        "Count": 1674,
+        "Day": "2016-10-28T00:00:00",
+        "MonthlyCumSum": 36779
+      },
+      {
+        "Count": 719,
+        "Day": "2016-10-29T00:00:00",
+        "MonthlyCumSum": 37498
+      },
+      {
+        "Count": 874,
+        "Day": "2016-10-30T00:00:00",
+        "MonthlyCumSum": 38372
+      },
+      {
+        "Count": 1279,
+        "Day": "2016-10-31T00:00:00",
+        "MonthlyCumSum": 39651
+      },
+      {
+        "Count": 1548,
+        "Day": "2016-11-01T00:00:00",
+        "MonthlyCumSum": 1548
+      },
+      {
+        "Count": 1080,
+        "Day": "2016-11-02T00:00:00",
+        "MonthlyCumSum": 2628
+      },
+      {
+        "Count": 1979,
+        "Day": "2016-11-03T00:00:00",
+        "MonthlyCumSum": 4607
+      },
+      {
+        "Count": 1544,
+        "Day": "2016-11-04T00:00:00",
+        "MonthlyCumSum": 6151
+      },
+      {
+        "Count": 423,
+        "Day": "2016-11-05T00:00:00",
+        "MonthlyCumSum": 6574
+      },
+      {
+        "Count": 1045,
+        "Day": "2016-11-06T00:00:00",
+        "MonthlyCumSum": 7619
+      },
+      {
+        "Count": 1510,
+        "Day": "2016-11-07T00:00:00",
+        "MonthlyCumSum": 9129
+      },
+      {
+        "Count": 2094,
+        "Day": "2016-11-08T00:00:00",
+        "MonthlyCumSum": 11223
+      },
+      {
+        "Count": 1530,
+        "Day": "2016-11-09T00:00:00",
+        "MonthlyCumSum": 12753
+      },
+      {
+        "Count": 1680,
+        "Day": "2016-11-10T00:00:00",
+        "MonthlyCumSum": 14433
+      },
+      {
+        "Count": 674,
+        "Day": "2016-11-11T00:00:00",
+        "MonthlyCumSum": 15107
+      },
+      {
+        "Count": 556,
+        "Day": "2016-11-12T00:00:00",
+        "MonthlyCumSum": 15663
+      },
+      {
+        "Count": 411,
+        "Day": "2016-11-13T00:00:00",
+        "MonthlyCumSum": 16074
+      },
+      {
+        "Count": 1675,
+        "Day": "2016-11-14T00:00:00",
+        "MonthlyCumSum": 17749
+      },
+      {
+        "Count": 1492,
+        "Day": "2016-11-15T00:00:00",
+        "MonthlyCumSum": 19241
+      },
+      {
+        "Count": 1623,
+        "Day": "2016-11-16T00:00:00",
+        "MonthlyCumSum": 20864
+      },
+      {
+        "Count": 1678,
+        "Day": "2016-11-17T00:00:00",
+        "MonthlyCumSum": 22542
+      },
+      {
+        "Count": 1381,
+        "Day": "2016-11-18T00:00:00",
+        "MonthlyCumSum": 23923
+      },
+      {
+        "Count": 819,
+        "Day": "2016-11-19T00:00:00",
+        "MonthlyCumSum": 24742
+      },
+      {
+        "Count": 734,
+        "Day": "2016-11-20T00:00:00",
+        "MonthlyCumSum": 25476
+      },
+      {
+        "Count": 1715,
+        "Day": "2016-11-21T00:00:00",
+        "MonthlyCumSum": 27191
+      },
+      {
+        "Count": 1134,
+        "Day": "2016-11-22T00:00:00",
+        "MonthlyCumSum": 28325
+      },
+      {
+        "Count": 1589,
+        "Day": "2016-11-23T00:00:00",
+        "MonthlyCumSum": 29914
+      },
+      {
+        "Count": 1235,
+        "Day": "2016-11-24T00:00:00",
+        "MonthlyCumSum": 31149
+      },
+      {
+        "Count": 1341,
+        "Day": "2016-11-25T00:00:00",
+        "MonthlyCumSum": 32490
+      },
+      {
+        "Count": 394,
+        "Day": "2016-11-26T00:00:00",
+        "MonthlyCumSum": 32884
+      },
+      {
+        "Count": 357,
+        "Day": "2016-11-27T00:00:00",
+        "MonthlyCumSum": 33241
+      },
+      {
+        "Count": 1594,
+        "Day": "2016-11-28T00:00:00",
+        "MonthlyCumSum": 34835
+      },
+      {
+        "Count": 1497,
+        "Day": "2016-11-29T00:00:00",
+        "MonthlyCumSum": 36332
+      },
+      {
+        "Count": 1254,
+        "Day": "2016-11-30T00:00:00",
+        "MonthlyCumSum": 37586
+      },
+      {
+        "Count": 1330,
+        "Day": "2016-12-01T00:00:00",
+        "MonthlyCumSum": 1330
+      },
+      {
+        "Count": 1032,
+        "Day": "2016-12-02T00:00:00",
+        "MonthlyCumSum": 2362
+      },
+      {
+        "Count": 504,
+        "Day": "2016-12-03T00:00:00",
+        "MonthlyCumSum": 2866
+      },
+      {
+        "Count": 695,
+        "Day": "2016-12-04T00:00:00",
+        "MonthlyCumSum": 3561
+      },
+      {
+        "Count": 984,
+        "Day": "2016-12-05T00:00:00",
+        "MonthlyCumSum": 4545
+      },
+      {
+        "Count": 273,
+        "Day": "2016-12-06T00:00:00",
+        "MonthlyCumSum": 4818
+      },
+      {
+        "Count": 441,
+        "Day": "2016-12-07T00:00:00",
+        "MonthlyCumSum": 5259
+      },
+      {
+        "Count": 478,
+        "Day": "2016-12-08T00:00:00",
+        "MonthlyCumSum": 5737
+      },
+      {
+        "Count": 121,
+        "Day": "2016-12-09T00:00:00",
+        "MonthlyCumSum": 5858
+      },
+      {
+        "Count": 231,
+        "Day": "2016-12-10T00:00:00",
+        "MonthlyCumSum": 6089
+      },
+      {
+        "Count": 281,
+        "Day": "2016-12-11T00:00:00",
+        "MonthlyCumSum": 6370
+      },
+      {
+        "Count": 537,
+        "Day": "2016-12-12T00:00:00",
+        "MonthlyCumSum": 6907
+      },
+      {
+        "Count": 823,
+        "Day": "2016-12-13T00:00:00",
+        "MonthlyCumSum": 7730
+      },
+      {
+        "Count": 849,
+        "Day": "2016-12-14T00:00:00",
+        "MonthlyCumSum": 8579
+      },
+      {
+        "Count": 832,
+        "Day": "2016-12-15T00:00:00",
+        "MonthlyCumSum": 9411
+      },
+      {
+        "Count": 731,
+        "Day": "2016-12-16T00:00:00",
+        "MonthlyCumSum": 10142
+      },
+      {
+        "Count": 136,
+        "Day": "2016-12-17T00:00:00",
+        "MonthlyCumSum": 10278
+      },
+      {
+        "Count": 202,
+        "Day": "2016-12-18T00:00:00",
+        "MonthlyCumSum": 10480
+      },
+      {
+        "Count": 934,
+        "Day": "2016-12-19T00:00:00",
+        "MonthlyCumSum": 11414
+      },
+      {
+        "Count": 745,
+        "Day": "2016-12-20T00:00:00",
+        "MonthlyCumSum": 12159
+      },
+      {
+        "Count": 1103,
+        "Day": "2016-12-21T00:00:00",
+        "MonthlyCumSum": 13262
+      },
+      {
+        "Count": 865,
+        "Day": "2016-12-22T00:00:00",
+        "MonthlyCumSum": 14127
+      },
+      {
+        "Count": 451,
+        "Day": "2016-12-23T00:00:00",
+        "MonthlyCumSum": 14578
+      },
+      {
+        "Count": 355,
+        "Day": "2016-12-24T00:00:00",
+        "MonthlyCumSum": 14933
+      },
+      {
+        "Count": 163,
+        "Day": "2016-12-25T00:00:00",
+        "MonthlyCumSum": 15096
+      },
+      {
+        "Count": 239,
+        "Day": "2016-12-26T00:00:00",
+        "MonthlyCumSum": 15335
+      },
+      {
+        "Count": 326,
+        "Day": "2016-12-27T00:00:00",
+        "MonthlyCumSum": 15661
+      },
+      {
+        "Count": 756,
+        "Day": "2016-12-28T00:00:00",
+        "MonthlyCumSum": 16417
+      },
+      {
+        "Count": 421,
+        "Day": "2016-12-29T00:00:00",
+        "MonthlyCumSum": 16838
+      },
+      {
+        "Count": 728,
+        "Day": "2016-12-30T00:00:00",
+        "MonthlyCumSum": 17566
+      },
+      {
+        "Count": 230,
+        "Day": "2016-12-31T00:00:00",
+        "MonthlyCumSum": 17796
+      },
+      {
+        "Count": 98,
+        "Day": "2017-01-01T00:00:00",
+        "MonthlyCumSum": 98
+      },
+      {
+        "Count": 173,
+        "Day": "2017-01-02T00:00:00",
+        "MonthlyCumSum": 271
+      },
+      {
+        "Count": 642,
+        "Day": "2017-01-03T00:00:00",
+        "MonthlyCumSum": 913
+      },
+      {
+        "Count": 794,
+        "Day": "2017-01-04T00:00:00",
+        "MonthlyCumSum": 1707
+      },
+      {
+        "Count": 944,
+        "Day": "2017-01-05T00:00:00",
+        "MonthlyCumSum": 2651
+      },
+      {
+        "Count": 845,
+        "Day": "2017-01-06T00:00:00",
+        "MonthlyCumSum": 3496
+      },
+      {
+        "Count": 453,
+        "Day": "2017-01-07T00:00:00",
+        "MonthlyCumSum": 3949
+      },
+      {
+        "Count": 285,
+        "Day": "2017-01-08T00:00:00",
+        "MonthlyCumSum": 4234
+      },
+      {
+        "Count": 923,
+        "Day": "2017-01-09T00:00:00",
+        "MonthlyCumSum": 5157
+      },
+      {
+        "Count": 589,
+        "Day": "2017-01-10T00:00:00",
+        "MonthlyCumSum": 5746
+      },
+      {
+        "Count": 782,
+        "Day": "2017-01-11T00:00:00",
+        "MonthlyCumSum": 6528
+      },
+      {
+        "Count": 883,
+        "Day": "2017-01-12T00:00:00",
+        "MonthlyCumSum": 7411
+      },
+      {
+        "Count": 832,
+        "Day": "2017-01-13T00:00:00",
+        "MonthlyCumSum": 8243
+      },
+      {
+        "Count": 495,
+        "Day": "2017-01-14T00:00:00",
+        "MonthlyCumSum": 8738
+      },
+      {
+        "Count": 584,
+        "Day": "2017-01-15T00:00:00",
+        "MonthlyCumSum": 9322
+      },
+      {
+        "Count": 1193,
+        "Day": "2017-01-16T00:00:00",
+        "MonthlyCumSum": 10515
+      },
+      {
+        "Count": 1137,
+        "Day": "2017-01-17T00:00:00",
+        "MonthlyCumSum": 11652
+      },
+      {
+        "Count": 1026,
+        "Day": "2017-01-18T00:00:00",
+        "MonthlyCumSum": 12678
+      },
+      {
+        "Count": 1101,
+        "Day": "2017-01-19T00:00:00",
+        "MonthlyCumSum": 13779
+      },
+      {
+        "Count": 1220,
+        "Day": "2017-01-20T00:00:00",
+        "MonthlyCumSum": 14999
+      },
+      {
+        "Count": 849,
+        "Day": "2017-01-21T00:00:00",
+        "MonthlyCumSum": 15848
+      },
+      {
+        "Count": 533,
+        "Day": "2017-01-22T00:00:00",
+        "MonthlyCumSum": 16381
+      },
+      {
+        "Count": 1431,
+        "Day": "2017-01-23T00:00:00",
+        "MonthlyCumSum": 17812
+      },
+      {
+        "Count": 1257,
+        "Day": "2017-01-24T00:00:00",
+        "MonthlyCumSum": 19069
+      },
+      {
+        "Count": 1347,
+        "Day": "2017-01-25T00:00:00",
+        "MonthlyCumSum": 20416
+      },
+      {
+        "Count": 1303,
+        "Day": "2017-01-26T00:00:00",
+        "MonthlyCumSum": 21719
+      },
+      {
+        "Count": 1232,
+        "Day": "2017-01-27T00:00:00",
+        "MonthlyCumSum": 22951
+      },
+      {
+        "Count": 826,
+        "Day": "2017-01-28T00:00:00",
+        "MonthlyCumSum": 23777
+      },
+      {
+        "Count": 452,
+        "Day": "2017-01-29T00:00:00",
+        "MonthlyCumSum": 24229
+      },
+      {
+        "Count": 1280,
+        "Day": "2017-01-30T00:00:00",
+        "MonthlyCumSum": 25509
+      },
+      {
+        "Count": 1426,
+        "Day": "2017-01-31T00:00:00",
+        "MonthlyCumSum": 26935
+      },
+      {
+        "Count": 1201,
+        "Day": "2017-02-01T00:00:00",
+        "MonthlyCumSum": 1201
+      },
+      {
+        "Count": 1282,
+        "Day": "2017-02-02T00:00:00",
+        "MonthlyCumSum": 2483
+      },
+      {
+        "Count": 408,
+        "Day": "2017-02-03T00:00:00",
+        "MonthlyCumSum": 2891
+      },
+      {
+        "Count": 259,
+        "Day": "2017-02-04T00:00:00",
+        "MonthlyCumSum": 3150
+      },
+      {
+        "Count": 380,
+        "Day": "2017-02-05T00:00:00",
+        "MonthlyCumSum": 3530
+      },
+      {
+        "Count": 180,
+        "Day": "2017-02-06T00:00:00",
+        "MonthlyCumSum": 3710
+      },
+      {
+        "Count": 174,
+        "Day": "2017-02-07T00:00:00",
+        "MonthlyCumSum": 3884
+      },
+      {
+        "Count": 150,
+        "Day": "2017-02-08T00:00:00",
+        "MonthlyCumSum": 4034
+      },
+      {
+        "Count": 199,
+        "Day": "2017-02-09T00:00:00",
+        "MonthlyCumSum": 4233
+      },
+      {
+        "Count": 537,
+        "Day": "2017-02-10T00:00:00",
+        "MonthlyCumSum": 4770
+      },
+      {
+        "Count": 651,
+        "Day": "2017-02-11T00:00:00",
+        "MonthlyCumSum": 5421
+      },
+      {
+        "Count": 848,
+        "Day": "2017-02-12T00:00:00",
+        "MonthlyCumSum": 6269
+      },
+      {
+        "Count": 1078,
+        "Day": "2017-02-13T00:00:00",
+        "MonthlyCumSum": 7347
+      },
+      {
+        "Count": 1251,
+        "Day": "2017-02-14T00:00:00",
+        "MonthlyCumSum": 8598
+      },
+      {
+        "Count": 1073,
+        "Day": "2017-02-15T00:00:00",
+        "MonthlyCumSum": 9671
+      },
+      {
+        "Count": 1324,
+        "Day": "2017-02-16T00:00:00",
+        "MonthlyCumSum": 10995
+      },
+      {
+        "Count": 1372,
+        "Day": "2017-02-17T00:00:00",
+        "MonthlyCumSum": 12367
+      },
+      {
+        "Count": 592,
+        "Day": "2017-02-18T00:00:00",
+        "MonthlyCumSum": 12959
+      },
+      {
+        "Count": 743,
+        "Day": "2017-02-19T00:00:00",
+        "MonthlyCumSum": 13702
+      },
+      {
+        "Count": 1356,
+        "Day": "2017-02-20T00:00:00",
+        "MonthlyCumSum": 15058
+      },
+      {
+        "Count": 1721,
+        "Day": "2017-02-21T00:00:00",
+        "MonthlyCumSum": 16779
+      },
+      {
+        "Count": 1456,
+        "Day": "2017-02-22T00:00:00",
+        "MonthlyCumSum": 18235
+      },
+      {
+        "Count": 1412,
+        "Day": "2017-02-23T00:00:00",
+        "MonthlyCumSum": 19647
+      },
+      {
+        "Count": 1044,
+        "Day": "2017-02-24T00:00:00",
+        "MonthlyCumSum": 20691
+      },
+      {
+        "Count": 706,
+        "Day": "2017-02-25T00:00:00",
+        "MonthlyCumSum": 21397
+      },
+      {
+        "Count": 495,
+        "Day": "2017-02-26T00:00:00",
+        "MonthlyCumSum": 21892
+      },
+      {
+        "Count": 831,
+        "Day": "2017-02-27T00:00:00",
+        "MonthlyCumSum": 22723
+      },
+      {
+        "Count": 947,
+        "Day": "2017-02-28T00:00:00",
+        "MonthlyCumSum": 23670
+      },
+      {
+        "Count": 1223,
+        "Day": "2017-03-01T00:00:00",
+        "MonthlyCumSum": 1223
+      },
+      {
+        "Count": 1274,
+        "Day": "2017-03-02T00:00:00",
+        "MonthlyCumSum": 2497
+      },
+      {
+        "Count": 963,
+        "Day": "2017-03-03T00:00:00",
+        "MonthlyCumSum": 3460
+      },
+      {
+        "Count": 753,
+        "Day": "2017-03-04T00:00:00",
+        "MonthlyCumSum": 4213
+      },
+      {
+        "Count": 436,
+        "Day": "2017-03-05T00:00:00",
+        "MonthlyCumSum": 4649
+      },
+      {
+        "Count": 1005,
+        "Day": "2017-03-06T00:00:00",
+        "MonthlyCumSum": 5654
+      },
+      {
+        "Count": 1109,
+        "Day": "2017-03-07T00:00:00",
+        "MonthlyCumSum": 6763
+      },
+      {
+        "Count": 1164,
+        "Day": "2017-03-08T00:00:00",
+        "MonthlyCumSum": 7927
+      },
+      {
+        "Count": 1012,
+        "Day": "2017-03-09T00:00:00",
+        "MonthlyCumSum": 8939
+      },
+      {
+        "Count": 1299,
+        "Day": "2017-03-10T00:00:00",
+        "MonthlyCumSum": 10238
+      },
+      {
+        "Count": 437,
+        "Day": "2017-03-11T00:00:00",
+        "MonthlyCumSum": 10675
+      },
+      {
+        "Count": 628,
+        "Day": "2017-03-12T00:00:00",
+        "MonthlyCumSum": 11303
+      },
+      {
+        "Count": 1088,
+        "Day": "2017-03-13T00:00:00",
+        "MonthlyCumSum": 12391
+      },
+      {
+        "Count": 1495,
+        "Day": "2017-03-14T00:00:00",
+        "MonthlyCumSum": 13886
+      },
+      {
+        "Count": 1519,
+        "Day": "2017-03-15T00:00:00",
+        "MonthlyCumSum": 15405
+      },
+      {
+        "Count": 1581,
+        "Day": "2017-03-16T00:00:00",
+        "MonthlyCumSum": 16986
+      },
+      {
+        "Count": 1197,
+        "Day": "2017-03-17T00:00:00",
+        "MonthlyCumSum": 18183
+      },
+      {
+        "Count": 844,
+        "Day": "2017-03-18T00:00:00",
+        "MonthlyCumSum": 19027
+      },
+      {
+        "Count": 1285,
+        "Day": "2017-03-19T00:00:00",
+        "MonthlyCumSum": 20312
+      },
+      {
+        "Count": 1421,
+        "Day": "2017-03-20T00:00:00",
+        "MonthlyCumSum": 21733
+      },
+      {
+        "Count": 1303,
+        "Day": "2017-03-21T00:00:00",
+        "MonthlyCumSum": 23036
+      },
+      {
+        "Count": 1499,
+        "Day": "2017-03-22T00:00:00",
+        "MonthlyCumSum": 24535
+      },
+      {
+        "Count": 1487,
+        "Day": "2017-03-23T00:00:00",
+        "MonthlyCumSum": 26022
+      },
+      {
+        "Count": 1363,
+        "Day": "2017-03-24T00:00:00",
+        "MonthlyCumSum": 27385
+      },
+      {
+        "Count": 1230,
+        "Day": "2017-03-25T00:00:00",
+        "MonthlyCumSum": 28615
+      },
+      {
+        "Count": 419,
+        "Day": "2017-03-26T00:00:00",
+        "MonthlyCumSum": 29034
+      },
+      {
+        "Count": 1588,
+        "Day": "2017-03-27T00:00:00",
+        "MonthlyCumSum": 30622
+      },
+      {
+        "Count": 934,
+        "Day": "2017-03-28T00:00:00",
+        "MonthlyCumSum": 31556
+      },
+      {
+        "Count": 1259,
+        "Day": "2017-03-29T00:00:00",
+        "MonthlyCumSum": 32815
+      },
+      {
+        "Count": 1925,
+        "Day": "2017-03-30T00:00:00",
+        "MonthlyCumSum": 34740
+      },
+      {
+        "Count": 1634,
+        "Day": "2017-03-31T00:00:00",
+        "MonthlyCumSum": 36374
+      },
+      {
+        "Count": 1029,
+        "Day": "2017-04-01T00:00:00",
+        "MonthlyCumSum": 1029
+      },
+      {
+        "Count": 1328,
+        "Day": "2017-04-02T00:00:00",
+        "MonthlyCumSum": 2357
+      },
+      {
+        "Count": 2020,
+        "Day": "2017-04-03T00:00:00",
+        "MonthlyCumSum": 4377
+      },
+      {
+        "Count": 1781,
+        "Day": "2017-04-04T00:00:00",
+        "MonthlyCumSum": 6158
+      },
+      {
+        "Count": 1366,
+        "Day": "2017-04-05T00:00:00",
+        "MonthlyCumSum": 7524
+      },
+      {
+        "Count": 1696,
+        "Day": "2017-04-06T00:00:00",
+        "MonthlyCumSum": 9220
+      },
+      {
+        "Count": 1184,
+        "Day": "2017-04-07T00:00:00",
+        "MonthlyCumSum": 10404
+      },
+      {
+        "Count": 788,
+        "Day": "2017-04-08T00:00:00",
+        "MonthlyCumSum": 11192
+      },
+      {
+        "Count": 1211,
+        "Day": "2017-04-09T00:00:00",
+        "MonthlyCumSum": 12403
+      },
+      {
+        "Count": 1780,
+        "Day": "2017-04-10T00:00:00",
+        "MonthlyCumSum": 14183
+      },
+      {
+        "Count": 2111,
+        "Day": "2017-04-11T00:00:00",
+        "MonthlyCumSum": 16294
+      },
+      {
+        "Count": 1270,
+        "Day": "2017-04-12T00:00:00",
+        "MonthlyCumSum": 17564
+      },
+      {
+        "Count": 1633,
+        "Day": "2017-04-13T00:00:00",
+        "MonthlyCumSum": 19197
+      },
+      {
+        "Count": 1337,
+        "Day": "2017-04-14T00:00:00",
+        "MonthlyCumSum": 20534
+      },
+      {
+        "Count": 1292,
+        "Day": "2017-04-15T00:00:00",
+        "MonthlyCumSum": 21826
+      },
+      {
+        "Count": 1377,
+        "Day": "2017-04-16T00:00:00",
+        "MonthlyCumSum": 23203
+      },
+      {
+        "Count": 1377,
+        "Day": "2017-04-17T00:00:00",
+        "MonthlyCumSum": 24580
+      },
+      {
+        "Count": 1926,
+        "Day": "2017-04-18T00:00:00",
+        "MonthlyCumSum": 26506
+      },
+      {
+        "Count": 1815,
+        "Day": "2017-04-19T00:00:00",
+        "MonthlyCumSum": 28321
+      },
+      {
+        "Count": 1979,
+        "Day": "2017-04-20T00:00:00",
+        "MonthlyCumSum": 30300
+      },
+      {
+        "Count": 2150,
+        "Day": "2017-04-21T00:00:00",
+        "MonthlyCumSum": 32450
+      },
+      {
+        "Count": 947,
+        "Day": "2017-04-22T00:00:00",
+        "MonthlyCumSum": 33397
+      },
+      {
+        "Count": 1087,
+        "Day": "2017-04-23T00:00:00",
+        "MonthlyCumSum": 34484
+      },
+      {
+        "Count": 2099,
+        "Day": "2017-04-24T00:00:00",
+        "MonthlyCumSum": 36583
+      },
+      {
+        "Count": 1937,
+        "Day": "2017-04-25T00:00:00",
+        "MonthlyCumSum": 38520
+      },
+      {
+        "Count": 1963,
+        "Day": "2017-04-26T00:00:00",
+        "MonthlyCumSum": 40483
+      },
+      {
+        "Count": 1917,
+        "Day": "2017-04-27T00:00:00",
+        "MonthlyCumSum": 42400
+      },
+      {
+        "Count": 2071,
+        "Day": "2017-04-28T00:00:00",
+        "MonthlyCumSum": 44471
+      },
+      {
+        "Count": 702,
+        "Day": "2017-04-29T00:00:00",
+        "MonthlyCumSum": 45173
+      },
+      {
+        "Count": 1473,
+        "Day": "2017-04-30T00:00:00",
+        "MonthlyCumSum": 46646
+      },
+      {
+        "Count": 1626,
+        "Day": "2017-05-01T00:00:00",
+        "MonthlyCumSum": 1626
+      },
+      {
+        "Count": 2303,
+        "Day": "2017-05-02T00:00:00",
+        "MonthlyCumSum": 3929
+      },
+      {
+        "Count": 1855,
+        "Day": "2017-05-03T00:00:00",
+        "MonthlyCumSum": 5784
+      },
+      {
+        "Count": 2757,
+        "Day": "2017-05-04T00:00:00",
+        "MonthlyCumSum": 8541
+      },
+      {
+        "Count": 1643,
+        "Day": "2017-05-05T00:00:00",
+        "MonthlyCumSum": 10184
+      },
+      {
+        "Count": 1515,
+        "Day": "2017-05-06T00:00:00",
+        "MonthlyCumSum": 11699
+      },
+      {
+        "Count": 1816,
+        "Day": "2017-05-07T00:00:00",
+        "MonthlyCumSum": 13515
+      },
+      {
+        "Count": 2275,
+        "Day": "2017-05-08T00:00:00",
+        "MonthlyCumSum": 15790
+      },
+      {
+        "Count": 2616,
+        "Day": "2017-05-09T00:00:00",
+        "MonthlyCumSum": 18406
+      },
+      {
+        "Count": 2381,
+        "Day": "2017-05-10T00:00:00",
+        "MonthlyCumSum": 20787
+      },
+      {
+        "Count": 1582,
+        "Day": "2017-05-11T00:00:00",
+        "MonthlyCumSum": 22369
+      },
+      {
+        "Count": 1990,
+        "Day": "2017-05-12T00:00:00",
+        "MonthlyCumSum": 24359
+      },
+      {
+        "Count": 1221,
+        "Day": "2017-05-13T00:00:00",
+        "MonthlyCumSum": 25580
+      },
+      {
+        "Count": 1166,
+        "Day": "2017-05-14T00:00:00",
+        "MonthlyCumSum": 26746
+      },
+      {
+        "Count": 1486,
+        "Day": "2017-05-15T00:00:00",
+        "MonthlyCumSum": 28232
+      },
+      {
+        "Count": 2155,
+        "Day": "2017-05-16T00:00:00",
+        "MonthlyCumSum": 30387
+      },
+      {
+        "Count": 2387,
+        "Day": "2017-05-17T00:00:00",
+        "MonthlyCumSum": 32774
+      },
+      {
+        "Count": 2351,
+        "Day": "2017-05-18T00:00:00",
+        "MonthlyCumSum": 35125
+      },
+      {
+        "Count": 2242,
+        "Day": "2017-05-19T00:00:00",
+        "MonthlyCumSum": 37367
+      },
+      {
+        "Count": 2052,
+        "Day": "2017-05-20T00:00:00",
+        "MonthlyCumSum": 39419
+      },
+      {
+        "Count": 2033,
+        "Day": "2017-05-21T00:00:00",
+        "MonthlyCumSum": 41452
+      },
+      {
+        "Count": 2290,
+        "Day": "2017-05-22T00:00:00",
+        "MonthlyCumSum": 43742
+      },
+      {
+        "Count": 2390,
+        "Day": "2017-05-23T00:00:00",
+        "MonthlyCumSum": 46132
+      },
+      {
+        "Count": 2413,
+        "Day": "2017-05-24T00:00:00",
+        "MonthlyCumSum": 48545
+      },
+      {
+        "Count": 2803,
+        "Day": "2017-05-25T00:00:00",
+        "MonthlyCumSum": 51348
+      },
+      {
+        "Count": 2623,
+        "Day": "2017-05-26T00:00:00",
+        "MonthlyCumSum": 53971
+      },
+      {
+        "Count": 2121,
+        "Day": "2017-05-27T00:00:00",
+        "MonthlyCumSum": 56092
+      },
+      {
+        "Count": 2262,
+        "Day": "2017-05-28T00:00:00",
+        "MonthlyCumSum": 58354
+      },
+      {
+        "Count": 3869,
+        "Day": "2017-05-29T00:00:00",
+        "MonthlyCumSum": 62223
+      },
+      {
+        "Count": 1960,
+        "Day": "2017-05-30T00:00:00",
+        "MonthlyCumSum": 64183
+      },
+      {
+        "Count": 2804,
+        "Day": "2017-05-31T00:00:00",
+        "MonthlyCumSum": 66987
+      },
+      {
+        "Count": 2672,
+        "Day": "2017-06-01T00:00:00",
+        "MonthlyCumSum": 2672
+      },
+      {
+        "Count": 2508,
+        "Day": "2017-06-02T00:00:00",
+        "MonthlyCumSum": 5180
+      },
+      {
+        "Count": 1725,
+        "Day": "2017-06-03T00:00:00",
+        "MonthlyCumSum": 6905
+      },
+      {
+        "Count": 2250,
+        "Day": "2017-06-04T00:00:00",
+        "MonthlyCumSum": 9155
+      },
+      {
+        "Count": 2948,
+        "Day": "2017-06-05T00:00:00",
+        "MonthlyCumSum": 12103
+      },
+      {
+        "Count": 3219,
+        "Day": "2017-06-06T00:00:00",
+        "MonthlyCumSum": 15322
+      },
+      {
+        "Count": 2954,
+        "Day": "2017-06-07T00:00:00",
+        "MonthlyCumSum": 18276
+      },
+      {
+        "Count": 1343,
+        "Day": "2017-06-08T00:00:00",
+        "MonthlyCumSum": 19619
+      },
+      {
+        "Count": 2448,
+        "Day": "2017-06-09T00:00:00",
+        "MonthlyCumSum": 22067
+      },
+      {
+        "Count": 1518,
+        "Day": "2017-06-10T00:00:00",
+        "MonthlyCumSum": 23585
+      },
+      {
+        "Count": 2022,
+        "Day": "2017-06-11T00:00:00",
+        "MonthlyCumSum": 25607
+      },
+      {
+        "Count": 2665,
+        "Day": "2017-06-12T00:00:00",
+        "MonthlyCumSum": 28272
+      },
+      {
+        "Count": 2685,
+        "Day": "2017-06-13T00:00:00",
+        "MonthlyCumSum": 30957
+      },
+      {
+        "Count": 2485,
+        "Day": "2017-06-14T00:00:00",
+        "MonthlyCumSum": 33442
+      },
+      {
+        "Count": 1333,
+        "Day": "2017-06-15T00:00:00",
+        "MonthlyCumSum": 34775
+      },
+      {
+        "Count": 2434,
+        "Day": "2017-06-16T00:00:00",
+        "MonthlyCumSum": 37209
+      },
+      {
+        "Count": 1530,
+        "Day": "2017-06-17T00:00:00",
+        "MonthlyCumSum": 38739
+      },
+      {
+        "Count": 982,
+        "Day": "2017-06-18T00:00:00",
+        "MonthlyCumSum": 39721
+      },
+      {
+        "Count": 2428,
+        "Day": "2017-06-19T00:00:00",
+        "MonthlyCumSum": 42149
+      },
+      {
+        "Count": 2844,
+        "Day": "2017-06-20T00:00:00",
+        "MonthlyCumSum": 44993
+      },
+      {
+        "Count": 3011,
+        "Day": "2017-06-21T00:00:00",
+        "MonthlyCumSum": 48004
+      },
+      {
+        "Count": 3127,
+        "Day": "2017-06-22T00:00:00",
+        "MonthlyCumSum": 51131
+      },
+      {
+        "Count": 2784,
+        "Day": "2017-06-23T00:00:00",
+        "MonthlyCumSum": 53915
+      },
+      {
+        "Count": 2202,
+        "Day": "2017-06-24T00:00:00",
+        "MonthlyCumSum": 56117
+      },
+      {
+        "Count": 1982,
+        "Day": "2017-06-25T00:00:00",
+        "MonthlyCumSum": 58099
+      },
+      {
+        "Count": 2976,
+        "Day": "2017-06-26T00:00:00",
+        "MonthlyCumSum": 61075
+      },
+      {
+        "Count": 3039,
+        "Day": "2017-06-27T00:00:00",
+        "MonthlyCumSum": 64114
+      },
+      {
+        "Count": 3023,
+        "Day": "2017-06-28T00:00:00",
+        "MonthlyCumSum": 67137
+      },
+      {
+        "Count": 2949,
+        "Day": "2017-06-29T00:00:00",
+        "MonthlyCumSum": 70086
+      },
+      {
+        "Count": 2959,
+        "Day": "2017-06-30T00:00:00",
+        "MonthlyCumSum": 73045
+      },
+      {
+        "Count": 3222,
+        "Day": "2017-07-01T00:00:00",
+        "MonthlyCumSum": 3222
+      },
+      {
+        "Count": 2082,
+        "Day": "2017-07-02T00:00:00",
+        "MonthlyCumSum": 5304
+      },
+      {
+        "Count": 2049,
+        "Day": "2017-07-03T00:00:00",
+        "MonthlyCumSum": 7353
+      },
+      {
+        "Count": 2898,
+        "Day": "2017-07-04T00:00:00",
+        "MonthlyCumSum": 10251
+      },
+      {
+        "Count": 3186,
+        "Day": "2017-07-05T00:00:00",
+        "MonthlyCumSum": 13437
+      },
+      {
+        "Count": 3154,
+        "Day": "2017-07-06T00:00:00",
+        "MonthlyCumSum": 16591
+      },
+      {
+        "Count": 2575,
+        "Day": "2017-07-07T00:00:00",
+        "MonthlyCumSum": 19166
+      },
+      {
+        "Count": 2133,
+        "Day": "2017-07-08T00:00:00",
+        "MonthlyCumSum": 21299
+      },
+      {
+        "Count": 2007,
+        "Day": "2017-07-09T00:00:00",
+        "MonthlyCumSum": 23306
+      },
+      {
+        "Count": 2731,
+        "Day": "2017-07-10T00:00:00",
+        "MonthlyCumSum": 26037
+      },
+      {
+        "Count": 3179,
+        "Day": "2017-07-11T00:00:00",
+        "MonthlyCumSum": 29216
+      },
+      {
+        "Count": 3186,
+        "Day": "2017-07-12T00:00:00",
+        "MonthlyCumSum": 32402
+      },
+      {
+        "Count": 2754,
+        "Day": "2017-07-13T00:00:00",
+        "MonthlyCumSum": 35156
+      },
+      {
+        "Count": 2863,
+        "Day": "2017-07-14T00:00:00",
+        "MonthlyCumSum": 38019
+      },
+      {
+        "Count": 2161,
+        "Day": "2017-07-15T00:00:00",
+        "MonthlyCumSum": 40180
+      },
+      {
+        "Count": 2277,
+        "Day": "2017-07-16T00:00:00",
+        "MonthlyCumSum": 42457
+      },
+      {
+        "Count": 2816,
+        "Day": "2017-07-17T00:00:00",
+        "MonthlyCumSum": 45273
+      },
+      {
+        "Count": 3139,
+        "Day": "2017-07-18T00:00:00",
+        "MonthlyCumSum": 48412
+      },
+      {
+        "Count": 3082,
+        "Day": "2017-07-19T00:00:00",
+        "MonthlyCumSum": 51494
+      },
+      {
+        "Count": 2521,
+        "Day": "2017-07-20T00:00:00",
+        "MonthlyCumSum": 54015
+      },
+      {
+        "Count": 2344,
+        "Day": "2017-07-21T00:00:00",
+        "MonthlyCumSum": 56359
+      },
+      {
+        "Count": 1672,
+        "Day": "2017-07-22T00:00:00",
+        "MonthlyCumSum": 58031
+      },
+      {
+        "Count": 2023,
+        "Day": "2017-07-23T00:00:00",
+        "MonthlyCumSum": 60054
+      },
+      {
+        "Count": 2960,
+        "Day": "2017-07-24T00:00:00",
+        "MonthlyCumSum": 63014
+      },
+      {
+        "Count": 3122,
+        "Day": "2017-07-25T00:00:00",
+        "MonthlyCumSum": 66136
+      },
+      {
+        "Count": 2967,
+        "Day": "2017-07-26T00:00:00",
+        "MonthlyCumSum": 69103
+      },
+      {
+        "Count": 2874,
+        "Day": "2017-07-27T00:00:00",
+        "MonthlyCumSum": 71977
+      },
+      {
+        "Count": 2751,
+        "Day": "2017-07-28T00:00:00",
+        "MonthlyCumSum": 74728
+      },
+      {
+        "Count": 1942,
+        "Day": "2017-07-29T00:00:00",
+        "MonthlyCumSum": 76670
+      },
+      {
+        "Count": 2154,
+        "Day": "2017-07-30T00:00:00",
+        "MonthlyCumSum": 78824
+      },
+      {
+        "Count": 2825,
+        "Day": "2017-07-31T00:00:00",
+        "MonthlyCumSum": 81649
+      },
+      {
+        "Count": 2928,
+        "Day": "2017-08-01T00:00:00",
+        "MonthlyCumSum": 2928
+      },
+      {
+        "Count": 2886,
+        "Day": "2017-08-02T00:00:00",
+        "MonthlyCumSum": 5814
+      },
+      {
+        "Count": 2640,
+        "Day": "2017-08-03T00:00:00",
+        "MonthlyCumSum": 8454
+      },
+      {
+        "Count": 2396,
+        "Day": "2017-08-04T00:00:00",
+        "MonthlyCumSum": 10850
+      },
+      {
+        "Count": 1747,
+        "Day": "2017-08-05T00:00:00",
+        "MonthlyCumSum": 12597
+      },
+      {
+        "Count": 2027,
+        "Day": "2017-08-06T00:00:00",
+        "MonthlyCumSum": 14624
+      },
+      {
+        "Count": 1934,
+        "Day": "2017-08-07T00:00:00",
+        "MonthlyCumSum": 16558
+      },
+      {
+        "Count": 2688,
+        "Day": "2017-08-08T00:00:00",
+        "MonthlyCumSum": 19246
+      },
+      {
+        "Count": 2909,
+        "Day": "2017-08-09T00:00:00",
+        "MonthlyCumSum": 22155
+      },
+      {
+        "Count": 2780,
+        "Day": "2017-08-10T00:00:00",
+        "MonthlyCumSum": 24935
+      },
+      {
+        "Count": 2550,
+        "Day": "2017-08-11T00:00:00",
+        "MonthlyCumSum": 27485
+      },
+      {
+        "Count": 1593,
+        "Day": "2017-08-12T00:00:00",
+        "MonthlyCumSum": 29078
+      },
+      {
+        "Count": 1398,
+        "Day": "2017-08-13T00:00:00",
+        "MonthlyCumSum": 30476
+      },
+      {
+        "Count": 2576,
+        "Day": "2017-08-14T00:00:00",
+        "MonthlyCumSum": 33052
+      },
+      {
+        "Count": 3051,
+        "Day": "2017-08-15T00:00:00",
+        "MonthlyCumSum": 36103
+      },
+      {
+        "Count": 2698,
+        "Day": "2017-08-16T00:00:00",
+        "MonthlyCumSum": 38801
+      },
+      {
+        "Count": 2830,
+        "Day": "2017-08-17T00:00:00",
+        "MonthlyCumSum": 41631
+      },
+      {
+        "Count": 2439,
+        "Day": "2017-08-18T00:00:00",
+        "MonthlyCumSum": 44070
+      },
+      {
+        "Count": 1913,
+        "Day": "2017-08-19T00:00:00",
+        "MonthlyCumSum": 45983
+      },
+      {
+        "Count": 1963,
+        "Day": "2017-08-20T00:00:00",
+        "MonthlyCumSum": 47946
+      },
+      {
+        "Count": 2640,
+        "Day": "2017-08-21T00:00:00",
+        "MonthlyCumSum": 50586
+      },
+      {
+        "Count": 2921,
+        "Day": "2017-08-22T00:00:00",
+        "MonthlyCumSum": 53507
+      },
+      {
+        "Count": 2751,
+        "Day": "2017-08-23T00:00:00",
+        "MonthlyCumSum": 56258
+      },
+      {
+        "Count": 2684,
+        "Day": "2017-08-24T00:00:00",
+        "MonthlyCumSum": 58942
+      },
+      {
+        "Count": 2561,
+        "Day": "2017-08-25T00:00:00",
+        "MonthlyCumSum": 61503
+      },
+      {
+        "Count": 1813,
+        "Day": "2017-08-26T00:00:00",
+        "MonthlyCumSum": 63316
+      },
+      {
+        "Count": 1954,
+        "Day": "2017-08-27T00:00:00",
+        "MonthlyCumSum": 65270
+      },
+      {
+        "Count": 2806,
+        "Day": "2017-08-28T00:00:00",
+        "MonthlyCumSum": 68076
+      },
+      {
+        "Count": 3022,
+        "Day": "2017-08-29T00:00:00",
+        "MonthlyCumSum": 71098
+      },
+      {
+        "Count": 2664,
+        "Day": "2017-08-30T00:00:00",
+        "MonthlyCumSum": 73762
+      },
+      {
+        "Count": 2896,
+        "Day": "2017-08-31T00:00:00",
+        "MonthlyCumSum": 76658
+      },
+      {
+        "Count": 2629,
+        "Day": "2017-09-01T00:00:00",
+        "MonthlyCumSum": 2629
+      },
+      {
+        "Count": 1979,
+        "Day": "2017-09-02T00:00:00",
+        "MonthlyCumSum": 4608
+      },
+      {
+        "Count": 1874,
+        "Day": "2017-09-03T00:00:00",
+        "MonthlyCumSum": 6482
+      },
+      {
+        "Count": 1871,
+        "Day": "2017-09-04T00:00:00",
+        "MonthlyCumSum": 8353
+      },
+      {
+        "Count": 2358,
+        "Day": "2017-09-05T00:00:00",
+        "MonthlyCumSum": 10711
+      },
+      {
+        "Count": 2524,
+        "Day": "2017-09-06T00:00:00",
+        "MonthlyCumSum": 13235
+      },
+      {
+        "Count": 2582,
+        "Day": "2017-09-07T00:00:00",
+        "MonthlyCumSum": 15817
+      },
+      {
+        "Count": 2049,
+        "Day": "2017-09-08T00:00:00",
+        "MonthlyCumSum": 17866
+      },
+      {
+        "Count": 528,
+        "Day": "2017-09-09T00:00:00",
+        "MonthlyCumSum": 18394
+      },
+      {
+        "Count": 1801,
+        "Day": "2017-09-10T00:00:00",
+        "MonthlyCumSum": 20195
+      },
+      {
+        "Count": 2769,
+        "Day": "2017-09-11T00:00:00",
+        "MonthlyCumSum": 22964
+      },
+      {
+        "Count": 2812,
+        "Day": "2017-09-12T00:00:00",
+        "MonthlyCumSum": 25776
+      },
+      {
+        "Count": 2716,
+        "Day": "2017-09-13T00:00:00",
+        "MonthlyCumSum": 28492
+      },
+      {
+        "Count": 2756,
+        "Day": "2017-09-14T00:00:00",
+        "MonthlyCumSum": 31248
+      },
+      {
+        "Count": 2556,
+        "Day": "2017-09-15T00:00:00",
+        "MonthlyCumSum": 33804
+      },
+      {
+        "Count": 1755,
+        "Day": "2017-09-16T00:00:00",
+        "MonthlyCumSum": 35559
+      },
+      {
+        "Count": 770,
+        "Day": "2017-09-17T00:00:00",
+        "MonthlyCumSum": 36329
+      },
+      {
+        "Count": 1974,
+        "Day": "2017-09-18T00:00:00",
+        "MonthlyCumSum": 38303
+      },
+      {
+        "Count": 2082,
+        "Day": "2017-09-19T00:00:00",
+        "MonthlyCumSum": 40385
+      },
+      {
+        "Count": 2419,
+        "Day": "2017-09-20T00:00:00",
+        "MonthlyCumSum": 42804
+      },
+      {
+        "Count": 2542,
+        "Day": "2017-09-21T00:00:00",
+        "MonthlyCumSum": 45346
+      },
+      {
+        "Count": 2372,
+        "Day": "2017-09-22T00:00:00",
+        "MonthlyCumSum": 47718
+      },
+      {
+        "Count": 1580,
+        "Day": "2017-09-23T00:00:00",
+        "MonthlyCumSum": 49298
+      },
+      {
+        "Count": 1428,
+        "Day": "2017-09-24T00:00:00",
+        "MonthlyCumSum": 50726
+      },
+      {
+        "Count": 1606,
+        "Day": "2017-09-25T00:00:00",
+        "MonthlyCumSum": 52332
+      },
+      {
+        "Count": 2502,
+        "Day": "2017-09-26T00:00:00",
+        "MonthlyCumSum": 54834
+      },
+      {
+        "Count": 2710,
+        "Day": "2017-09-27T00:00:00",
+        "MonthlyCumSum": 57544
+      },
+      {
+        "Count": 2709,
+        "Day": "2017-09-28T00:00:00",
+        "MonthlyCumSum": 60253
+      },
+      {
+        "Count": 1526,
+        "Day": "2017-09-29T00:00:00",
+        "MonthlyCumSum": 61779
+      },
+      {
+        "Count": 868,
+        "Day": "2017-09-30T00:00:00",
+        "MonthlyCumSum": 62647
+      },
+      {
+        "Count": 1153,
+        "Day": "2017-10-01T00:00:00",
+        "MonthlyCumSum": 1153
+      },
+      {
+        "Count": 2413,
+        "Day": "2017-10-02T00:00:00",
+        "MonthlyCumSum": 3566
+      },
+      {
+        "Count": 2528,
+        "Day": "2017-10-03T00:00:00",
+        "MonthlyCumSum": 6094
+      },
+      {
+        "Count": 2508,
+        "Day": "2017-10-04T00:00:00",
+        "MonthlyCumSum": 8602
+      },
+      {
+        "Count": 2467,
+        "Day": "2017-10-05T00:00:00",
+        "MonthlyCumSum": 11069
+      },
+      {
+        "Count": 1578,
+        "Day": "2017-10-06T00:00:00",
+        "MonthlyCumSum": 12647
+      },
+      {
+        "Count": 917,
+        "Day": "2017-10-07T00:00:00",
+        "MonthlyCumSum": 13564
+      },
+      {
+        "Count": 1126,
+        "Day": "2017-10-08T00:00:00",
+        "MonthlyCumSum": 14690
+      },
+      {
+        "Count": 1178,
+        "Day": "2017-10-09T00:00:00",
+        "MonthlyCumSum": 15868
+      },
+      {
+        "Count": 1874,
+        "Day": "2017-10-10T00:00:00",
+        "MonthlyCumSum": 17742
+      },
+      {
+        "Count": 2045,
+        "Day": "2017-10-11T00:00:00",
+        "MonthlyCumSum": 19787
+      },
+      {
+        "Count": 1647,
+        "Day": "2017-10-12T00:00:00",
+        "MonthlyCumSum": 21434
+      },
+      {
+        "Count": 1677,
+        "Day": "2017-10-13T00:00:00",
+        "MonthlyCumSum": 23111
+      },
+      {
+        "Count": 778,
+        "Day": "2017-10-14T00:00:00",
+        "MonthlyCumSum": 23889
+      },
+      {
+        "Count": 1509,
+        "Day": "2017-10-15T00:00:00",
+        "MonthlyCumSum": 25398
+      },
+      {
+        "Count": 1880,
+        "Day": "2017-10-16T00:00:00",
+        "MonthlyCumSum": 27278
+      },
+      {
+        "Count": 1415,
+        "Day": "2017-10-17T00:00:00",
+        "MonthlyCumSum": 28693
+      },
+      {
+        "Count": 1086,
+        "Day": "2017-10-18T00:00:00",
+        "MonthlyCumSum": 29779
+      },
+      {
+        "Count": 1340,
+        "Day": "2017-10-19T00:00:00",
+        "MonthlyCumSum": 31119
+      },
+      {
+        "Count": 1446,
+        "Day": "2017-10-20T00:00:00",
+        "MonthlyCumSum": 32565
+      },
+      {
+        "Count": 252,
+        "Day": "2017-10-21T00:00:00",
+        "MonthlyCumSum": 32817
+      },
+      {
+        "Count": 552,
+        "Day": "2017-10-22T00:00:00",
+        "MonthlyCumSum": 33369
+      },
+      {
+        "Count": 1903,
+        "Day": "2017-10-23T00:00:00",
+        "MonthlyCumSum": 35272
+      },
+      {
+        "Count": 2303,
+        "Day": "2017-10-24T00:00:00",
+        "MonthlyCumSum": 37575
+      },
+      {
+        "Count": 1927,
+        "Day": "2017-10-25T00:00:00",
+        "MonthlyCumSum": 39502
+      },
+      {
+        "Count": 2253,
+        "Day": "2017-10-26T00:00:00",
+        "MonthlyCumSum": 41755
+      },
+      {
+        "Count": 2059,
+        "Day": "2017-10-27T00:00:00",
+        "MonthlyCumSum": 43814
+      },
+      {
+        "Count": 1438,
+        "Day": "2017-10-28T00:00:00",
+        "MonthlyCumSum": 45252
+      },
+      {
+        "Count": 1366,
+        "Day": "2017-10-29T00:00:00",
+        "MonthlyCumSum": 46618
+      },
+      {
+        "Count": 2257,
+        "Day": "2017-10-30T00:00:00",
+        "MonthlyCumSum": 48875
+      },
+      {
+        "Count": 2087,
+        "Day": "2017-10-31T00:00:00",
+        "MonthlyCumSum": 50962
+      },
+      {
+        "Count": 2082,
+        "Day": "2017-11-01T00:00:00",
+        "MonthlyCumSum": 2082
+      },
+      {
+        "Count": 1304,
+        "Day": "2017-11-02T00:00:00",
+        "MonthlyCumSum": 3386
+      },
+      {
+        "Count": 891,
+        "Day": "2017-11-03T00:00:00",
+        "MonthlyCumSum": 4277
+      },
+      {
+        "Count": 409,
+        "Day": "2017-11-04T00:00:00",
+        "MonthlyCumSum": 4686
+      },
+      {
+        "Count": 580,
+        "Day": "2017-11-05T00:00:00",
+        "MonthlyCumSum": 5266
+      },
+      {
+        "Count": 1640,
+        "Day": "2017-11-06T00:00:00",
+        "MonthlyCumSum": 6906
+      },
+      {
+        "Count": 1701,
+        "Day": "2017-11-07T00:00:00",
+        "MonthlyCumSum": 8607
+      },
+      {
+        "Count": 1588,
+        "Day": "2017-11-08T00:00:00",
+        "MonthlyCumSum": 10195
+      },
+      {
+        "Count": 1357,
+        "Day": "2017-11-09T00:00:00",
+        "MonthlyCumSum": 11552
+      },
+      {
+        "Count": 1552,
+        "Day": "2017-11-10T00:00:00",
+        "MonthlyCumSum": 13104
+      },
+      {
+        "Count": 715,
+        "Day": "2017-11-11T00:00:00",
+        "MonthlyCumSum": 13819
+      },
+      {
+        "Count": 372,
+        "Day": "2017-11-12T00:00:00",
+        "MonthlyCumSum": 14191
+      },
+      {
+        "Count": 374,
+        "Day": "2017-11-13T00:00:00",
+        "MonthlyCumSum": 14565
+      },
+      {
+        "Count": 1175,
+        "Day": "2017-11-14T00:00:00",
+        "MonthlyCumSum": 15740
+      },
+      {
+        "Count": 1605,
+        "Day": "2017-11-15T00:00:00",
+        "MonthlyCumSum": 17345
+      },
+      {
+        "Count": 1561,
+        "Day": "2017-11-16T00:00:00",
+        "MonthlyCumSum": 18906
+      },
+      {
+        "Count": 1432,
+        "Day": "2017-11-17T00:00:00",
+        "MonthlyCumSum": 20338
+      },
+      {
+        "Count": 807,
+        "Day": "2017-11-18T00:00:00",
+        "MonthlyCumSum": 21145
+      },
+      {
+        "Count": 351,
+        "Day": "2017-11-19T00:00:00",
+        "MonthlyCumSum": 21496
+      },
+      {
+        "Count": 1551,
+        "Day": "2017-11-20T00:00:00",
+        "MonthlyCumSum": 23047
+      },
+      {
+        "Count": 1059,
+        "Day": "2017-11-21T00:00:00",
+        "MonthlyCumSum": 24106
+      },
+      {
+        "Count": 1562,
+        "Day": "2017-11-22T00:00:00",
+        "MonthlyCumSum": 25668
+      },
+      {
+        "Count": 1222,
+        "Day": "2017-11-23T00:00:00",
+        "MonthlyCumSum": 26890
+      },
+      {
+        "Count": 1252,
+        "Day": "2017-11-24T00:00:00",
+        "MonthlyCumSum": 28142
+      },
+      {
+        "Count": 653,
+        "Day": "2017-11-25T00:00:00",
+        "MonthlyCumSum": 28795
+      },
+      {
+        "Count": 347,
+        "Day": "2017-11-26T00:00:00",
+        "MonthlyCumSum": 29142
+      },
+      {
+        "Count": 1617,
+        "Day": "2017-11-27T00:00:00",
+        "MonthlyCumSum": 30759
+      },
+      {
+        "Count": 1417,
+        "Day": "2017-11-28T00:00:00",
+        "MonthlyCumSum": 32176
+      },
+      {
+        "Count": 1594,
+        "Day": "2017-11-29T00:00:00",
+        "MonthlyCumSum": 33770
+      },
+      {
+        "Count": 1263,
+        "Day": "2017-11-30T00:00:00",
+        "MonthlyCumSum": 35033
+      },
+      {
+        "Count": 942,
+        "Day": "2017-12-01T00:00:00",
+        "MonthlyCumSum": 942
+      },
+      {
+        "Count": 452,
+        "Day": "2017-12-02T00:00:00",
+        "MonthlyCumSum": 1394
+      },
+      {
+        "Count": 729,
+        "Day": "2017-12-03T00:00:00",
+        "MonthlyCumSum": 2123
+      },
+      {
+        "Count": 1488,
+        "Day": "2017-12-04T00:00:00",
+        "MonthlyCumSum": 3611
+      },
+      {
+        "Count": 1567,
+        "Day": "2017-12-05T00:00:00",
+        "MonthlyCumSum": 5178
+      },
+      {
+        "Count": 1620,
+        "Day": "2017-12-06T00:00:00",
+        "MonthlyCumSum": 6798
+      },
+      {
+        "Count": 1491,
+        "Day": "2017-12-07T00:00:00",
+        "MonthlyCumSum": 8289
+      },
+      {
+        "Count": 1148,
+        "Day": "2017-12-08T00:00:00",
+        "MonthlyCumSum": 9437
+      },
+      {
+        "Count": 566,
+        "Day": "2017-12-09T00:00:00",
+        "MonthlyCumSum": 10003
+      },
+      {
+        "Count": 656,
+        "Day": "2017-12-10T00:00:00",
+        "MonthlyCumSum": 10659
+      },
+      {
+        "Count": 1387,
+        "Day": "2017-12-11T00:00:00",
+        "MonthlyCumSum": 12046
+      },
+      {
+        "Count": 1460,
+        "Day": "2017-12-12T00:00:00",
+        "MonthlyCumSum": 13506
+      },
+      {
+        "Count": 1556,
+        "Day": "2017-12-13T00:00:00",
+        "MonthlyCumSum": 15062
+      },
+      {
+        "Count": 1514,
+        "Day": "2017-12-14T00:00:00",
+        "MonthlyCumSum": 16576
+      },
+      {
+        "Count": 1102,
+        "Day": "2017-12-15T00:00:00",
+        "MonthlyCumSum": 17678
+      },
+      {
+        "Count": 536,
+        "Day": "2017-12-16T00:00:00",
+        "MonthlyCumSum": 18214
+      },
+      {
+        "Count": 305,
+        "Day": "2017-12-17T00:00:00",
+        "MonthlyCumSum": 18519
+      },
+      {
+        "Count": 1307,
+        "Day": "2017-12-18T00:00:00",
+        "MonthlyCumSum": 19826
+      },
+      {
+        "Count": 648,
+        "Day": "2017-12-19T00:00:00",
+        "MonthlyCumSum": 20474
+      },
+      {
+        "Count": 991,
+        "Day": "2017-12-20T00:00:00",
+        "MonthlyCumSum": 21465
+      },
+      {
+        "Count": 793,
+        "Day": "2017-12-21T00:00:00",
+        "MonthlyCumSum": 22258
+      },
+      {
+        "Count": 862,
+        "Day": "2017-12-22T00:00:00",
+        "MonthlyCumSum": 23120
+      },
+      {
+        "Count": 392,
+        "Day": "2017-12-23T00:00:00",
+        "MonthlyCumSum": 23512
+      },
+      {
+        "Count": 246,
+        "Day": "2017-12-24T00:00:00",
+        "MonthlyCumSum": 23758
+      },
+      {
+        "Count": 71,
+        "Day": "2017-12-25T00:00:00",
+        "MonthlyCumSum": 23829
+      },
+      {
+        "Count": 345,
+        "Day": "2017-12-26T00:00:00",
+        "MonthlyCumSum": 24174
+      },
+      {
+        "Count": 644,
+        "Day": "2017-12-27T00:00:00",
+        "MonthlyCumSum": 24818
+      },
+      {
+        "Count": 395,
+        "Day": "2017-12-28T00:00:00",
+        "MonthlyCumSum": 25213
+      },
+      {
+        "Count": 389,
+        "Day": "2017-12-29T00:00:00",
+        "MonthlyCumSum": 25602
+      },
+      {
+        "Count": 530,
+        "Day": "2017-12-30T00:00:00",
+        "MonthlyCumSum": 26132
+      },
+      {
+        "Count": 434,
+        "Day": "2017-12-31T00:00:00",
+        "MonthlyCumSum": 26566
+      },
+      {
+        "Count": 466,
+        "Day": "2018-01-01T00:00:00",
+        "MonthlyCumSum": 466
+      },
+      {
+        "Count": 1153,
+        "Day": "2018-01-02T00:00:00",
+        "MonthlyCumSum": 1619
+      },
+      {
+        "Count": 1333,
+        "Day": "2018-01-03T00:00:00",
+        "MonthlyCumSum": 2952
+      },
+      {
+        "Count": 1161,
+        "Day": "2018-01-04T00:00:00",
+        "MonthlyCumSum": 4113
+      },
+      {
+        "Count": 875,
+        "Day": "2018-01-05T00:00:00",
+        "MonthlyCumSum": 4988
+      },
+      {
+        "Count": 812,
+        "Day": "2018-01-06T00:00:00",
+        "MonthlyCumSum": 5800
+      },
+      {
+        "Count": 235,
+        "Day": "2018-01-07T00:00:00",
+        "MonthlyCumSum": 6035
+      },
+      {
+        "Count": 1295,
+        "Day": "2018-01-08T00:00:00",
+        "MonthlyCumSum": 7330
+      },
+      {
+        "Count": 1633,
+        "Day": "2018-01-09T00:00:00",
+        "MonthlyCumSum": 8963
+      },
+      {
+        "Count": 1460,
+        "Day": "2018-01-10T00:00:00",
+        "MonthlyCumSum": 10423
+      },
+      {
+        "Count": 905,
+        "Day": "2018-01-11T00:00:00",
+        "MonthlyCumSum": 11328
+      },
+      {
+        "Count": 1121,
+        "Day": "2018-01-12T00:00:00",
+        "MonthlyCumSum": 12449
+      },
+      {
+        "Count": 474,
+        "Day": "2018-01-13T00:00:00",
+        "MonthlyCumSum": 12923
+      },
+      {
+        "Count": 1069,
+        "Day": "2018-01-14T00:00:00",
+        "MonthlyCumSum": 13992
+      },
+      {
+        "Count": 1591,
+        "Day": "2018-01-15T00:00:00",
+        "MonthlyCumSum": 15583
+      },
+      {
+        "Count": 1635,
+        "Day": "2018-01-16T00:00:00",
+        "MonthlyCumSum": 17218
+      },
+      {
+        "Count": 1218,
+        "Day": "2018-01-17T00:00:00",
+        "MonthlyCumSum": 18436
+      },
+      {
+        "Count": 1330,
+        "Day": "2018-01-18T00:00:00",
+        "MonthlyCumSum": 19766
+      },
+      {
+        "Count": 1258,
+        "Day": "2018-01-19T00:00:00",
+        "MonthlyCumSum": 21024
+      },
+      {
+        "Count": 700,
+        "Day": "2018-01-20T00:00:00",
+        "MonthlyCumSum": 21724
+      },
+      {
+        "Count": 294,
+        "Day": "2018-01-21T00:00:00",
+        "MonthlyCumSum": 22018
+      },
+      {
+        "Count": 1295,
+        "Day": "2018-01-22T00:00:00",
+        "MonthlyCumSum": 23313
+      },
+      {
+        "Count": 1027,
+        "Day": "2018-01-23T00:00:00",
+        "MonthlyCumSum": 24340
+      },
+      {
+        "Count": 1378,
+        "Day": "2018-01-24T00:00:00",
+        "MonthlyCumSum": 25718
+      },
+      {
+        "Count": 1373,
+        "Day": "2018-01-25T00:00:00",
+        "MonthlyCumSum": 27091
+      },
+      {
+        "Count": 1091,
+        "Day": "2018-01-26T00:00:00",
+        "MonthlyCumSum": 28182
+      },
+      {
+        "Count": 383,
+        "Day": "2018-01-27T00:00:00",
+        "MonthlyCumSum": 28565
+      },
+      {
+        "Count": 189,
+        "Day": "2018-01-28T00:00:00",
+        "MonthlyCumSum": 28754
+      },
+      {
+        "Count": 314,
+        "Day": "2018-01-29T00:00:00",
+        "MonthlyCumSum": 29068
+      },
+      {
+        "Count": 1141,
+        "Day": "2018-01-30T00:00:00",
+        "MonthlyCumSum": 30209
+      },
+      {
+        "Count": 1215,
+        "Day": "2018-01-31T00:00:00",
+        "MonthlyCumSum": 31424
+      },
+      {
+        "Count": 1008,
+        "Day": "2018-02-01T00:00:00",
+        "MonthlyCumSum": 1008
+      },
+      {
+        "Count": 1120,
+        "Day": "2018-02-02T00:00:00",
+        "MonthlyCumSum": 2128
+      },
+      {
+        "Count": 604,
+        "Day": "2018-02-03T00:00:00",
+        "MonthlyCumSum": 2732
+      },
+      {
+        "Count": 590,
+        "Day": "2018-02-04T00:00:00",
+        "MonthlyCumSum": 3322
+      },
+      {
+        "Count": 1568,
+        "Day": "2018-02-05T00:00:00",
+        "MonthlyCumSum": 4890
+      },
+      {
+        "Count": 1517,
+        "Day": "2018-02-06T00:00:00",
+        "MonthlyCumSum": 6407
+      },
+      {
+        "Count": 1418,
+        "Day": "2018-02-07T00:00:00",
+        "MonthlyCumSum": 7825
+      },
+      {
+        "Count": 1597,
+        "Day": "2018-02-08T00:00:00",
+        "MonthlyCumSum": 9422
+      },
+      {
+        "Count": 1395,
+        "Day": "2018-02-09T00:00:00",
+        "MonthlyCumSum": 10817
+      },
+      {
+        "Count": 982,
+        "Day": "2018-02-10T00:00:00",
+        "MonthlyCumSum": 11799
+      },
+      {
+        "Count": 647,
+        "Day": "2018-02-11T00:00:00",
+        "MonthlyCumSum": 12446
+      },
+      {
+        "Count": 995,
+        "Day": "2018-02-12T00:00:00",
+        "MonthlyCumSum": 13441
+      },
+      {
+        "Count": 1353,
+        "Day": "2018-02-13T00:00:00",
+        "MonthlyCumSum": 14794
+      },
+      {
+        "Count": 1443,
+        "Day": "2018-02-14T00:00:00",
+        "MonthlyCumSum": 16237
+      },
+      {
+        "Count": 1428,
+        "Day": "2018-02-15T00:00:00",
+        "MonthlyCumSum": 17665
+      },
+      {
+        "Count": 1133,
+        "Day": "2018-02-16T00:00:00",
+        "MonthlyCumSum": 18798
+      },
+      {
+        "Count": 293,
+        "Day": "2018-02-17T00:00:00",
+        "MonthlyCumSum": 19091
+      },
+      {
+        "Count": 225,
+        "Day": "2018-02-18T00:00:00",
+        "MonthlyCumSum": 19316
+      },
+      {
+        "Count": 1156,
+        "Day": "2018-02-19T00:00:00",
+        "MonthlyCumSum": 20472
+      },
+      {
+        "Count": 1319,
+        "Day": "2018-02-20T00:00:00",
+        "MonthlyCumSum": 21791
+      },
+      {
+        "Count": 880,
+        "Day": "2018-02-21T00:00:00",
+        "MonthlyCumSum": 22671
+      },
+      {
+        "Count": 315,
+        "Day": "2018-02-22T00:00:00",
+        "MonthlyCumSum": 22986
+      },
+      {
+        "Count": 409,
+        "Day": "2018-02-23T00:00:00",
+        "MonthlyCumSum": 23395
+      },
+      {
+        "Count": 665,
+        "Day": "2018-02-24T00:00:00",
+        "MonthlyCumSum": 24060
+      },
+      {
+        "Count": 378,
+        "Day": "2018-02-25T00:00:00",
+        "MonthlyCumSum": 24438
+      },
+      {
+        "Count": 1390,
+        "Day": "2018-02-26T00:00:00",
+        "MonthlyCumSum": 25828
+      },
+      {
+        "Count": 1455,
+        "Day": "2018-02-27T00:00:00",
+        "MonthlyCumSum": 27283
+      },
+      {
+        "Count": 1162,
+        "Day": "2018-02-28T00:00:00",
+        "MonthlyCumSum": 28445
+      },
+      {
+        "Count": 1510,
+        "Day": "2018-03-01T00:00:00",
+        "MonthlyCumSum": 1510
+      },
+      {
+        "Count": 1053,
+        "Day": "2018-03-02T00:00:00",
+        "MonthlyCumSum": 2563
+      },
+      {
+        "Count": 1126,
+        "Day": "2018-03-03T00:00:00",
+        "MonthlyCumSum": 3689
+      },
+      {
+        "Count": 928,
+        "Day": "2018-03-04T00:00:00",
+        "MonthlyCumSum": 4617
+      },
+      {
+        "Count": 1583,
+        "Day": "2018-03-05T00:00:00",
+        "MonthlyCumSum": 6200
+      },
+      {
+        "Count": 1869,
+        "Day": "2018-03-06T00:00:00",
+        "MonthlyCumSum": 8069
+      },
+      {
+        "Count": 1670,
+        "Day": "2018-03-07T00:00:00",
+        "MonthlyCumSum": 9739
+      },
+      {
+        "Count": 1313,
+        "Day": "2018-03-08T00:00:00",
+        "MonthlyCumSum": 11052
+      },
+      {
+        "Count": 1555,
+        "Day": "2018-03-09T00:00:00",
+        "MonthlyCumSum": 12607
+      },
+      {
+        "Count": 1322,
+        "Day": "2018-03-10T00:00:00",
+        "MonthlyCumSum": 13929
+      },
+      {
+        "Count": 1368,
+        "Day": "2018-03-11T00:00:00",
+        "MonthlyCumSum": 15297
+      },
+      {
+        "Count": 2051,
+        "Day": "2018-03-12T00:00:00",
+        "MonthlyCumSum": 17348
+      },
+      {
+        "Count": 1505,
+        "Day": "2018-03-13T00:00:00",
+        "MonthlyCumSum": 18853
+      },
+      {
+        "Count": 1831,
+        "Day": "2018-03-14T00:00:00",
+        "MonthlyCumSum": 20684
+      },
+      {
+        "Count": 2014,
+        "Day": "2018-03-15T00:00:00",
+        "MonthlyCumSum": 22698
+      },
+      {
+        "Count": 1911,
+        "Day": "2018-03-16T00:00:00",
+        "MonthlyCumSum": 24609
+      },
+      {
+        "Count": 1394,
+        "Day": "2018-03-17T00:00:00",
+        "MonthlyCumSum": 26003
+      },
+      {
+        "Count": 1074,
+        "Day": "2018-03-18T00:00:00",
+        "MonthlyCumSum": 27077
+      },
+      {
+        "Count": 1911,
+        "Day": "2018-03-19T00:00:00",
+        "MonthlyCumSum": 28988
+      },
+      {
+        "Count": 1886,
+        "Day": "2018-03-20T00:00:00",
+        "MonthlyCumSum": 30874
+      },
+      {
+        "Count": 1905,
+        "Day": "2018-03-21T00:00:00",
+        "MonthlyCumSum": 32779
+      },
+      {
+        "Count": 1205,
+        "Day": "2018-03-22T00:00:00",
+        "MonthlyCumSum": 33984
+      },
+      {
+        "Count": 1538,
+        "Day": "2018-03-23T00:00:00",
+        "MonthlyCumSum": 35522
+      },
+      {
+        "Count": 1271,
+        "Day": "2018-03-24T00:00:00",
+        "MonthlyCumSum": 36793
+      },
+      {
+        "Count": 1259,
+        "Day": "2018-03-25T00:00:00",
+        "MonthlyCumSum": 38052
+      },
+      {
+        "Count": 1248,
+        "Day": "2018-03-26T00:00:00",
+        "MonthlyCumSum": 39300
+      },
+      {
+        "Count": 1585,
+        "Day": "2018-03-27T00:00:00",
+        "MonthlyCumSum": 40885
+      },
+      {
+        "Count": 1821,
+        "Day": "2018-03-28T00:00:00",
+        "MonthlyCumSum": 42706
+      },
+      {
+        "Count": 1189,
+        "Day": "2018-03-29T00:00:00",
+        "MonthlyCumSum": 43895
+      },
+      {
+        "Count": 1410,
+        "Day": "2018-03-30T00:00:00",
+        "MonthlyCumSum": 45305
+      },
+      {
+        "Count": 2002,
+        "Day": "2018-03-31T00:00:00",
+        "MonthlyCumSum": 47307
+      },
+      {
+        "Count": 1221,
+        "Day": "2018-04-01T00:00:00",
+        "MonthlyCumSum": 1221
+      },
+      {
+        "Count": 1768,
+        "Day": "2018-04-02T00:00:00",
+        "MonthlyCumSum": 2989
+      },
+      {
+        "Count": 2079,
+        "Day": "2018-04-03T00:00:00",
+        "MonthlyCumSum": 5068
+      },
+      {
+        "Count": 1490,
+        "Day": "2018-04-04T00:00:00",
+        "MonthlyCumSum": 6558
+      },
+      {
+        "Count": 1158,
+        "Day": "2018-04-05T00:00:00",
+        "MonthlyCumSum": 7716
+      },
+      {
+        "Count": 1748,
+        "Day": "2018-04-06T00:00:00",
+        "MonthlyCumSum": 9464
+      },
+      {
+        "Count": 983,
+        "Day": "2018-04-07T00:00:00",
+        "MonthlyCumSum": 10447
+      },
+      {
+        "Count": 981,
+        "Day": "2018-04-08T00:00:00",
+        "MonthlyCumSum": 11428
+      },
+      {
+        "Count": 2358,
+        "Day": "2018-04-09T00:00:00",
+        "MonthlyCumSum": 13786
+      },
+      {
+        "Count": 2089,
+        "Day": "2018-04-10T00:00:00",
+        "MonthlyCumSum": 15875
+      },
+      {
+        "Count": 1767,
+        "Day": "2018-04-11T00:00:00",
+        "MonthlyCumSum": 17642
+      },
+      {
+        "Count": 2266,
+        "Day": "2018-04-12T00:00:00",
+        "MonthlyCumSum": 19908
+      },
+      {
+        "Count": 1226,
+        "Day": "2018-04-13T00:00:00",
+        "MonthlyCumSum": 21134
+      },
+      {
+        "Count": 1242,
+        "Day": "2018-04-14T00:00:00",
+        "MonthlyCumSum": 22376
+      },
+      {
+        "Count": 1314,
+        "Day": "2018-04-15T00:00:00",
+        "MonthlyCumSum": 23690
+      },
+      {
+        "Count": 1175,
+        "Day": "2018-04-16T00:00:00",
+        "MonthlyCumSum": 24865
+      },
+      {
+        "Count": 1995,
+        "Day": "2018-04-17T00:00:00",
+        "MonthlyCumSum": 26860
+      },
+      {
+        "Count": 1826,
+        "Day": "2018-04-18T00:00:00",
+        "MonthlyCumSum": 28686
+      },
+      {
+        "Count": 2137,
+        "Day": "2018-04-19T00:00:00",
+        "MonthlyCumSum": 30823
+      },
+      {
+        "Count": 1824,
+        "Day": "2018-04-20T00:00:00",
+        "MonthlyCumSum": 32647
+      },
+      {
+        "Count": 1360,
+        "Day": "2018-04-21T00:00:00",
+        "MonthlyCumSum": 34007
+      },
+      {
+        "Count": 2202,
+        "Day": "2018-04-22T00:00:00",
+        "MonthlyCumSum": 36209
+      },
+      {
+        "Count": 2696,
+        "Day": "2018-04-23T00:00:00",
+        "MonthlyCumSum": 38905
+      },
+      {
+        "Count": 2905,
+        "Day": "2018-04-24T00:00:00",
+        "MonthlyCumSum": 41810
+      },
+      {
+        "Count": 2970,
+        "Day": "2018-04-25T00:00:00",
+        "MonthlyCumSum": 44780
+      },
+      {
+        "Count": 3040,
+        "Day": "2018-04-26T00:00:00",
+        "MonthlyCumSum": 47820
+      },
+      {
+        "Count": 2697,
+        "Day": "2018-04-27T00:00:00",
+        "MonthlyCumSum": 50517
+      },
+      {
+        "Count": 468,
+        "Day": "2018-04-28T00:00:00",
+        "MonthlyCumSum": 50985
+      },
+      {
+        "Count": 1404,
+        "Day": "2018-04-29T00:00:00",
+        "MonthlyCumSum": 52389
+      },
+      {
+        "Count": 2058,
+        "Day": "2018-04-30T00:00:00",
+        "MonthlyCumSum": 54447
+      },
+      {
+        "Count": 3068,
+        "Day": "2018-05-01T00:00:00",
+        "MonthlyCumSum": 3068
+      },
+      {
+        "Count": 3123,
+        "Day": "2018-05-02T00:00:00",
+        "MonthlyCumSum": 6191
+      },
+      {
+        "Count": 2923,
+        "Day": "2018-05-03T00:00:00",
+        "MonthlyCumSum": 9114
+      },
+      {
+        "Count": 2374,
+        "Day": "2018-05-04T00:00:00",
+        "MonthlyCumSum": 11488
+      },
+      {
+        "Count": 2281,
+        "Day": "2018-05-05T00:00:00",
+        "MonthlyCumSum": 13769
+      },
+      {
+        "Count": 2207,
+        "Day": "2018-05-06T00:00:00",
+        "MonthlyCumSum": 15976
+      },
+      {
+        "Count": 3090,
+        "Day": "2018-05-07T00:00:00",
+        "MonthlyCumSum": 19066
+      },
+      {
+        "Count": 3147,
+        "Day": "2018-05-08T00:00:00",
+        "MonthlyCumSum": 22213
+      },
+      {
+        "Count": 2790,
+        "Day": "2018-05-09T00:00:00",
+        "MonthlyCumSum": 25003
+      },
+      {
+        "Count": 1594,
+        "Day": "2018-05-10T00:00:00",
+        "MonthlyCumSum": 26597
+      },
+      {
+        "Count": 2972,
+        "Day": "2018-05-11T00:00:00",
+        "MonthlyCumSum": 29569
+      },
+      {
+        "Count": 2204,
+        "Day": "2018-05-12T00:00:00",
+        "MonthlyCumSum": 31773
+      },
+      {
+        "Count": 2224,
+        "Day": "2018-05-13T00:00:00",
+        "MonthlyCumSum": 33997
+      },
+      {
+        "Count": 3291,
+        "Day": "2018-05-14T00:00:00",
+        "MonthlyCumSum": 37288
+      },
+      {
+        "Count": 3357,
+        "Day": "2018-05-15T00:00:00",
+        "MonthlyCumSum": 40645
+      },
+      {
+        "Count": 3074,
+        "Day": "2018-05-16T00:00:00",
+        "MonthlyCumSum": 43719
+      },
+      {
+        "Count": 2947,
+        "Day": "2018-05-17T00:00:00",
+        "MonthlyCumSum": 46666
+      },
+      {
+        "Count": 2506,
+        "Day": "2018-05-18T00:00:00",
+        "MonthlyCumSum": 49172
+      },
+      {
+        "Count": 2071,
+        "Day": "2018-05-19T00:00:00",
+        "MonthlyCumSum": 51243
+      },
+      {
+        "Count": 2022,
+        "Day": "2018-05-20T00:00:00",
+        "MonthlyCumSum": 53265
+      },
+      {
+        "Count": 2096,
+        "Day": "2018-05-21T00:00:00",
+        "MonthlyCumSum": 55361
+      },
+      {
+        "Count": 3285,
+        "Day": "2018-05-22T00:00:00",
+        "MonthlyCumSum": 58646
+      },
+      {
+        "Count": 3422,
+        "Day": "2018-05-23T00:00:00",
+        "MonthlyCumSum": 62068
+      },
+      {
+        "Count": 3212,
+        "Day": "2018-05-24T00:00:00",
+        "MonthlyCumSum": 65280
+      },
+      {
+        "Count": 3040,
+        "Day": "2018-05-25T00:00:00",
+        "MonthlyCumSum": 68320
+      },
+      {
+        "Count": 2130,
+        "Day": "2018-05-26T00:00:00",
+        "MonthlyCumSum": 70450
+      },
+      {
+        "Count": 2532,
+        "Day": "2018-05-27T00:00:00",
+        "MonthlyCumSum": 72982
+      },
+      {
+        "Count": 3833,
+        "Day": "2018-05-28T00:00:00",
+        "MonthlyCumSum": 76815
+      },
+      {
+        "Count": 3666,
+        "Day": "2018-05-29T00:00:00",
+        "MonthlyCumSum": 80481
+      },
+      {
+        "Count": 3547,
+        "Day": "2018-05-30T00:00:00",
+        "MonthlyCumSum": 84028
+      },
+      {
+        "Count": 3444,
+        "Day": "2018-05-31T00:00:00",
+        "MonthlyCumSum": 87472
+      },
+      {
+        "Count": 2962,
+        "Day": "2018-06-01T00:00:00",
+        "MonthlyCumSum": 2962
+      },
+      {
+        "Count": 2261,
+        "Day": "2018-06-02T00:00:00",
+        "MonthlyCumSum": 5223
+      },
+      {
+        "Count": 1085,
+        "Day": "2018-06-03T00:00:00",
+        "MonthlyCumSum": 6308
+      },
+      {
+        "Count": 3040,
+        "Day": "2018-06-04T00:00:00",
+        "MonthlyCumSum": 9348
+      },
+      {
+        "Count": 2911,
+        "Day": "2018-06-05T00:00:00",
+        "MonthlyCumSum": 12259
+      },
+      {
+        "Count": 3172,
+        "Day": "2018-06-06T00:00:00",
+        "MonthlyCumSum": 15431
+      },
+      {
+        "Count": 2712,
+        "Day": "2018-06-07T00:00:00",
+        "MonthlyCumSum": 18143
+      },
+      {
+        "Count": 1761,
+        "Day": "2018-06-08T00:00:00",
+        "MonthlyCumSum": 19904
+      },
+      {
+        "Count": 1708,
+        "Day": "2018-06-09T00:00:00",
+        "MonthlyCumSum": 21612
+      },
+      {
+        "Count": 1809,
+        "Day": "2018-06-10T00:00:00",
+        "MonthlyCumSum": 23421
+      },
+      {
+        "Count": 3211,
+        "Day": "2018-06-11T00:00:00",
+        "MonthlyCumSum": 26632
+      },
+      {
+        "Count": 2950,
+        "Day": "2018-06-12T00:00:00",
+        "MonthlyCumSum": 29582
+      },
+      {
+        "Count": 2375,
+        "Day": "2018-06-13T00:00:00",
+        "MonthlyCumSum": 31957
+      },
+      {
+        "Count": 3183,
+        "Day": "2018-06-14T00:00:00",
+        "MonthlyCumSum": 35140
+      },
+      {
+        "Count": 2674,
+        "Day": "2018-06-15T00:00:00",
+        "MonthlyCumSum": 37814
+      },
+      {
+        "Count": 2590,
+        "Day": "2018-06-16T00:00:00",
+        "MonthlyCumSum": 40404
+      },
+      {
+        "Count": 2809,
+        "Day": "2018-06-17T00:00:00",
+        "MonthlyCumSum": 43213
+      },
+      {
+        "Count": 3378,
+        "Day": "2018-06-18T00:00:00",
+        "MonthlyCumSum": 46591
+      },
+      {
+        "Count": 3586,
+        "Day": "2018-06-19T00:00:00",
+        "MonthlyCumSum": 50177
+      },
+      {
+        "Count": 3301,
+        "Day": "2018-06-20T00:00:00",
+        "MonthlyCumSum": 53478
+      },
+      {
+        "Count": 3308,
+        "Day": "2018-06-21T00:00:00",
+        "MonthlyCumSum": 56786
+      },
+      {
+        "Count": 2585,
+        "Day": "2018-06-22T00:00:00",
+        "MonthlyCumSum": 59371
+      },
+      {
+        "Count": 2200,
+        "Day": "2018-06-23T00:00:00",
+        "MonthlyCumSum": 61571
+      },
+      {
+        "Count": 2185,
+        "Day": "2018-06-24T00:00:00",
+        "MonthlyCumSum": 63756
+      },
+      {
+        "Count": 2887,
+        "Day": "2018-06-25T00:00:00",
+        "MonthlyCumSum": 66643
+      },
+      {
+        "Count": 3435,
+        "Day": "2018-06-26T00:00:00",
+        "MonthlyCumSum": 70078
+      },
+      {
+        "Count": 3244,
+        "Day": "2018-06-27T00:00:00",
+        "MonthlyCumSum": 73322
+      },
+      {
+        "Count": 2666,
+        "Day": "2018-06-28T00:00:00",
+        "MonthlyCumSum": 75988
+      },
+      {
+        "Count": 2094,
+        "Day": "2018-06-29T00:00:00",
+        "MonthlyCumSum": 78082
+      },
+      {
+        "Count": 1024,
+        "Day": "2018-06-30T00:00:00",
+        "MonthlyCumSum": 79106
+      },
+      {
+        "Count": 2647,
+        "Day": "2018-07-01T00:00:00",
+        "MonthlyCumSum": 2647
+      },
+      {
+        "Count": 2131,
+        "Day": "2018-07-02T00:00:00",
+        "MonthlyCumSum": 4778
+      },
+      {
+        "Count": 3266,
+        "Day": "2018-07-03T00:00:00",
+        "MonthlyCumSum": 8044
+      },
+      {
+        "Count": 3276,
+        "Day": "2018-07-04T00:00:00",
+        "MonthlyCumSum": 11320
+      },
+      {
+        "Count": 3221,
+        "Day": "2018-07-05T00:00:00",
+        "MonthlyCumSum": 14541
+      },
+      {
+        "Count": 3075,
+        "Day": "2018-07-06T00:00:00",
+        "MonthlyCumSum": 17616
+      },
+      {
+        "Count": 2044,
+        "Day": "2018-07-07T00:00:00",
+        "MonthlyCumSum": 19660
+      },
+      {
+        "Count": 2537,
+        "Day": "2018-07-08T00:00:00",
+        "MonthlyCumSum": 22197
+      },
+      {
+        "Count": 2827,
+        "Day": "2018-07-09T00:00:00",
+        "MonthlyCumSum": 25024
+      },
+      {
+        "Count": 3416,
+        "Day": "2018-07-10T00:00:00",
+        "MonthlyCumSum": 28440
+      },
+      {
+        "Count": 3496,
+        "Day": "2018-07-11T00:00:00",
+        "MonthlyCumSum": 31936
+      },
+      {
+        "Count": 3273,
+        "Day": "2018-07-12T00:00:00",
+        "MonthlyCumSum": 35209
+      },
+      {
+        "Count": 3106,
+        "Day": "2018-07-13T00:00:00",
+        "MonthlyCumSum": 38315
+      },
+      {
+        "Count": 2706,
+        "Day": "2018-07-14T00:00:00",
+        "MonthlyCumSum": 41021
+      },
+      {
+        "Count": 2699,
+        "Day": "2018-07-15T00:00:00",
+        "MonthlyCumSum": 43720
+      },
+      {
+        "Count": 3189,
+        "Day": "2018-07-16T00:00:00",
+        "MonthlyCumSum": 46909
+      },
+      {
+        "Count": 3498,
+        "Day": "2018-07-17T00:00:00",
+        "MonthlyCumSum": 50407
+      },
+      {
+        "Count": 3442,
+        "Day": "2018-07-18T00:00:00",
+        "MonthlyCumSum": 53849
+      },
+      {
+        "Count": 3201,
+        "Day": "2018-07-19T00:00:00",
+        "MonthlyCumSum": 57050
+      },
+      {
+        "Count": 2925,
+        "Day": "2018-07-20T00:00:00",
+        "MonthlyCumSum": 59975
+      },
+      {
+        "Count": 2379,
+        "Day": "2018-07-21T00:00:00",
+        "MonthlyCumSum": 62354
+      },
+      {
+        "Count": 2255,
+        "Day": "2018-07-22T00:00:00",
+        "MonthlyCumSum": 64609
+      },
+      {
+        "Count": 3274,
+        "Day": "2018-07-23T00:00:00",
+        "MonthlyCumSum": 67883
+      },
+      {
+        "Count": 3435,
+        "Day": "2018-07-24T00:00:00",
+        "MonthlyCumSum": 71318
+      },
+      {
+        "Count": 3453,
+        "Day": "2018-07-25T00:00:00",
+        "MonthlyCumSum": 74771
+      },
+      {
+        "Count": 3271,
+        "Day": "2018-07-26T00:00:00",
+        "MonthlyCumSum": 78042
+      },
+      {
+        "Count": 3001,
+        "Day": "2018-07-27T00:00:00",
+        "MonthlyCumSum": 81043
+      },
+      {
+        "Count": 2308,
+        "Day": "2018-07-28T00:00:00",
+        "MonthlyCumSum": 83351
+      },
+      {
+        "Count": 2379,
+        "Day": "2018-07-29T00:00:00",
+        "MonthlyCumSum": 85730
+      },
+      {
+        "Count": 2986,
+        "Day": "2018-07-30T00:00:00",
+        "MonthlyCumSum": 88716
+      },
+      {
+        "Count": 3330,
+        "Day": "2018-07-31T00:00:00",
+        "MonthlyCumSum": 92046
+      },
+      {
+        "Count": 3301,
+        "Day": "2018-08-01T00:00:00",
+        "MonthlyCumSum": 3301
+      },
+      {
+        "Count": 2891,
+        "Day": "2018-08-02T00:00:00",
+        "MonthlyCumSum": 6192
+      },
+      {
+        "Count": 2635,
+        "Day": "2018-08-03T00:00:00",
+        "MonthlyCumSum": 8827
+      },
+      {
+        "Count": 2400,
+        "Day": "2018-08-04T00:00:00",
+        "MonthlyCumSum": 11227
+      },
+      {
+        "Count": 2582,
+        "Day": "2018-08-05T00:00:00",
+        "MonthlyCumSum": 13809
+      },
+      {
+        "Count": 2429,
+        "Day": "2018-08-06T00:00:00",
+        "MonthlyCumSum": 16238
+      },
+      {
+        "Count": 3124,
+        "Day": "2018-08-07T00:00:00",
+        "MonthlyCumSum": 19362
+      },
+      {
+        "Count": 3273,
+        "Day": "2018-08-08T00:00:00",
+        "MonthlyCumSum": 22635
+      },
+      {
+        "Count": 3265,
+        "Day": "2018-08-09T00:00:00",
+        "MonthlyCumSum": 25900
+      },
+      {
+        "Count": 2865,
+        "Day": "2018-08-10T00:00:00",
+        "MonthlyCumSum": 28765
+      },
+      {
+        "Count": 1683,
+        "Day": "2018-08-11T00:00:00",
+        "MonthlyCumSum": 30448
+      },
+      {
+        "Count": 2105,
+        "Day": "2018-08-12T00:00:00",
+        "MonthlyCumSum": 32553
+      },
+      {
+        "Count": 2917,
+        "Day": "2018-08-13T00:00:00",
+        "MonthlyCumSum": 35470
+      },
+      {
+        "Count": 3165,
+        "Day": "2018-08-14T00:00:00",
+        "MonthlyCumSum": 38635
+      },
+      {
+        "Count": 3078,
+        "Day": "2018-08-15T00:00:00",
+        "MonthlyCumSum": 41713
+      },
+      {
+        "Count": 3119,
+        "Day": "2018-08-16T00:00:00",
+        "MonthlyCumSum": 44832
+      },
+      {
+        "Count": 2914,
+        "Day": "2018-08-17T00:00:00",
+        "MonthlyCumSum": 47746
+      },
+      {
+        "Count": 2229,
+        "Day": "2018-08-18T00:00:00",
+        "MonthlyCumSum": 49975
+      },
+      {
+        "Count": 1942,
+        "Day": "2018-08-19T00:00:00",
+        "MonthlyCumSum": 51917
+      },
+      {
+        "Count": 2433,
+        "Day": "2018-08-20T00:00:00",
+        "MonthlyCumSum": 54350
+      },
+      {
+        "Count": 2239,
+        "Day": "2018-08-21T00:00:00",
+        "MonthlyCumSum": 56589
+      },
+      {
+        "Count": 2408,
+        "Day": "2018-08-22T00:00:00",
+        "MonthlyCumSum": 58997
+      },
+      {
+        "Count": 2471,
+        "Day": "2018-08-23T00:00:00",
+        "MonthlyCumSum": 61468
+      },
+      {
+        "Count": 2510,
+        "Day": "2018-08-24T00:00:00",
+        "MonthlyCumSum": 63978
+      },
+      {
+        "Count": 1383,
+        "Day": "2018-08-25T00:00:00",
+        "MonthlyCumSum": 65361
+      },
+      {
+        "Count": 1522,
+        "Day": "2018-08-26T00:00:00",
+        "MonthlyCumSum": 66883
+      },
+      {
+        "Count": 3116,
+        "Day": "2018-08-27T00:00:00",
+        "MonthlyCumSum": 69999
+      },
+      {
+        "Count": 3412,
+        "Day": "2018-08-28T00:00:00",
+        "MonthlyCumSum": 73411
+      },
+      {
+        "Count": 2638,
+        "Day": "2018-08-29T00:00:00",
+        "MonthlyCumSum": 76049
+      },
+      {
+        "Count": 2965,
+        "Day": "2018-08-30T00:00:00",
+        "MonthlyCumSum": 79014
+      },
+      {
+        "Count": 2565,
+        "Day": "2018-08-31T00:00:00",
+        "MonthlyCumSum": 81579
+      },
+      {
+        "Count": 2099,
+        "Day": "2018-09-01T00:00:00",
+        "MonthlyCumSum": 2099
+      },
+      {
+        "Count": 2210,
+        "Day": "2018-09-02T00:00:00",
+        "MonthlyCumSum": 4309
+      },
+      {
+        "Count": 2180,
+        "Day": "2018-09-03T00:00:00",
+        "MonthlyCumSum": 6489
+      },
+      {
+        "Count": 3027,
+        "Day": "2018-09-04T00:00:00",
+        "MonthlyCumSum": 9516
+      },
+      {
+        "Count": 3375,
+        "Day": "2018-09-05T00:00:00",
+        "MonthlyCumSum": 12891
+      },
+      {
+        "Count": 3285,
+        "Day": "2018-09-06T00:00:00",
+        "MonthlyCumSum": 16176
+      },
+      {
+        "Count": 2261,
+        "Day": "2018-09-07T00:00:00",
+        "MonthlyCumSum": 18437
+      },
+      {
+        "Count": 1270,
+        "Day": "2018-09-08T00:00:00",
+        "MonthlyCumSum": 19707
+      },
+      {
+        "Count": 751,
+        "Day": "2018-09-09T00:00:00",
+        "MonthlyCumSum": 20458
+      },
+      {
+        "Count": 2433,
+        "Day": "2018-09-10T00:00:00",
+        "MonthlyCumSum": 22891
+      },
+      {
+        "Count": 2363,
+        "Day": "2018-09-11T00:00:00",
+        "MonthlyCumSum": 25254
+      },
+      {
+        "Count": 2794,
+        "Day": "2018-09-12T00:00:00",
+        "MonthlyCumSum": 28048
+      },
+      {
+        "Count": 2680,
+        "Day": "2018-09-13T00:00:00",
+        "MonthlyCumSum": 30728
+      },
+      {
+        "Count": 2249,
+        "Day": "2018-09-14T00:00:00",
+        "MonthlyCumSum": 32977
+      },
+      {
+        "Count": 901,
+        "Day": "2018-09-15T00:00:00",
+        "MonthlyCumSum": 33878
+      },
+      {
+        "Count": 935,
+        "Day": "2018-09-16T00:00:00",
+        "MonthlyCumSum": 34813
+      },
+      {
+        "Count": 2713,
+        "Day": "2018-09-17T00:00:00",
+        "MonthlyCumSum": 37526
+      },
+      {
+        "Count": 3100,
+        "Day": "2018-09-18T00:00:00",
+        "MonthlyCumSum": 40626
+      },
+      {
+        "Count": 2788,
+        "Day": "2018-09-19T00:00:00",
+        "MonthlyCumSum": 43414
+      },
+      {
+        "Count": 2210,
+        "Day": "2018-09-20T00:00:00",
+        "MonthlyCumSum": 45624
+      },
+      {
+        "Count": 1889,
+        "Day": "2018-09-21T00:00:00",
+        "MonthlyCumSum": 47513
+      },
+      {
+        "Count": 1228,
+        "Day": "2018-09-22T00:00:00",
+        "MonthlyCumSum": 48741
+      },
+      {
+        "Count": 1656,
+        "Day": "2018-09-23T00:00:00",
+        "MonthlyCumSum": 50397
+      },
+      {
+        "Count": 2484,
+        "Day": "2018-09-24T00:00:00",
+        "MonthlyCumSum": 52881
+      },
+      {
+        "Count": 2768,
+        "Day": "2018-09-25T00:00:00",
+        "MonthlyCumSum": 55649
+      },
+      {
+        "Count": 3005,
+        "Day": "2018-09-26T00:00:00",
+        "MonthlyCumSum": 58654
+      },
+      {
+        "Count": 2971,
+        "Day": "2018-09-27T00:00:00",
+        "MonthlyCumSum": 61625
+      },
+      {
+        "Count": 2723,
+        "Day": "2018-09-28T00:00:00",
+        "MonthlyCumSum": 64348
+      },
+      {
+        "Count": 1442,
+        "Day": "2018-09-29T00:00:00",
+        "MonthlyCumSum": 65790
+      },
+      {
+        "Count": 578,
+        "Day": "2018-09-30T00:00:00",
+        "MonthlyCumSum": 66368
+      },
+      {
+        "Count": 1843,
+        "Day": "2018-10-01T00:00:00",
+        "MonthlyCumSum": 1843
+      },
+      {
+        "Count": 2456,
+        "Day": "2018-10-02T00:00:00",
+        "MonthlyCumSum": 4299
+      },
+      {
+        "Count": 2326,
+        "Day": "2018-10-03T00:00:00",
+        "MonthlyCumSum": 6625
+      },
+      {
+        "Count": 2408,
+        "Day": "2018-10-04T00:00:00",
+        "MonthlyCumSum": 9033
+      },
+      {
+        "Count": 1209,
+        "Day": "2018-10-05T00:00:00",
+        "MonthlyCumSum": 10242
+      },
+      {
+        "Count": 1581,
+        "Day": "2018-10-06T00:00:00",
+        "MonthlyCumSum": 11823
+      },
+      {
+        "Count": 374,
+        "Day": "2018-10-07T00:00:00",
+        "MonthlyCumSum": 12197
+      },
+      {
+        "Count": 376,
+        "Day": "2018-10-08T00:00:00",
+        "MonthlyCumSum": 12573
+      },
+      {
+        "Count": 2552,
+        "Day": "2018-10-09T00:00:00",
+        "MonthlyCumSum": 15125
+      },
+      {
+        "Count": 2587,
+        "Day": "2018-10-10T00:00:00",
+        "MonthlyCumSum": 17712
+      },
+      {
+        "Count": 2705,
+        "Day": "2018-10-11T00:00:00",
+        "MonthlyCumSum": 20417
+      },
+      {
+        "Count": 2441,
+        "Day": "2018-10-12T00:00:00",
+        "MonthlyCumSum": 22858
+      },
+      {
+        "Count": 1661,
+        "Day": "2018-10-13T00:00:00",
+        "MonthlyCumSum": 24519
+      },
+      {
+        "Count": 1613,
+        "Day": "2018-10-14T00:00:00",
+        "MonthlyCumSum": 26132
+      },
+      {
+        "Count": 2488,
+        "Day": "2018-10-15T00:00:00",
+        "MonthlyCumSum": 28620
+      },
+      {
+        "Count": 2786,
+        "Day": "2018-10-16T00:00:00",
+        "MonthlyCumSum": 31406
+      },
+      {
+        "Count": 2631,
+        "Day": "2018-10-17T00:00:00",
+        "MonthlyCumSum": 34037
+      },
+      {
+        "Count": 2553,
+        "Day": "2018-10-18T00:00:00",
+        "MonthlyCumSum": 36590
+      },
+      {
+        "Count": 2275,
+        "Day": "2018-10-19T00:00:00",
+        "MonthlyCumSum": 38865
+      },
+      {
+        "Count": 1308,
+        "Day": "2018-10-20T00:00:00",
+        "MonthlyCumSum": 40173
+      },
+      {
+        "Count": 1613,
+        "Day": "2018-10-21T00:00:00",
+        "MonthlyCumSum": 41786
+      },
+      {
+        "Count": 2346,
+        "Day": "2018-10-22T00:00:00",
+        "MonthlyCumSum": 44132
+      },
+      {
+        "Count": 2237,
+        "Day": "2018-10-23T00:00:00",
+        "MonthlyCumSum": 46369
+      },
+      {
+        "Count": 2281,
+        "Day": "2018-10-24T00:00:00",
+        "MonthlyCumSum": 48650
+      },
+      {
+        "Count": 1799,
+        "Day": "2018-10-25T00:00:00",
+        "MonthlyCumSum": 50449
+      },
+      {
+        "Count": 1889,
+        "Day": "2018-10-26T00:00:00",
+        "MonthlyCumSum": 52338
+      },
+      {
+        "Count": 943,
+        "Day": "2018-10-27T00:00:00",
+        "MonthlyCumSum": 53281
+      },
+      {
+        "Count": 777,
+        "Day": "2018-10-28T00:00:00",
+        "MonthlyCumSum": 54058
+      },
+      {
+        "Count": 1979,
+        "Day": "2018-10-29T00:00:00",
+        "MonthlyCumSum": 56037
+      },
+      {
+        "Count": 2071,
+        "Day": "2018-10-30T00:00:00",
+        "MonthlyCumSum": 58108
+      },
+      {
+        "Count": 1835,
+        "Day": "2018-10-31T00:00:00",
+        "MonthlyCumSum": 59943
+      },
+      {
+        "Count": 1362,
+        "Day": "2018-11-01T00:00:00",
+        "MonthlyCumSum": 1362
+      },
+      {
+        "Count": 1942,
+        "Day": "2018-11-02T00:00:00",
+        "MonthlyCumSum": 3304
+      },
+      {
+        "Count": 441,
+        "Day": "2018-11-03T00:00:00",
+        "MonthlyCumSum": 3745
+      },
+      {
+        "Count": 1166,
+        "Day": "2018-11-04T00:00:00",
+        "MonthlyCumSum": 4911
+      },
+      {
+        "Count": 2015,
+        "Day": "2018-11-05T00:00:00",
+        "MonthlyCumSum": 6926
+      },
+      {
+        "Count": 2221,
+        "Day": "2018-11-06T00:00:00",
+        "MonthlyCumSum": 9147
+      },
+      {
+        "Count": 2397,
+        "Day": "2018-11-07T00:00:00",
+        "MonthlyCumSum": 11544
+      },
+      {
+        "Count": 2211,
+        "Day": "2018-11-08T00:00:00",
+        "MonthlyCumSum": 13755
+      },
+      {
+        "Count": 1231,
+        "Day": "2018-11-09T00:00:00",
+        "MonthlyCumSum": 14986
+      },
+      {
+        "Count": 1151,
+        "Day": "2018-11-10T00:00:00",
+        "MonthlyCumSum": 16137
+      },
+      {
+        "Count": 1004,
+        "Day": "2018-11-11T00:00:00",
+        "MonthlyCumSum": 17141
+      },
+      {
+        "Count": 1012,
+        "Day": "2018-11-12T00:00:00",
+        "MonthlyCumSum": 18153
+      },
+      {
+        "Count": 1905,
+        "Day": "2018-11-13T00:00:00",
+        "MonthlyCumSum": 20058
+      },
+      {
+        "Count": 1648,
+        "Day": "2018-11-14T00:00:00",
+        "MonthlyCumSum": 21706
+      },
+      {
+        "Count": 1998,
+        "Day": "2018-11-15T00:00:00",
+        "MonthlyCumSum": 23704
+      },
+      {
+        "Count": 1883,
+        "Day": "2018-11-16T00:00:00",
+        "MonthlyCumSum": 25587
+      },
+      {
+        "Count": 1222,
+        "Day": "2018-11-17T00:00:00",
+        "MonthlyCumSum": 26809
+      },
+      {
+        "Count": 1044,
+        "Day": "2018-11-18T00:00:00",
+        "MonthlyCumSum": 27853
+      },
+      {
+        "Count": 1975,
+        "Day": "2018-11-19T00:00:00",
+        "MonthlyCumSum": 29828
+      },
+      {
+        "Count": 1998,
+        "Day": "2018-11-20T00:00:00",
+        "MonthlyCumSum": 31826
+      },
+      {
+        "Count": 1704,
+        "Day": "2018-11-21T00:00:00",
+        "MonthlyCumSum": 33530
+      },
+      {
+        "Count": 1625,
+        "Day": "2018-11-22T00:00:00",
+        "MonthlyCumSum": 35155
+      },
+      {
+        "Count": 1188,
+        "Day": "2018-11-23T00:00:00",
+        "MonthlyCumSum": 36343
+      },
+      {
+        "Count": 996,
+        "Day": "2018-11-24T00:00:00",
+        "MonthlyCumSum": 37339
+      },
+      {
+        "Count": 663,
+        "Day": "2018-11-25T00:00:00",
+        "MonthlyCumSum": 38002
+      },
+      {
+        "Count": 1254,
+        "Day": "2018-11-26T00:00:00",
+        "MonthlyCumSum": 39256
+      },
+      {
+        "Count": 1829,
+        "Day": "2018-11-27T00:00:00",
+        "MonthlyCumSum": 41085
+      },
+      {
+        "Count": 1691,
+        "Day": "2018-11-28T00:00:00",
+        "MonthlyCumSum": 42776
+      },
+      {
+        "Count": 1842,
+        "Day": "2018-11-29T00:00:00",
+        "MonthlyCumSum": 44618
+      },
+      {
+        "Count": 1525,
+        "Day": "2018-11-30T00:00:00",
+        "MonthlyCumSum": 46143
+      },
+      {
+        "Count": 835,
+        "Day": "2018-12-01T00:00:00",
+        "MonthlyCumSum": 835
+      },
+      {
+        "Count": 887,
+        "Day": "2018-12-02T00:00:00",
+        "MonthlyCumSum": 1722
+      },
+      {
+        "Count": 1714,
+        "Day": "2018-12-03T00:00:00",
+        "MonthlyCumSum": 3436
+      },
+      {
+        "Count": 1721,
+        "Day": "2018-12-04T00:00:00",
+        "MonthlyCumSum": 5157
+      },
+      {
+        "Count": 1683,
+        "Day": "2018-12-05T00:00:00",
+        "MonthlyCumSum": 6840
+      },
+      {
+        "Count": 1518,
+        "Day": "2018-12-06T00:00:00",
+        "MonthlyCumSum": 8358
+      },
+      {
+        "Count": 1401,
+        "Day": "2018-12-07T00:00:00",
+        "MonthlyCumSum": 9759
+      },
+      {
+        "Count": 752,
+        "Day": "2018-12-08T00:00:00",
+        "MonthlyCumSum": 10511
+      },
+      {
+        "Count": 352,
+        "Day": "2018-12-09T00:00:00",
+        "MonthlyCumSum": 10863
+      },
+      {
+        "Count": 1499,
+        "Day": "2018-12-10T00:00:00",
+        "MonthlyCumSum": 12362
+      },
+      {
+        "Count": 957,
+        "Day": "2018-12-11T00:00:00",
+        "MonthlyCumSum": 13319
+      },
+      {
+        "Count": 1447,
+        "Day": "2018-12-12T00:00:00",
+        "MonthlyCumSum": 14766
+      },
+      {
+        "Count": 1157,
+        "Day": "2018-12-13T00:00:00",
+        "MonthlyCumSum": 15923
+      },
+      {
+        "Count": 1327,
+        "Day": "2018-12-14T00:00:00",
+        "MonthlyCumSum": 17250
+      },
+      {
+        "Count": 727,
+        "Day": "2018-12-15T00:00:00",
+        "MonthlyCumSum": 17977
+      },
+      {
+        "Count": 313,
+        "Day": "2018-12-16T00:00:00",
+        "MonthlyCumSum": 18290
+      },
+      {
+        "Count": 1464,
+        "Day": "2018-12-17T00:00:00",
+        "MonthlyCumSum": 19754
+      },
+      {
+        "Count": 1157,
+        "Day": "2018-12-18T00:00:00",
+        "MonthlyCumSum": 20911
+      },
+      {
+        "Count": 1321,
+        "Day": "2018-12-19T00:00:00",
+        "MonthlyCumSum": 22232
+      },
+      {
+        "Count": 964,
+        "Day": "2018-12-20T00:00:00",
+        "MonthlyCumSum": 23196
+      },
+      {
+        "Count": 1204,
+        "Day": "2018-12-21T00:00:00",
+        "MonthlyCumSum": 24400
+      },
+      {
+        "Count": 398,
+        "Day": "2018-12-22T00:00:00",
+        "MonthlyCumSum": 24798
+      },
+      {
+        "Count": 392,
+        "Day": "2018-12-23T00:00:00",
+        "MonthlyCumSum": 25190
+      },
+      {
+        "Count": 633,
+        "Day": "2018-12-24T00:00:00",
+        "MonthlyCumSum": 25823
+      },
+      {
+        "Count": 336,
+        "Day": "2018-12-25T00:00:00",
+        "MonthlyCumSum": 26159
+      },
+      {
+        "Count": 325,
+        "Day": "2018-12-26T00:00:00",
+        "MonthlyCumSum": 26484
+      },
+      {
+        "Count": 959,
+        "Day": "2018-12-27T00:00:00",
+        "MonthlyCumSum": 27443
+      },
+      {
+        "Count": 431,
+        "Day": "2018-12-28T00:00:00",
+        "MonthlyCumSum": 27874
+      },
+      {
+        "Count": 240,
+        "Day": "2018-12-29T00:00:00",
+        "MonthlyCumSum": 28114
+      },
+      {
+        "Count": 1014,
+        "Day": "2018-12-30T00:00:00",
+        "MonthlyCumSum": 29128
+      },
+      {
+        "Count": 947,
+        "Day": "2018-12-31T00:00:00",
+        "MonthlyCumSum": 30075
+      },
+      {
+        "Count": 605,
+        "Day": "2019-01-01T00:00:00",
+        "MonthlyCumSum": 605
+      },
+      {
+        "Count": 1077,
+        "Day": "2019-01-02T00:00:00",
+        "MonthlyCumSum": 1682
+      },
+      {
+        "Count": 713,
+        "Day": "2019-01-03T00:00:00",
+        "MonthlyCumSum": 2395
+      },
+      {
+        "Count": 1399,
+        "Day": "2019-01-04T00:00:00",
+        "MonthlyCumSum": 3794
+      },
+      {
+        "Count": 775,
+        "Day": "2019-01-05T00:00:00",
+        "MonthlyCumSum": 4569
+      },
+      {
+        "Count": 698,
+        "Day": "2019-01-06T00:00:00",
+        "MonthlyCumSum": 5267
+      },
+      {
+        "Count": 1786,
+        "Day": "2019-01-07T00:00:00",
+        "MonthlyCumSum": 7053
+      },
+      {
+        "Count": 1417,
+        "Day": "2019-01-08T00:00:00",
+        "MonthlyCumSum": 8470
+      },
+      {
+        "Count": 1479,
+        "Day": "2019-01-09T00:00:00",
+        "MonthlyCumSum": 9949
+      },
+      {
+        "Count": 1690,
+        "Day": "2019-01-10T00:00:00",
+        "MonthlyCumSum": 11639
+      },
+      {
+        "Count": 1680,
+        "Day": "2019-01-11T00:00:00",
+        "MonthlyCumSum": 13319
+      },
+      {
+        "Count": 1243,
+        "Day": "2019-01-12T00:00:00",
+        "MonthlyCumSum": 14562
+      },
+      {
+        "Count": 1415,
+        "Day": "2019-01-13T00:00:00",
+        "MonthlyCumSum": 15977
+      },
+      {
+        "Count": 1849,
+        "Day": "2019-01-14T00:00:00",
+        "MonthlyCumSum": 17826
+      },
+      {
+        "Count": 1853,
+        "Day": "2019-01-15T00:00:00",
+        "MonthlyCumSum": 19679
+      },
+      {
+        "Count": 1732,
+        "Day": "2019-01-16T00:00:00",
+        "MonthlyCumSum": 21411
+      },
+      {
+        "Count": 1594,
+        "Day": "2019-01-17T00:00:00",
+        "MonthlyCumSum": 23005
+      },
+      {
+        "Count": 1370,
+        "Day": "2019-01-18T00:00:00",
+        "MonthlyCumSum": 24375
+      },
+      {
+        "Count": 723,
+        "Day": "2019-01-19T00:00:00",
+        "MonthlyCumSum": 25098
+      },
+      {
+        "Count": 973,
+        "Day": "2019-01-20T00:00:00",
+        "MonthlyCumSum": 26071
+      },
+      {
+        "Count": 1603,
+        "Day": "2019-01-21T00:00:00",
+        "MonthlyCumSum": 27674
+      },
+      {
+        "Count": 1316,
+        "Day": "2019-01-22T00:00:00",
+        "MonthlyCumSum": 28990
+      },
+      {
+        "Count": 1740,
+        "Day": "2019-01-23T00:00:00",
+        "MonthlyCumSum": 30730
+      },
+      {
+        "Count": 1770,
+        "Day": "2019-01-24T00:00:00",
+        "MonthlyCumSum": 32500
+      },
+      {
+        "Count": 1638,
+        "Day": "2019-01-25T00:00:00",
+        "MonthlyCumSum": 34138
+      },
+      {
+        "Count": 1055,
+        "Day": "2019-01-26T00:00:00",
+        "MonthlyCumSum": 35193
+      },
+      {
+        "Count": 955,
+        "Day": "2019-01-27T00:00:00",
+        "MonthlyCumSum": 36148
+      },
+      {
+        "Count": 1861,
+        "Day": "2019-01-28T00:00:00",
+        "MonthlyCumSum": 38009
+      },
+      {
+        "Count": 2053,
+        "Day": "2019-01-29T00:00:00",
+        "MonthlyCumSum": 40062
+      },
+      {
+        "Count": 1893,
+        "Day": "2019-01-30T00:00:00",
+        "MonthlyCumSum": 41955
+      },
+      {
+        "Count": 1757,
+        "Day": "2019-01-31T00:00:00",
+        "MonthlyCumSum": 43712
+      },
+      {
+        "Count": 1121,
+        "Day": "2019-02-01T00:00:00",
+        "MonthlyCumSum": 1121
+      },
+      {
+        "Count": 942,
+        "Day": "2019-02-02T00:00:00",
+        "MonthlyCumSum": 2063
+      },
+      {
+        "Count": 407,
+        "Day": "2019-02-03T00:00:00",
+        "MonthlyCumSum": 2470
+      },
+      {
+        "Count": 507,
+        "Day": "2019-02-04T00:00:00",
+        "MonthlyCumSum": 2977
+      },
+      {
+        "Count": 965,
+        "Day": "2019-02-05T00:00:00",
+        "MonthlyCumSum": 3942
+      },
+      {
+        "Count": 1240,
+        "Day": "2019-02-06T00:00:00",
+        "MonthlyCumSum": 5182
+      },
+      {
+        "Count": 1102,
+        "Day": "2019-02-07T00:00:00",
+        "MonthlyCumSum": 6284
+      },
+      {
+        "Count": 559,
+        "Day": "2019-02-08T00:00:00",
+        "MonthlyCumSum": 6843
+      },
+      {
+        "Count": 79,
+        "Day": "2019-02-09T00:00:00",
+        "MonthlyCumSum": 6922
+      },
+      {
+        "Count": 133,
+        "Day": "2019-02-10T00:00:00",
+        "MonthlyCumSum": 7055
+      },
+      {
+        "Count": 125,
+        "Day": "2019-02-11T00:00:00",
+        "MonthlyCumSum": 7180
+      },
+      {
+        "Count": 25,
+        "Day": "2019-02-12T00:00:00",
+        "MonthlyCumSum": 7205
+      },
+      {
+        "Count": 83,
+        "Day": "2019-02-13T00:00:00",
+        "MonthlyCumSum": 7288
+      },
+      {
+        "Count": 86,
+        "Day": "2019-02-14T00:00:00",
+        "MonthlyCumSum": 7374
+      },
+      {
+        "Count": 223,
+        "Day": "2019-02-15T00:00:00",
+        "MonthlyCumSum": 7597
+      },
+      {
+        "Count": 245,
+        "Day": "2019-02-16T00:00:00",
+        "MonthlyCumSum": 7842
+      },
+      {
+        "Count": 524,
+        "Day": "2019-02-17T00:00:00",
+        "MonthlyCumSum": 8366
+      },
+      {
+        "Count": 536,
+        "Day": "2019-02-18T00:00:00",
+        "MonthlyCumSum": 8902
+      },
+      {
+        "Count": 974,
+        "Day": "2019-02-19T00:00:00",
+        "MonthlyCumSum": 9876
+      },
+      {
+        "Count": 1312,
+        "Day": "2019-02-20T00:00:00",
+        "MonthlyCumSum": 11188
+      },
+      {
+        "Count": 1473,
+        "Day": "2019-02-21T00:00:00",
+        "MonthlyCumSum": 12661
+      },
+      {
+        "Count": 1158,
+        "Day": "2019-02-22T00:00:00",
+        "MonthlyCumSum": 13819
+      },
+      {
+        "Count": 723,
+        "Day": "2019-02-23T00:00:00",
+        "MonthlyCumSum": 14542
+      },
+      {
+        "Count": 577,
+        "Day": "2019-02-24T00:00:00",
+        "MonthlyCumSum": 15119
+      },
+      {
+        "Count": 1226,
+        "Day": "2019-02-25T00:00:00",
+        "MonthlyCumSum": 16345
+      },
+      {
+        "Count": 1321,
+        "Day": "2019-02-26T00:00:00",
+        "MonthlyCumSum": 17666
+      },
+      {
+        "Count": 1351,
+        "Day": "2019-02-27T00:00:00",
+        "MonthlyCumSum": 19017
+      },
+      {
+        "Count": 1483,
+        "Day": "2019-02-28T00:00:00",
+        "MonthlyCumSum": 20500
+      },
+      {
+        "Count": 1485,
+        "Day": "2019-03-01T00:00:00",
+        "MonthlyCumSum": 1485
+      },
+      {
+        "Count": 990,
+        "Day": "2019-03-02T00:00:00",
+        "MonthlyCumSum": 2475
+      },
+      {
+        "Count": 1084,
+        "Day": "2019-03-03T00:00:00",
+        "MonthlyCumSum": 3559
+      },
+      {
+        "Count": 1706,
+        "Day": "2019-03-04T00:00:00",
+        "MonthlyCumSum": 5265
+      },
+      {
+        "Count": 1781,
+        "Day": "2019-03-05T00:00:00",
+        "MonthlyCumSum": 7046
+      },
+      {
+        "Count": 1610,
+        "Day": "2019-03-06T00:00:00",
+        "MonthlyCumSum": 8656
+      },
+      {
+        "Count": 1621,
+        "Day": "2019-03-07T00:00:00",
+        "MonthlyCumSum": 10277
+      },
+      {
+        "Count": 1296,
+        "Day": "2019-03-08T00:00:00",
+        "MonthlyCumSum": 11573
+      },
+      {
+        "Count": 1073,
+        "Day": "2019-03-09T00:00:00",
+        "MonthlyCumSum": 12646
+      },
+      {
+        "Count": 1256,
+        "Day": "2019-03-10T00:00:00",
+        "MonthlyCumSum": 13902
+      },
+      {
+        "Count": 1469,
+        "Day": "2019-03-11T00:00:00",
+        "MonthlyCumSum": 15371
+      },
+      {
+        "Count": 1648,
+        "Day": "2019-03-12T00:00:00",
+        "MonthlyCumSum": 17019
+      },
+      {
+        "Count": 1843,
+        "Day": "2019-03-13T00:00:00",
+        "MonthlyCumSum": 18862
+      },
+      {
+        "Count": 1811,
+        "Day": "2019-03-14T00:00:00",
+        "MonthlyCumSum": 20673
+      },
+      {
+        "Count": 1888,
+        "Day": "2019-03-15T00:00:00",
+        "MonthlyCumSum": 22561
+      },
+      {
+        "Count": 1510,
+        "Day": "2019-03-16T00:00:00",
+        "MonthlyCumSum": 24071
+      },
+      {
+        "Count": 1935,
+        "Day": "2019-03-17T00:00:00",
+        "MonthlyCumSum": 26006
+      },
+      {
+        "Count": 2350,
+        "Day": "2019-03-18T00:00:00",
+        "MonthlyCumSum": 28356
+      },
+      {
+        "Count": 2608,
+        "Day": "2019-03-19T00:00:00",
+        "MonthlyCumSum": 30964
+      },
+      {
+        "Count": 2731,
+        "Day": "2019-03-20T00:00:00",
+        "MonthlyCumSum": 33695
+      },
+      {
+        "Count": 2392,
+        "Day": "2019-03-21T00:00:00",
+        "MonthlyCumSum": 36087
+      },
+      {
+        "Count": 1868,
+        "Day": "2019-03-22T00:00:00",
+        "MonthlyCumSum": 37955
+      },
+      {
+        "Count": 1440,
+        "Day": "2019-03-23T00:00:00",
+        "MonthlyCumSum": 39395
+      },
+      {
+        "Count": 1633,
+        "Day": "2019-03-24T00:00:00",
+        "MonthlyCumSum": 41028
+      },
+      {
+        "Count": 1857,
+        "Day": "2019-03-25T00:00:00",
+        "MonthlyCumSum": 42885
+      },
+      {
+        "Count": 2321,
+        "Day": "2019-03-26T00:00:00",
+        "MonthlyCumSum": 45206
+      },
+      {
+        "Count": 2503,
+        "Day": "2019-03-27T00:00:00",
+        "MonthlyCumSum": 47709
+      },
+      {
+        "Count": 2505,
+        "Day": "2019-03-28T00:00:00",
+        "MonthlyCumSum": 50214
+      },
+      {
+        "Count": 2422,
+        "Day": "2019-03-29T00:00:00",
+        "MonthlyCumSum": 52636
+      },
+      {
+        "Count": 2105,
+        "Day": "2019-03-30T00:00:00",
+        "MonthlyCumSum": 54741
+      },
+      {
+        "Count": 1986,
+        "Day": "2019-03-31T00:00:00",
+        "MonthlyCumSum": 56727
+      },
+      {
+        "Count": 2713,
+        "Day": "2019-04-01T00:00:00",
+        "MonthlyCumSum": 2713
+      },
+      {
+        "Count": 2780,
+        "Day": "2019-04-02T00:00:00",
+        "MonthlyCumSum": 5493
+      },
+      {
+        "Count": 2040,
+        "Day": "2019-04-03T00:00:00",
+        "MonthlyCumSum": 7533
+      },
+      {
+        "Count": 2531,
+        "Day": "2019-04-04T00:00:00",
+        "MonthlyCumSum": 10064
+      },
+      {
+        "Count": 1759,
+        "Day": "2019-04-05T00:00:00",
+        "MonthlyCumSum": 11823
+      },
+      {
+        "Count": 729,
+        "Day": "2019-04-06T00:00:00",
+        "MonthlyCumSum": 12552
+      },
+      {
+        "Count": 1844,
+        "Day": "2019-04-07T00:00:00",
+        "MonthlyCumSum": 14396
+      },
+      {
+        "Count": 1983,
+        "Day": "2019-04-08T00:00:00",
+        "MonthlyCumSum": 16379
+      },
+      {
+        "Count": 2563,
+        "Day": "2019-04-09T00:00:00",
+        "MonthlyCumSum": 18942
+      },
+      {
+        "Count": 1907,
+        "Day": "2019-04-10T00:00:00",
+        "MonthlyCumSum": 20849
+      },
+      {
+        "Count": 1563,
+        "Day": "2019-04-11T00:00:00",
+        "MonthlyCumSum": 22412
+      },
+      {
+        "Count": 2350,
+        "Day": "2019-04-12T00:00:00",
+        "MonthlyCumSum": 24762
+      },
+      {
+        "Count": 533,
+        "Day": "2019-04-13T00:00:00",
+        "MonthlyCumSum": 25295
+      },
+      {
+        "Count": 1089,
+        "Day": "2019-04-14T00:00:00",
+        "MonthlyCumSum": 26384
+      },
+      {
+        "Count": 2496,
+        "Day": "2019-04-15T00:00:00",
+        "MonthlyCumSum": 28880
+      },
+      {
+        "Count": 2348,
+        "Day": "2019-04-16T00:00:00",
+        "MonthlyCumSum": 31228
+      },
+      {
+        "Count": 2442,
+        "Day": "2019-04-17T00:00:00",
+        "MonthlyCumSum": 33670
+      },
+      {
+        "Count": 1226,
+        "Day": "2019-04-18T00:00:00",
+        "MonthlyCumSum": 34896
+      },
+      {
+        "Count": 1407,
+        "Day": "2019-04-19T00:00:00",
+        "MonthlyCumSum": 36303
+      },
+      {
+        "Count": 2183,
+        "Day": "2019-04-20T00:00:00",
+        "MonthlyCumSum": 38486
+      },
+      {
+        "Count": 1569,
+        "Day": "2019-04-21T00:00:00",
+        "MonthlyCumSum": 40055
+      },
+      {
+        "Count": 652,
+        "Day": "2019-04-22T00:00:00",
+        "MonthlyCumSum": 40707
+      },
+      {
+        "Count": 2757,
+        "Day": "2019-04-23T00:00:00",
+        "MonthlyCumSum": 43464
+      },
+      {
+        "Count": 2795,
+        "Day": "2019-04-24T00:00:00",
+        "MonthlyCumSum": 46259
+      },
+      {
+        "Count": 2662,
+        "Day": "2019-04-25T00:00:00",
+        "MonthlyCumSum": 48921
+      },
+      {
+        "Count": 2368,
+        "Day": "2019-04-26T00:00:00",
+        "MonthlyCumSum": 51289
+      },
+      {
+        "Count": 1295,
+        "Day": "2019-04-27T00:00:00",
+        "MonthlyCumSum": 52584
+      },
+      {
+        "Count": 2106,
+        "Day": "2019-04-28T00:00:00",
+        "MonthlyCumSum": 54690
+      },
+      {
+        "Count": 2946,
+        "Day": "2019-04-29T00:00:00",
+        "MonthlyCumSum": 57636
+      },
+      {
+        "Count": 3161,
+        "Day": "2019-04-30T00:00:00",
+        "MonthlyCumSum": 60797
+      },
+      {
+        "Count": 3041,
+        "Day": "2019-05-01T00:00:00",
+        "MonthlyCumSum": 3041
+      },
+      {
+        "Count": 2807,
+        "Day": "2019-05-02T00:00:00",
+        "MonthlyCumSum": 5848
+      },
+      {
+        "Count": 2576,
+        "Day": "2019-05-03T00:00:00",
+        "MonthlyCumSum": 8424
+      },
+      {
+        "Count": 2100,
+        "Day": "2019-05-04T00:00:00",
+        "MonthlyCumSum": 10524
+      },
+      {
+        "Count": 2219,
+        "Day": "2019-05-05T00:00:00",
+        "MonthlyCumSum": 12743
+      },
+      {
+        "Count": 3071,
+        "Day": "2019-05-06T00:00:00",
+        "MonthlyCumSum": 15814
+      },
+      {
+        "Count": 3419,
+        "Day": "2019-05-07T00:00:00",
+        "MonthlyCumSum": 19233
+      },
+      {
+        "Count": 3389,
+        "Day": "2019-05-08T00:00:00",
+        "MonthlyCumSum": 22622
+      },
+      {
+        "Count": 3446,
+        "Day": "2019-05-09T00:00:00",
+        "MonthlyCumSum": 26068
+      },
+      {
+        "Count": 3180,
+        "Day": "2019-05-10T00:00:00",
+        "MonthlyCumSum": 29248
+      },
+      {
+        "Count": 2127,
+        "Day": "2019-05-11T00:00:00",
+        "MonthlyCumSum": 31375
+      },
+      {
+        "Count": 1640,
+        "Day": "2019-05-12T00:00:00",
+        "MonthlyCumSum": 33015
+      },
+      {
+        "Count": 2920,
+        "Day": "2019-05-13T00:00:00",
+        "MonthlyCumSum": 35935
+      },
+      {
+        "Count": 2008,
+        "Day": "2019-05-14T00:00:00",
+        "MonthlyCumSum": 37943
+      },
+      {
+        "Count": 2949,
+        "Day": "2019-05-15T00:00:00",
+        "MonthlyCumSum": 40892
+      },
+      {
+        "Count": 2692,
+        "Day": "2019-05-16T00:00:00",
+        "MonthlyCumSum": 43584
+      },
+      {
+        "Count": 2238,
+        "Day": "2019-05-17T00:00:00",
+        "MonthlyCumSum": 45822
+      },
+      {
+        "Count": 2114,
+        "Day": "2019-05-18T00:00:00",
+        "MonthlyCumSum": 47936
+      },
+      {
+        "Count": 2241,
+        "Day": "2019-05-19T00:00:00",
+        "MonthlyCumSum": 50177
+      },
+      {
+        "Count": 724,
+        "Day": "2019-05-20T00:00:00",
+        "MonthlyCumSum": 50901
+      },
+      {
+        "Count": 2791,
+        "Day": "2019-05-21T00:00:00",
+        "MonthlyCumSum": 53692
+      },
+      {
+        "Count": 3601,
+        "Day": "2019-05-22T00:00:00",
+        "MonthlyCumSum": 57293
+      },
+      {
+        "Count": 3619,
+        "Day": "2019-05-23T00:00:00",
+        "MonthlyCumSum": 60912
+      },
+      {
+        "Count": 2801,
+        "Day": "2019-05-24T00:00:00",
+        "MonthlyCumSum": 63713
+      },
+      {
+        "Count": 692,
+        "Day": "2019-05-25T00:00:00",
+        "MonthlyCumSum": 64405
+      },
+      {
+        "Count": 2761,
+        "Day": "2019-05-26T00:00:00",
+        "MonthlyCumSum": 67166
+      },
+      {
+        "Count": 4289,
+        "Day": "2019-05-27T00:00:00",
+        "MonthlyCumSum": 71455
+      },
+      {
+        "Count": 3803,
+        "Day": "2019-05-28T00:00:00",
+        "MonthlyCumSum": 75258
+      },
+      {
+        "Count": 3927,
+        "Day": "2019-05-29T00:00:00",
+        "MonthlyCumSum": 79185
+      },
+      {
+        "Count": 3870,
+        "Day": "2019-05-30T00:00:00",
+        "MonthlyCumSum": 83055
+      },
+      {
+        "Count": 3770,
+        "Day": "2019-05-31T00:00:00",
+        "MonthlyCumSum": 86825
+      },
+      {
+        "Count": 2322,
+        "Day": "2019-06-01T00:00:00",
+        "MonthlyCumSum": 2322
+      },
+      {
+        "Count": 2339,
+        "Day": "2019-06-02T00:00:00",
+        "MonthlyCumSum": 4661
+      },
+      {
+        "Count": 3267,
+        "Day": "2019-06-03T00:00:00",
+        "MonthlyCumSum": 7928
+      },
+      {
+        "Count": 3709,
+        "Day": "2019-06-04T00:00:00",
+        "MonthlyCumSum": 11637
+      },
+      {
+        "Count": 3076,
+        "Day": "2019-06-05T00:00:00",
+        "MonthlyCumSum": 14713
+      },
+      {
+        "Count": 3177,
+        "Day": "2019-06-06T00:00:00",
+        "MonthlyCumSum": 17890
+      },
+      {
+        "Count": 2579,
+        "Day": "2019-06-07T00:00:00",
+        "MonthlyCumSum": 20469
+      },
+      {
+        "Count": 2319,
+        "Day": "2019-06-08T00:00:00",
+        "MonthlyCumSum": 22788
+      },
+      {
+        "Count": 2298,
+        "Day": "2019-06-09T00:00:00",
+        "MonthlyCumSum": 25086
+      },
+      {
+        "Count": 3292,
+        "Day": "2019-06-10T00:00:00",
+        "MonthlyCumSum": 28378
+      },
+      {
+        "Count": 4015,
+        "Day": "2019-06-11T00:00:00",
+        "MonthlyCumSum": 32393
+      },
+      {
+        "Count": 4029,
+        "Day": "2019-06-12T00:00:00",
+        "MonthlyCumSum": 36422
+      },
+      {
+        "Count": 3499,
+        "Day": "2019-06-13T00:00:00",
+        "MonthlyCumSum": 39921
+      },
+      {
+        "Count": 3121,
+        "Day": "2019-06-14T00:00:00",
+        "MonthlyCumSum": 43042
+      },
+      {
+        "Count": 2526,
+        "Day": "2019-06-15T00:00:00",
+        "MonthlyCumSum": 45568
+      },
+      {
+        "Count": 2948,
+        "Day": "2019-06-16T00:00:00",
+        "MonthlyCumSum": 48516
+      },
+      {
+        "Count": 3467,
+        "Day": "2019-06-17T00:00:00",
+        "MonthlyCumSum": 51983
+      },
+      {
+        "Count": 3478,
+        "Day": "2019-06-18T00:00:00",
+        "MonthlyCumSum": 55461
+      },
+      {
+        "Count": 3228,
+        "Day": "2019-06-19T00:00:00",
+        "MonthlyCumSum": 58689
+      },
+      {
+        "Count": 3177,
+        "Day": "2019-06-20T00:00:00",
+        "MonthlyCumSum": 61866
+      },
+      {
+        "Count": 3323,
+        "Day": "2019-06-21T00:00:00",
+        "MonthlyCumSum": 65189
+      },
+      {
+        "Count": 2320,
+        "Day": "2019-06-22T00:00:00",
+        "MonthlyCumSum": 67509
+      },
+      {
+        "Count": 1955,
+        "Day": "2019-06-23T00:00:00",
+        "MonthlyCumSum": 69464
+      },
+      {
+        "Count": 3234,
+        "Day": "2019-06-24T00:00:00",
+        "MonthlyCumSum": 72698
+      },
+      {
+        "Count": 3689,
+        "Day": "2019-06-25T00:00:00",
+        "MonthlyCumSum": 76387
+      },
+      {
+        "Count": 3501,
+        "Day": "2019-06-26T00:00:00",
+        "MonthlyCumSum": 79888
+      },
+      {
+        "Count": 2007,
+        "Day": "2019-06-27T00:00:00",
+        "MonthlyCumSum": 81895
+      },
+      {
+        "Count": 3016,
+        "Day": "2019-06-28T00:00:00",
+        "MonthlyCumSum": 84911
+      },
+      {
+        "Count": 2335,
+        "Day": "2019-06-29T00:00:00",
+        "MonthlyCumSum": 87246
+      },
+      {
+        "Count": 2581,
+        "Day": "2019-06-30T00:00:00",
+        "MonthlyCumSum": 89827
+      },
+      {
+        "Count": 3222,
+        "Day": "2019-07-01T00:00:00",
+        "MonthlyCumSum": 3222
+      },
+      {
+        "Count": 2190,
+        "Day": "2019-07-02T00:00:00",
+        "MonthlyCumSum": 5412
+      },
+      {
+        "Count": 3449,
+        "Day": "2019-07-03T00:00:00",
+        "MonthlyCumSum": 8861
+      },
+      {
+        "Count": 3418,
+        "Day": "2019-07-04T00:00:00",
+        "MonthlyCumSum": 12279
+      },
+      {
+        "Count": 2799,
+        "Day": "2019-07-05T00:00:00",
+        "MonthlyCumSum": 15078
+      },
+      {
+        "Count": 2511,
+        "Day": "2019-07-06T00:00:00",
+        "MonthlyCumSum": 17589
+      },
+      {
+        "Count": 1817,
+        "Day": "2019-07-07T00:00:00",
+        "MonthlyCumSum": 19406
+      },
+      {
+        "Count": 3471,
+        "Day": "2019-07-08T00:00:00",
+        "MonthlyCumSum": 22877
+      },
+      {
+        "Count": 3140,
+        "Day": "2019-07-09T00:00:00",
+        "MonthlyCumSum": 26017
+      },
+      {
+        "Count": 2119,
+        "Day": "2019-07-10T00:00:00",
+        "MonthlyCumSum": 28136
+      },
+      {
+        "Count": 2999,
+        "Day": "2019-07-11T00:00:00",
+        "MonthlyCumSum": 31135
+      },
+      {
+        "Count": 3214,
+        "Day": "2019-07-12T00:00:00",
+        "MonthlyCumSum": 34349
+      },
+      {
+        "Count": 2652,
+        "Day": "2019-07-13T00:00:00",
+        "MonthlyCumSum": 37001
+      },
+      {
+        "Count": 2532,
+        "Day": "2019-07-14T00:00:00",
+        "MonthlyCumSum": 39533
+      },
+      {
+        "Count": 2989,
+        "Day": "2019-07-15T00:00:00",
+        "MonthlyCumSum": 42522
+      },
+      {
+        "Count": 3750,
+        "Day": "2019-07-16T00:00:00",
+        "MonthlyCumSum": 46272
+      },
+      {
+        "Count": 2073,
+        "Day": "2019-07-17T00:00:00",
+        "MonthlyCumSum": 48345
+      },
+      {
+        "Count": 3582,
+        "Day": "2019-07-18T00:00:00",
+        "MonthlyCumSum": 51927
+      },
+      {
+        "Count": 3229,
+        "Day": "2019-07-19T00:00:00",
+        "MonthlyCumSum": 55156
+      },
+      {
+        "Count": 2627,
+        "Day": "2019-07-20T00:00:00",
+        "MonthlyCumSum": 57783
+      },
+      {
+        "Count": 3146,
+        "Day": "2019-07-21T00:00:00",
+        "MonthlyCumSum": 60929
+      },
+      {
+        "Count": 3438,
+        "Day": "2019-07-22T00:00:00",
+        "MonthlyCumSum": 64367
+      },
+      {
+        "Count": 3578,
+        "Day": "2019-07-23T00:00:00",
+        "MonthlyCumSum": 67945
+      },
+      {
+        "Count": 3561,
+        "Day": "2019-07-24T00:00:00",
+        "MonthlyCumSum": 71506
+      },
+      {
+        "Count": 3581,
+        "Day": "2019-07-25T00:00:00",
+        "MonthlyCumSum": 75087
+      },
+      {
+        "Count": 3307,
+        "Day": "2019-07-26T00:00:00",
+        "MonthlyCumSum": 78394
+      },
+      {
+        "Count": 2377,
+        "Day": "2019-07-27T00:00:00",
+        "MonthlyCumSum": 80771
+      }
+    ],
+    "data-fcd9b7f0e302d6dd1c93c8db6d00ef65": [
       {
         "Count": 2783,
         "Day": "2015-07-01T00:00:00",
@@ -789,77 +9153,117 @@
         "Count": 3307,
         "Day": "2019-07-26T00:00:00",
         "MonthlyCumSum": 78394
+      },
+      {
+        "Count": 2377,
+        "Day": "2019-07-27T00:00:00",
+        "MonthlyCumSum": 80771
       }
     ]
   },
-  "layer": [
+  "hconcat": [
     {
+      "data": {
+        "name": "data-8629bd25d903a98946434c7182f7a801"
+      },
       "encoding": {
+        "color": {
+          "aggregate": "mean",
+          "field": "Count",
+          "type": "quantitative"
+        },
         "x": {
           "field": "Day",
-          "timeUnit": "date",
+          "timeUnit": "day",
           "type": "ordinal"
         },
         "y": {
-          "field": "MonthlyCumSum",
-          "type": "quantitative"
-        }
-      },
-      "height": 300,
-      "mark": {
-        "color": "grey",
-        "extent": "stdev",
-        "type": "errorband"
-      },
-      "width": 400
-    },
-    {
-      "encoding": {
-        "color": {
           "field": "Day",
           "timeUnit": "year",
           "type": "ordinal"
-        },
-        "x": {
-          "field": "Day",
-          "timeUnit": "date",
-          "type": "ordinal"
-        },
-        "y": {
-          "axis": {
-            "title": "Monthly Cumulative Sum"
-          },
-          "field": "MonthlyCumSum",
-          "type": "quantitative"
         }
       },
       "height": 300,
-      "mark": "line",
-      "width": 400
+      "mark": "rect",
+      "width": 300
     },
     {
-      "encoding": {
-        "x": {
-          "field": "Day",
-          "timeUnit": "date",
-          "type": "ordinal"
+      "data": {
+        "name": "data-fcd9b7f0e302d6dd1c93c8db6d00ef65"
+      },
+      "layer": [
+        {
+          "encoding": {
+            "x": {
+              "field": "Day",
+              "timeUnit": "date",
+              "type": "ordinal"
+            },
+            "y": {
+              "field": "MonthlyCumSum",
+              "type": "quantitative"
+            }
+          },
+          "height": 300,
+          "mark": {
+            "color": "grey",
+            "extent": "stdev",
+            "type": "errorband"
+          },
+          "width": 400
         },
-        "y": {
-          "aggregate": "mean",
-          "field": "MonthlyCumSum",
-          "type": "quantitative"
+        {
+          "encoding": {
+            "color": {
+              "field": "Day",
+              "timeUnit": "year",
+              "type": "ordinal"
+            },
+            "x": {
+              "field": "Day",
+              "timeUnit": "date",
+              "type": "ordinal"
+            },
+            "y": {
+              "axis": {
+                "title": "Monthly Cumulative Sum"
+              },
+              "field": "MonthlyCumSum",
+              "type": "quantitative"
+            }
+          },
+          "height": 300,
+          "mark": "line",
+          "width": 400
+        },
+        {
+          "encoding": {
+            "x": {
+              "field": "Day",
+              "timeUnit": "date",
+              "type": "ordinal"
+            },
+            "y": {
+              "aggregate": "mean",
+              "field": "MonthlyCumSum",
+              "type": "quantitative"
+            }
+          },
+          "height": 300,
+          "mark": {
+            "color": "grey",
+            "type": "line"
+          },
+          "width": 400
         }
-      },
-      "height": 300,
-      "mark": {
-        "color": "grey",
-        "type": "line"
-      },
-      "width": 400
+      ]
     }
   ]
 }; vegaEmbed('#vis1', testV1Spec);
-   </script>
+    </script>
+   </div>
+   <div class="clear">
+   </div>
   </div>
  </body>
 </html>

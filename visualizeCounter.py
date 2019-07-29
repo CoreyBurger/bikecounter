@@ -9,7 +9,7 @@ import csv
 
 #define constants
 workingDir = os.getcwd()
-yesterday = datetime.date.today() - datetime.timedelta(1)
+yesterday = datetime.date.today() - datetime.timedelta(2)
 yesterday = yesterday.strftime('%Y-%m-%d')
 
 #load data
@@ -29,7 +29,14 @@ dailyCount = dailyCount.loc[dailyCount['Day'] >= '2015-01-01']
 yesterdayCount = dailyCount.loc[dailyCount['Day']==yesterday]['Count'][0]
 
 #determine rank
-dailyRank = dailyCount.loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
+dailyRankAll = dailyCount.loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
+dailyRankThisYear=dailyCount.loc[dailyCount.index.year==datetime.datetime.now().year].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
+
+ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
+print(ordinal(dailyRankThisYear))
+
+#craft the string for yeserday
+countString ="Yesterday saw " + str(yesterdayCount) + " bike rides, the " + str(ordinal(dailyRankThisYear)) + " busiest day of " + (datetime.date.today() - datetime.timedelta(2)).strftime('%Y') +  " and " + str(ordinal(dailyRankAll)) + " busiest overall."
 
 #add monthly & yearly cumulative total
 dailyCount['MonthlyCumSum'] = dailyCount.groupby(dailyCount.index.to_period('m')).cumsum()
@@ -71,7 +78,8 @@ monthlyLineBand = altair.Chart(currentMonth).mark_errorband(extent='stdev',color
 ).properties(width=400,height=300)
 
 #chart = altair.hconcat(heatmap,monthlyLine,monthlyLineAvg)
-chart = monthlyLineBand + monthlyLine + monthlyLineAvg
+MonthlyChart = monthlyLineBand + monthlyLine + monthlyLineAvg
+chart = altair.hconcat(heatmap,MonthlyChart)
 
 #open the HTML doc
 with open (workingDir + '\\counterVisual.html') as counterPage:
@@ -79,6 +87,9 @@ with open (workingDir + '\\counterVisual.html') as counterPage:
 
 #write out the map
 page.find(id='counterMap').find('script').string.replace_with(mapHTML)
+
+#write out the yesterday string
+page.find(id="counterName").string.replace_with(countString)
 
 #write out the first data
 testV1spec = "var testV1Spec =" + chart.to_json() + "; vegaEmbed('#vis1', testV1Spec); "

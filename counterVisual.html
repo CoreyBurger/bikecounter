@@ -18,7 +18,7 @@
    font-family: 'B612';
    background-color:white;
 }
-.container {right: 0; text-align: center;}
+.container {right: 0; text-align: center; width: 75%; margin: auto;}
 .container .left, .container .centre, .container .right { display: inline-block; }
 .container .left { float: left; }
 .container .centre { margin: 0 auto; }
@@ -26,13 +26,13 @@
 .clear { clear: both; }
  </style>
  <body>
-  <div class="container" id="firstRow" style="width:75%">
+  <div class="container" id="firstRow">
    <div class="left" id="counterName">
     <h1>
      Galloping Goose at Harbour Rd
     </h1>
     <p>
-     Yesterday saw 2547 bike rides, the 73rd busiest day of 2019 and 335th busiest overall.
+     Yesterday saw 3384 bike rides, the 30th busiest day of 2019 and 46th busiest overall.
     </p>
    </div>
    <div class="right" id="counterMap" style="width: 300px; height: 300px;">
@@ -58,7 +58,7 @@
     }
   },
   "datasets": {
-    "data-00a0de0c239cd5face95215cc2150360": [
+    "data-8302b1b9ffb9bb2bef3078852db34b6a": [
       {
         "Count": 435,
         "Day": "2015-01-01T00:00:00",
@@ -10078,9 +10078,27 @@
         "Day": "2019-07-28T00:00:00",
         "MonthlyCumSum": 83318,
         "YearlyCumSum": 441706
+      },
+      {
+        "Count": 3562,
+        "Day": "2019-07-29T00:00:00",
+        "MonthlyCumSum": 86880,
+        "YearlyCumSum": 445268
+      },
+      {
+        "Count": 3604,
+        "Day": "2019-07-30T00:00:00",
+        "MonthlyCumSum": 90484,
+        "YearlyCumSum": 448872
+      },
+      {
+        "Count": 3384,
+        "Day": "2019-07-31T00:00:00",
+        "MonthlyCumSum": 93868,
+        "YearlyCumSum": 452256
       }
     ],
-    "data-cb731fd8f6d447bd4ccb070a5e2ac0a3": [
+    "data-ed9df18ecef7dcca74b153a7c3a59ce1": [
       {
         "Count": 2783,
         "Day": "2015-07-01T00:00:00",
@@ -10992,13 +11010,31 @@
         "Day": "2019-07-28T00:00:00",
         "MonthlyCumSum": 83318,
         "YearlyCumSum": 441706
+      },
+      {
+        "Count": 3562,
+        "Day": "2019-07-29T00:00:00",
+        "MonthlyCumSum": 86880,
+        "YearlyCumSum": 445268
+      },
+      {
+        "Count": 3604,
+        "Day": "2019-07-30T00:00:00",
+        "MonthlyCumSum": 90484,
+        "YearlyCumSum": 448872
+      },
+      {
+        "Count": 3384,
+        "Day": "2019-07-31T00:00:00",
+        "MonthlyCumSum": 93868,
+        "YearlyCumSum": 452256
       }
     ]
   },
   "hconcat": [
     {
       "data": {
-        "name": "data-00a0de0c239cd5face95215cc2150360"
+        "name": "data-8302b1b9ffb9bb2bef3078852db34b6a"
       },
       "encoding": {
         "color": {
@@ -11023,7 +11059,7 @@
     },
     {
       "data": {
-        "name": "data-cb731fd8f6d447bd4ccb070a5e2ac0a3"
+        "name": "data-ed9df18ecef7dcca74b153a7c3a59ce1"
       },
       "layer": [
         {
@@ -11038,7 +11074,7 @@
               "type": "quantitative"
             }
           },
-          "height": 300,
+          "height": 200,
           "mark": {
             "color": "grey",
             "extent": "stdev",
@@ -11066,8 +11102,20 @@
               "type": "quantitative"
             }
           },
-          "height": 300,
-          "mark": "line",
+          "height": 200,
+          "mark": {
+            "stroke": "#f304d3",
+            "type": "line"
+          },
+          "transform": [
+            {
+              "filter": {
+                "equal": 2019,
+                "field": "Day",
+                "timeUnit": "year"
+              }
+            }
+          ],
           "width": 200
         },
         {
@@ -11083,9 +11131,13 @@
               "type": "quantitative"
             }
           },
-          "height": 300,
+          "height": 200,
           "mark": {
             "color": "grey",
+            "strokeDash": [
+              8,
+              8
+            ],
             "type": "line"
           },
           "width": 200
@@ -11094,7 +11146,7 @@
     },
     {
       "data": {
-        "name": "data-00a0de0c239cd5face95215cc2150360"
+        "name": "data-8302b1b9ffb9bb2bef3078852db34b6a"
       },
       "encoding": {
         "color": {
@@ -11115,7 +11167,7 @@
           "type": "quantitative"
         }
       },
-      "height": 300,
+      "height": 200,
       "mark": "line",
       "width": 200
     }

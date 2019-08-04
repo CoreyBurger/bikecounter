@@ -10,10 +10,12 @@ import statistics
 import locale
 
 #define constants
+#TODO Clean up to removal duplicate calls for yesterday
 workingDir = os.getcwd()
 yesterday = datetime.date.today() - datetime.timedelta(1)
 yesterday = yesterday.strftime('%Y-%m-%d')
 yesterdayDay = (datetime.date.today() - datetime.timedelta(1)).day
+yesterdayDayName = (datetime.date.today() - datetime.timedelta(1)).strftime("%A")
 yesterdayMonth = (datetime.date.today() - datetime.timedelta(1)).month
 yesterdayMonthName =  (datetime.date.today() - datetime.timedelta(1)).strftime("%B")
 yesterdayYearName = (datetime.date.today() - datetime.timedelta(1)).strftime("%Y")
@@ -33,17 +35,21 @@ dailyCount['Day'] = dailyCount.index
 dailyCount = dailyCount.loc[dailyCount['Day'] >= '2015-01-01']
 
 #get yesterdays count   
-yesterdayCount = locale.format_string("%d", dailyCount.loc[dailyCount['Day']==yesterday]['Count'][0], grouping=True)
+yesterdayCount = dailyCount.loc[dailyCount['Day']==yesterday]['Count'][0]
+yesterdayCountString = locale.format_string("%d",yesterdayCount, grouping=True)
 
 #determine rank
 dailyRankAll = dailyCount.loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
 dailyRankThisYear=dailyCount.loc[dailyCount.index.year==datetime.datetime.now().year].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
 
-ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
-print(ordinal(dailyRankThisYear))
+#add day of the week
+dailyCount['Weekday']=dailyCount['Day'].dt.dayofweek 
+dailyRankDayOnly=dailyCount.loc[dailyCount['Day'].dt.dayofweek==(datetime.date.today() - datetime.timedelta(1)).weekday()].loc[dailyCount['Count']>yesterdayCount]['Count'].size
 
-#craft the string for yeserday
-countString ="Yesterday saw " + yesterdayCount + " bike rides, the " + str(ordinal(dailyRankThisYear)) + " busiest day of " + (datetime.date.today() - datetime.timedelta(1)).strftime('%Y') +  " and " + str(ordinal(dailyRankAll)) + " busiest overall."
+ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
+
+#craft the string for yesterday
+countString ="Yesterday saw " + yesterdayCountString + " bike rides, the " + str(ordinal(dailyRankThisYear)) + " busiest day of " + (datetime.date.today() - datetime.timedelta(1)).strftime('%Y') +  ", the " + str(ordinal(dailyRankDayOnly)) + " busiest " + yesterdayDayName + " and " + str(ordinal(dailyRankAll)) + " busiest day overall"
 
 #add monthly & yearly cumulative total
 YearlyCumSum = dailyCount.groupby(dailyCount.index.to_period('y')).cumsum()
@@ -93,7 +99,7 @@ elif yesterdayYearChange>0.05:
 else:
     yearlyCountString='about as busy same as'
 
-yearlyCountString =  yesterdayYearName +  " is " + yearlyCountString + " last year, with " + locale.format_string("%d", yesterdayYearlyCumSum, grouping=True) + " rides so far this year"
+yearlyCountString =  yesterdayYearName +  " is " + yearlyCountString + " last year, with " + locale.format_string("%d", yesterdayYearlyCumSum, grouping=True) + " rides so far this year (compared to " + locale.format_string("%d", lastyearYearlyCumSum, grouping=True) + " rides this time last year)"
 
 #Determine busiest day and month
 highestCountDayString=dailyCount[dailyCount['Count']==dailyCount['Count'].max()]['Day'][0].strftime('%A %B %d, %Y')

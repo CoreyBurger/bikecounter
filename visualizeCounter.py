@@ -20,6 +20,7 @@ yesterdayMonth = (datetime.date.today() - datetime.timedelta(1)).month
 yesterdayMonthName =  (datetime.date.today() - datetime.timedelta(1)).strftime("%B")
 yesterdayYearName = (datetime.date.today() - datetime.timedelta(1)).strftime("%Y")
 locale.setlocale(locale.LC_ALL, 'en_CA')
+ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
 
 #load data
 countFile = "counts-100117730.csv"
@@ -34,34 +35,30 @@ dailyCount = data.resample('D',on='Date').sum()
 dailyCount['Day'] = dailyCount.index
 dailyCount = dailyCount.loc[dailyCount['Day'] >= '2015-01-01']
 
-#get yesterdays count   
-yesterdayCount = dailyCount.loc[dailyCount['Day']==yesterday]['Count'][0]
-yesterdayCountString = locale.format_string("%d",yesterdayCount, grouping=True)
-
-#determine rank
-dailyRankAll = dailyCount.loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
-dailyRankThisYear=dailyCount.loc[dailyCount.index.year==datetime.datetime.now().year].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
-
-#add day of the week
-dailyCount['Weekday']=dailyCount['Day'].dt.dayofweek 
-dailyRankDayOnly=dailyCount.loc[dailyCount['Day'].dt.dayofweek==(datetime.date.today() - datetime.timedelta(1)).weekday()].loc[dailyCount['Count']>yesterdayCount]['Count'].size
-
-ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
-
-#craft the string for yesterday
-countString ="Yesterday saw " + yesterdayCountString + " bike rides, the " + str(ordinal(dailyRankThisYear)) + " busiest day of " + (datetime.date.today() - datetime.timedelta(1)).strftime('%Y') +  ", the " + str(ordinal(dailyRankDayOnly)) + " busiest " + yesterdayDayName + " and " + str(ordinal(dailyRankAll)) + " busiest day overall"
-
-#add monthly & yearly cumulative total
+#add columns for monthly & yearly cumulative total, plus weekday and day of the year
 YearlyCumSum = dailyCount.groupby(dailyCount.index.to_period('y')).cumsum()
 YearlyCumSum.rename(columns={'Count':'YearlyCumSum'}, inplace=True)
-dailyCount['MonthlyCumSum'] = dailyCount.groupby(dailyCount.index.to_period('m')).cumsum()
+MonthlyCumSum = dailyCount.groupby(dailyCount.index.to_period('m')).cumsum()
+MonthlyCumSum.rename(columns={'Count':'MonthlyCumSum'}, inplace=True)
 dailyCount = pandas.merge(dailyCount,YearlyCumSum,on='Date')
-
-#add day of the year
+dailyCount = pandas.merge(dailyCount,MonthlyCumSum,on='Date')
+dailyCount['Weekday']=dailyCount['Day'].dt.dayofweek 
 dailyCount['DayOfYear'] = dailyCount['Day'].dt.dayofyear
 
 #write that list out to a csv file
 dailyCount.to_csv(countExportFile)
+
+#get yesterdays count   
+yesterdayCount = dailyCount.loc[dailyCount['Day']==yesterday]['Count'][0]
+yesterdayCountString = locale.format_string("%d",yesterdayCount, grouping=True)
+
+#determine daily rank
+dailyRankAll = dailyCount.loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
+dailyRankThisYear=dailyCount.loc[dailyCount.index.year==datetime.datetime.now().year].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
+dailyRankDayOnly=dailyCount.loc[dailyCount['Day'].dt.dayofweek==(datetime.date.today() - datetime.timedelta(1)).weekday()].loc[dailyCount['Count']>yesterdayCount]['Count'].size
+
+#craft the string for yesterday
+countString ="Yesterday saw " + yesterdayCountString + " bike rides, the " + str(ordinal(dailyRankThisYear)) + " busiest day of " + (datetime.date.today() - datetime.timedelta(1)).strftime('%Y') +  ", the " + str(ordinal(dailyRankDayOnly)) + " busiest " + yesterdayDayName + " and " + str(ordinal(dailyRankAll)) + " busiest day overall"
 
 #resample to monthly count
 monthlyCount = data.resample('M',on='Date').sum()
@@ -103,7 +100,6 @@ yearlyCountString =  yesterdayYearName +  " is " + yearlyCountString + " last ye
 
 #Determine busiest day and month
 highestCountDayString=dailyCount[dailyCount['Count']==dailyCount['Count'].max()]['Day'][0].strftime('%A %B %d, %Y')
-
 highestCountDayString = "The busiest day ever was " + highestCountDayString
 
 #Create monthly cumulative line chart

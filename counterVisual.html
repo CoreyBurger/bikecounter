@@ -49,7 +49,7 @@
   margin: 0 auto;
 }
 .container {
-  text-align: center;
+  text-align: left;
   border: 2px dotted #000;
   padding: 1em;
 }
@@ -59,17 +59,31 @@
 #counterMap {
   height: 300px;
 }
+ul {
+  list-style-type: none;
+}
  </style>
  <body>
   <div class="site-container">
    <div class="container" id="firstRow">
     <div class="left" id="counterName">
-     <h1>
+     <h1 style="text-align:center;">
       Galloping Goose at Harbour Rd
      </h1>
      <p>
-      Yesterday saw 2,550 bike rides, the 78th busiest day of 2019, the 5th busiest Saturday and 339th busiest day overall
+      Yesterday saw 2,987 bike rides,
      </p>
+     <ul>
+      <li>
+       ...54th busiest day of 2019
+      </li>
+      <li>
+       ...busiest Sunday
+      </li>
+      <li>
+       ...133rd busiest day overall
+      </li>
+     </ul>
     </div>
     <div class="left" id="counterMap">
      <script>
@@ -87,7 +101,7 @@
    <div class="container" id="secondRow">
     <div class="left" id="monthlyText">
      <p>
-      August is busier than average, with 8,847 rides so far this month
+      August is busier than average, with 11,834 rides so far this month
      </p>
     </div>
     <div class="left" id="visMonthly">
@@ -104,10 +118,10 @@
     }
   },
   "data": {
-    "name": "data-2683f74b12d7fdf4296c878a6be3a881"
+    "name": "data-f15e3f38a745dd48ca72fc3b44d7201a"
   },
   "datasets": {
-    "data-2683f74b12d7fdf4296c878a6be3a881": [
+    "data-f15e3f38a745dd48ca72fc3b44d7201a": [
       {
         "Count": 1907,
         "Day": "2015-08-01T00:00:00",
@@ -1123,6 +1137,14 @@
         "MonthlyCumSum": 8847,
         "Weekday": 5,
         "YearlyCumSum": 461103
+      },
+      {
+        "Count": 2987,
+        "Day": "2019-08-04T00:00:00",
+        "DayOfYear": 216,
+        "MonthlyCumSum": 11834,
+        "Weekday": 6,
+        "YearlyCumSum": 464090
       }
     ]
   },
@@ -1130,11 +1152,17 @@
     {
       "encoding": {
         "x": {
+          "axis": {
+            "title": ""
+          },
           "field": "Day",
           "timeUnit": "date",
-          "type": "ordinal"
+          "type": "temporal"
         },
         "y": {
+          "axis": {
+            "title": ""
+          },
           "field": "MonthlyCumSum",
           "type": "quantitative"
         }
@@ -1151,19 +1179,31 @@
       "encoding": {
         "color": {
           "field": "Day",
+          "legend": {
+            "title": "Year"
+          },
           "timeUnit": "year",
           "type": "ordinal"
         },
         "x": {
+          "axis": {
+            "title": "Day of the Month"
+          },
           "field": "Day",
           "timeUnit": "date",
-          "type": "ordinal"
+          "type": "temporal"
         },
         "y": {
           "axis": {
-            "title": "Monthly Cumulative Sum"
+            "title": "Total Bikes"
           },
           "field": "MonthlyCumSum",
+          "scale": {
+            "domain": [
+              0,
+              100000
+            ]
+          },
           "type": "quantitative"
         }
       },
@@ -1186,12 +1226,18 @@
     {
       "encoding": {
         "x": {
+          "axis": {
+            "title": ""
+          },
           "field": "Day",
           "timeUnit": "date",
-          "type": "ordinal"
+          "type": "temporal"
         },
         "y": {
           "aggregate": "mean",
+          "axis": {
+            "title": ""
+          },
           "field": "MonthlyCumSum",
           "type": "quantitative"
         }
@@ -1222,7 +1268,7 @@
    <div class="container" id="thirdRow">
     <div class="left" id="yearlyText">
      <p>
-      2019 is busier than last year, with 461,103 rides so far this year (compared to 431,474 rides this time last year)
+      2019 is busier than last year, with 464,090 rides so far this year (compared to 434,056 rides this time last year)
      </p>
     </div>
     <div class="left" id="visYearly">
@@ -1239,10 +1285,10 @@
     }
   },
   "data": {
-    "name": "data-26b5bff8ab0da1fac9bedaede98083e7"
+    "name": "data-8b94de384bb5f4a7f7aa155af71a68a2"
   },
   "datasets": {
-    "data-26b5bff8ab0da1fac9bedaede98083e7": [
+    "data-8b94de384bb5f4a7f7aa155af71a68a2": [
       {
         "Count": 435,
         "Day": "2015-01-01T00:00:00",
@@ -14650,30 +14696,120 @@
         "MonthlyCumSum": 8847,
         "Weekday": 5,
         "YearlyCumSum": 461103
+      },
+      {
+        "Count": 2987,
+        "Day": "2019-08-04T00:00:00",
+        "DayOfYear": 216,
+        "MonthlyCumSum": 11834,
+        "Weekday": 6,
+        "YearlyCumSum": 464090
       }
     ]
   },
-  "encoding": {
-    "color": {
-      "field": "Day",
-      "timeUnit": "year",
-      "type": "ordinal"
-    },
-    "x": {
-      "field": "DayOfYear",
-      "type": "ordinal"
-    },
-    "y": {
-      "axis": {
-        "title": "Yearly Cumulative Sum"
+  "layer": [
+    {
+      "encoding": {
+        "color": {
+          "field": "Day",
+          "timeUnit": "year",
+          "type": "ordinal"
+        },
+        "x": {
+          "field": "DayOfYear",
+          "type": "ordinal"
+        },
+        "y": {
+          "axis": {
+            "title": "Total Bikes"
+          },
+          "field": "YearlyCumSum",
+          "type": "quantitative"
+        }
       },
-      "field": "YearlyCumSum",
-      "type": "quantitative"
+      "height": 200,
+      "mark": "line",
+      "width": 200
+    },
+    {
+      "encoding": {
+        "opacity": {
+          "value": 0
+        },
+        "x": {
+          "field": "DayOfYear",
+          "type": "ordinal"
+        }
+      },
+      "mark": "point",
+      "selection": {
+        "selector023": {
+          "empty": "none",
+          "fields": [
+            "DayOfYear"
+          ],
+          "nearest": true,
+          "on": "mouseover",
+          "type": "single"
+        }
+      }
+    },
+    {
+      "encoding": {
+        "x": {
+          "field": "DayOfYear",
+          "type": "ordinal"
+        }
+      },
+      "mark": {
+        "color": "gray",
+        "type": "rule"
+      },
+      "transform": [
+        {
+          "filter": {
+            "selection": "selector023"
+          }
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "color": {
+          "field": "Day",
+          "timeUnit": "year",
+          "type": "ordinal"
+        },
+        "text": {
+          "condition": {
+            "field": "YearlyCumSum",
+            "selection": "selector023",
+            "type": "quantitative"
+          },
+          "value": " "
+        },
+        "x": {
+          "field": "DayOfYear",
+          "type": "ordinal"
+        },
+        "y": {
+          "axis": {
+            "title": "Total Bikes"
+          },
+          "field": "YearlyCumSum",
+          "type": "quantitative"
+        }
+      },
+      "height": 200,
+      "mark": {
+        "align": "left",
+        "dx": 100,
+        "dy": -25,
+        "type": "text"
+      },
+      "width": 200
     }
-  },
-  "height": 200,
-  "mark": "line",
-  "width": 200
+  ]
 }; vegaEmbed('#visYearly', yearlySpec);
      </script>
     </div>
@@ -14688,7 +14824,7 @@
    <div class="container" id="thirdRow">
     <div class="left" id="overallText">
      <p>
-      The busiest day ever was Monday May 27, 2019
+      The busiest day ever was Monday May 27, 2019 (First day of 2019 Bike to Work Week)
      </p>
     </div>
     <div class="left" id="visOverall">
@@ -14705,10 +14841,10 @@
     }
   },
   "data": {
-    "name": "data-26b5bff8ab0da1fac9bedaede98083e7"
+    "name": "data-8b94de384bb5f4a7f7aa155af71a68a2"
   },
   "datasets": {
-    "data-26b5bff8ab0da1fac9bedaede98083e7": [
+    "data-8b94de384bb5f4a7f7aa155af71a68a2": [
       {
         "Count": 435,
         "Day": "2015-01-01T00:00:00",
@@ -28116,6 +28252,14 @@
         "MonthlyCumSum": 8847,
         "Weekday": 5,
         "YearlyCumSum": 461103
+      },
+      {
+        "Count": 2987,
+        "Day": "2019-08-04T00:00:00",
+        "DayOfYear": 216,
+        "MonthlyCumSum": 11834,
+        "Weekday": 6,
+        "YearlyCumSum": 464090
       }
     ]
   },
@@ -28123,14 +28267,29 @@
     "color": {
       "aggregate": "mean",
       "field": "Count",
+      "legend": {
+        "title": "Mean Total Bikes"
+      },
+      "type": "quantitative"
+    },
+    "tooltip": {
+      "aggregate": "mean",
+      "field": "Count",
+      "format": ",.0f",
       "type": "quantitative"
     },
     "x": {
+      "axis": {
+        "title": "Day of the Week"
+      },
       "field": "Day",
       "timeUnit": "day",
       "type": "ordinal"
     },
     "y": {
+      "axis": {
+        "title": "Year"
+      },
       "field": "Day",
       "timeUnit": "year",
       "type": "ordinal"

@@ -12,13 +12,13 @@ import locale
 #define constants
 #TODO Clean up to removal duplicate calls for yesterday
 workingDir = os.getcwd()
-yesterday = datetime.date.today() - datetime.timedelta(1)
-yesterday = yesterday.strftime('%Y-%m-%d')
-yesterdayDay = (datetime.date.today() - datetime.timedelta(1)).day
-yesterdayDayName = (datetime.date.today() - datetime.timedelta(1)).strftime("%A")
-yesterdayMonth = (datetime.date.today() - datetime.timedelta(1)).month
-yesterdayMonthName =  (datetime.date.today() - datetime.timedelta(1)).strftime("%B")
-yesterdayYearName = (datetime.date.today() - datetime.timedelta(1)).strftime("%Y")
+yesterdayDate = datetime.date.today() - datetime.timedelta(1)
+yesterday = yesterdayDate.strftime('%Y-%m-%d')
+yesterdayDay = yesterdayDate.day
+yesterdayDayName = yesterdayDate.strftime("%A")
+yesterdayMonth = yesterdayDate.month
+yesterdayMonthName =  yesterdayDate.strftime("%B")
+yesterdayYearName = yesterdayDate.strftime("%Y")
 locale.setlocale(locale.LC_ALL, 'en_CA')
 ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
 
@@ -26,6 +26,8 @@ ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
 countFile = "counts-100117730.csv"
 countExportFile = "counts-100117730-export.csv"
 data = pandas.read_csv(countFile,parse_dates=['Date'])
+specialDateFile = "specialDates.csv"
+specialDateData = pandas.read_csv(specialDateFile,parse_dates=['Date'])
 
 #setup counter map
 mapHTML ="var countmap = L.map('counterMap').setView([48.432613, -123.3782], 15);var marker = L.marker([48.432613, -123.37829]).addTo(countmap);var background = L.tileLayer.provider('Stamen.Toner').addTo(countmap);"
@@ -55,10 +57,34 @@ yesterdayCountString = locale.format_string("%d",yesterdayCount, grouping=True)
 #determine daily rank
 dailyRankAll = dailyCount.loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
 dailyRankThisYear=dailyCount.loc[dailyCount.index.year==datetime.datetime.now().year].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
-dailyRankDayOnly=dailyCount.loc[dailyCount['Day'].dt.dayofweek==(datetime.date.today() - datetime.timedelta(1)).weekday()].loc[dailyCount['Count']>yesterdayCount]['Count'].size
+dailyRankDayOnly=dailyCount.loc[dailyCount['Day'].dt.dayofweek==yesterdayDate.weekday()].loc[dailyCount['Count']>yesterdayCount]['Count'].size
+
+if dailyRankAll==1:
+    dailyRankAll=None
+else:
+    dailyRankAll = str(ordinal(dailyRankAll)) + " "
+
+if dailyRankThisYear==1:
+    dailyRankThisYear=None
+else:
+    dailyRankThisYear = str(ordinal(dailyRankThisYear)) + " "
+
+if dailyRankDayOnly==1:
+    dailyRankDayOnly=None
+else:
+    dailyRankDayOnly = str(ordinal(dailyRankDayOnly)) + " "
+
+#Check if yesterday was anything special
+try:
+    specialDateStringYesterday = "(" + specialDateData[specialDateData['Date']==yesterdayDate].Event.iloc[0] + ")"
+except IndexError as error:
+    specialDateStringYesterday = None
 
 #craft the string for yesterday
-countString ="Yesterday saw " + yesterdayCountString + " bike rides, the " + str(ordinal(dailyRankThisYear)) + " busiest day of " + (datetime.date.today() - datetime.timedelta(1)).strftime('%Y') +  ", the " + str(ordinal(dailyRankDayOnly)) + " busiest " + yesterdayDayName + " and " + str(ordinal(dailyRankAll)) + " busiest day overall"
+countString ="Yesterday saw " + yesterdayCountString + " bike rides,"
+countStringYearlyRank = "".join(filter(None,("...", dailyRankThisYear,"busiest day of ",yesterdayYearName)))
+countStringDayRank = "".join(filter(None,("...", dailyRankDayOnly,"busiest ",yesterdayDayName)))
+countStringOverallRank = "".join(filter(None,("...", dailyRankAll,"busiest day overall")))
 
 #resample to monthly count
 monthlyCount = data.resample('M',on='Date').sum()
@@ -85,8 +111,8 @@ monthlyCountString=  yesterdayMonthName +  " is " + monthlyCountString + " avera
 
 #Check if we are ahead of last year
 #TODO - deal with leap years
-yesterdayYearlyCumSum=pandas.DataFrame(dailyCount.loc[dailyCount.index==yesterday]).YearlyCumSum[0]
-lastyearYearlyCumSum=pandas.DataFrame(dailyCount.loc[dailyCount.index==(datetime.date.today() - datetime.timedelta(365)).strftime('%Y-%m-%d')]).YearlyCumSum[0]
+yesterdayYearlyCumSum=dailyCount[dailyCount.index==yesterday]['YearlyCumSum'][0]
+lastyearYearlyCumSum=dailyCount[dailyCount.index==(datetime.date.today() - datetime.timedelta(365)).strftime('%Y-%m-%d')]['YearlyCumSum'][0]
 yesterdayYearChange = (yesterdayYearlyCumSum-lastyearYearlyCumSum)/yesterdayYearlyCumSum
 
 if yesterdayYearChange<-0.05:
@@ -99,26 +125,34 @@ else:
 yearlyCountString =  yesterdayYearName +  " is " + yearlyCountString + " last year, with " + locale.format_string("%d", yesterdayYearlyCumSum, grouping=True) + " rides so far this year (compared to " + locale.format_string("%d", lastyearYearlyCumSum, grouping=True) + " rides this time last year)"
 
 #Determine busiest day and month
-highestCountDayString=dailyCount[dailyCount['Count']==dailyCount['Count'].max()]['Day'][0].strftime('%A %B %d, %Y')
-highestCountDayString = "The busiest day ever was " + highestCountDayString
+highestCountDay = dailyCount[dailyCount['Count']==dailyCount['Count'].max()]['Day'][0]
+highestCountDayString=highestCountDay.strftime('%A %B %d, %Y')
+
+#Check if the highest day was anything special
+try:
+    specialDateStringHighest = "(" + specialDateData[specialDateData['Date']==highestCountDay].Event.iloc[0] + ")"
+except IndexError as error:
+    specialDateStringHighest = None
+
+highestCountDayString = " ".join(filter(None,("The busiest day ever was",highestCountDayString,specialDateStringHighest)))
 
 #Create monthly cumulative line chart
 monthlyLine = altair.Chart(currentMonth).mark_line(stroke='#f304d3').encode(
-    altair.X('date(Day):O'),
-    altair.Y('MonthlyCumSum', axis=altair.Axis(title='Monthly Cumulative Sum')),
-    altair.Color('Day:O', timeUnit='year')  
+    altair.X('date(Day):T', axis=altair.Axis(title='Day of the Month')),
+    altair.Y('MonthlyCumSum', axis=altair.Axis(title='Total Bikes'), scale=altair.Scale(domain=(0,100000))),
+    altair.Color('Day:O', timeUnit='year', legend=altair.Legend(title='Year'))  
 ).transform_filter(
     altair.FieldEqualPredicate(timeUnit='year',field='Day',equal=datetime.date.today().year)
 ).properties(width=200,height=200)
 
 monthlyLineAvg = altair.Chart(currentMonth).mark_line(color='grey',strokeDash=[8,8]).encode(
-    altair.X('date(Day):O'),
-    altair.Y('mean(MonthlyCumSum)'),
+    altair.X('date(Day):T', axis=altair.Axis(title='')),
+    altair.Y('mean(MonthlyCumSum)', axis=altair.Axis(title='')),
 ).properties(width=200,height=200)
 
 monthlyLineBand = altair.Chart(currentMonth).mark_errorband(extent='stdev',color='grey').encode(
-    altair.X('date(Day):O'),
-    altair.Y('MonthlyCumSum'),
+    altair.X('date(Day):T', axis=altair.Axis(title='')),
+    altair.Y('MonthlyCumSum', axis=altair.Axis(title='')),
 ).properties(width=200,height=200)
 
 MonthlyChart = monthlyLineBand + monthlyLine + monthlyLineAvg
@@ -126,18 +160,48 @@ MonthlyChart = monthlyLineBand + monthlyLine + monthlyLineAvg
 #Create yearlycumulative line chart
 yearlyLine = altair.Chart(dailyCount).mark_line().encode(
     altair.X('DayOfYear:O'),
-    altair.Y('YearlyCumSum', axis=altair.Axis(title='Yearly Cumulative Sum')),
-    altair.Color('Day:O', timeUnit='year')
+    altair.Y('YearlyCumSum', axis=altair.Axis(title='Total Bikes')),
+    altair.Color('Day:O', timeUnit='year')  
 ).properties(width=200,height=200)
+
+nearest = altair.selection(type='single', nearest=True, on='mouseover',fields=['DayOfYear'], empty='none')
+
+# Transparent selectors across the chart. This is what tells us
+# the x-value of the cursor
+selectors = altair.Chart(dailyCount).mark_point().encode(
+    x='DayOfYear:O',
+    opacity=altair.value(0),
+).add_selection(
+    nearest
+)
+
+# Draw text labels near the points, and highlight based on selection
+text = yearlyLine.mark_text(align='left', dx=100,dy=-25).encode(
+    text=altair.condition(nearest, 'YearlyCumSum', altair.value(' ')),
+)
+
+# Draw a rule at the location of the selection
+rules = altair.Chart(dailyCount).mark_rule(color='gray').encode(
+    x='DayOfYear:O',
+).transform_filter(
+    nearest
+)
+
+yearlyLineCombined = altair.layer(
+        yearlyLine,selectors,rules,text
+)
+
+yearlyLineCombined.save('yearlyTest.json')
 
 #Create daily heatmap
 heatmap = altair.Chart(dailyCount).mark_rect().encode(
-    altair.X('day(Day):O'),
-    altair.Y('Day:O', timeUnit='year'),
-    altair.Color('mean(Count):Q')
+    altair.X('day(Day):O', axis=altair.Axis(title='Day of the Week')),
+    altair.Y('Day:O', timeUnit='year', axis=altair.Axis(title='Year')),
+    altair.Color('mean(Count):Q', legend=altair.Legend(title='Mean Total Bikes')),
+    altair.Tooltip('mean(Count)',format=',.0f')
 ).properties(width=200,height=200)
 
-#open the HTML doc
+#open the HTML doc  
 with open (workingDir + '\\counterVisual.html') as counterPage:
     page = bs4.BeautifulSoup(counterPage)
 
@@ -146,6 +210,9 @@ page.find(id='counterMap').find('script').string.replace_with(mapHTML)
 
 #write out the yesterday string
 page.find(id="counterName").find('p').string.replace_with(countString)
+page.find(id="counterName").find('p').find('li').string.replace_with(countStringYearlyRank)
+page.find(id="counterName").find('p').find('li').find_next_sibling().string.replace_with(countStringDayRank)
+page.find(id="counterName").find('p').find('li').find_next_sibling().find_next_sibling().string.replace_with(countStringOverallRank)
 
 #write out the monthly data
 monthlySpec = "var monthlySpec =" + MonthlyChart.to_json() + "; vegaEmbed('#visMonthly', monthlySpec); "
@@ -153,7 +220,7 @@ page.find(id='visMonthly').find('script').string.replace_with(monthlySpec)
 page.find(id="monthlyText").find('p').string.replace_with(monthlyCountString)
 
 #write out yearly data
-yearlySpec = "var yearlySpec =" + yearlyLine.to_json() + "; vegaEmbed('#visYearly', yearlySpec); "
+yearlySpec = "var yearlySpec =" + yearlyLineCombined.to_json() + "; vegaEmbed('#visYearly', yearlySpec); "
 page.find(id='visYearly').find('script').string.replace_with(yearlySpec)
 page.find(id="yearlyText").find('p').string.replace_with(yearlyCountString)
 

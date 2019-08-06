@@ -1,0 +1,28 @@
+Wording
+- Make clear if busiest day of the week is overall  
+
+Visualizations
+- Change all colours to green
+
+Monthly
+- Remove tooltip from average
+
+Yearly
+- Change order to have 2019 on top
+- Edit placement of numbers on overlay, make placement fixed
+- Change X legend to use months
+
+New Visualizations
+- Add temperature & rain
+- Add bar charts with 
+
+Mapping
+- Change colour of marker to be bike
+- Add overlay of CRD bike map data
+
+Data
+-Read in weather data from Environment Canada & Victoria Weather
+-Declare timezone to deal with Safari issue
+
+Load Counter
+- Add way to bail out if trying to load the same day twice  

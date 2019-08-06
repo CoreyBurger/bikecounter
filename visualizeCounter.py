@@ -22,12 +22,17 @@ yesterdayYearName = yesterdayDate.strftime("%Y")
 locale.setlocale(locale.LC_ALL, 'en_CA')
 ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
 
+#read in counters list
+counterList  = pandas.read_csv('counters.csv',parse_dates=['FirstDate','FirstFullYear'])
+
 #load data
-countFile = "counts-100117730.csv"
-countExportFile = "counts-100117730-export.csv"
+countFile = "counts-" + str(counterList['CounterID'][0]) + ".csv"
+countExportFile = "counts-" + str(counterList['CounterID'][0]) + "-export.csv"
 data = pandas.read_csv(countFile,parse_dates=['Date'])
 specialDateFile = "specialDates.csv"
 specialDateData = pandas.read_csv(specialDateFile,parse_dates=['Date'])
+
+counterStartDate = counterList['FirstDate'][0]
 
 #setup counter map
 mapHTML ="var countmap = L.map('counterMap').setView([48.432613, -123.3782], 15);var marker = L.marker([48.432613, -123.37829]).addTo(countmap);var background = L.tileLayer.provider('Stamen.Toner').addTo(countmap);"
@@ -35,7 +40,11 @@ mapHTML ="var countmap = L.map('counterMap').setView([48.432613, -123.3782], 15)
 #resample to daily count
 dailyCount = data.resample('D',on='Date').sum()
 dailyCount['Day'] = dailyCount.index
-dailyCount = dailyCount.loc[dailyCount['Day'] >= '2015-01-01']
+
+totalRides = dailyCount['Count'].sum()
+
+#remove all data from partial years
+dailyCount = dailyCount.loc[dailyCount['Day'] >= counterList['FirstFullYear'][0]]
 
 #add columns for monthly & yearly cumulative total, plus weekday and day of the year
 YearlyCumSum = dailyCount.groupby(dailyCount.index.to_period('y')).cumsum()
@@ -124,9 +133,14 @@ else:
 
 yearlyCountString =  yesterdayYearName +  " is " + yearlyCountString + " last year, with " + locale.format_string("%d", yesterdayYearlyCumSum, grouping=True) + " rides so far this year (compared to " + locale.format_string("%d", lastyearYearlyCumSum, grouping=True) + " rides this time last year)"
 
+#Determine total counts since beginning of counter
+totalCountString = "Since " + counterList['FirstDate'][0].strftime('%A, %b %d, %Y') + " there have been " + locale.format_string("%d", totalRides, grouping=True) + " rides past the counter"
+ 
 #Determine busiest day and month
 highestCountDay = dailyCount[dailyCount['Count']==dailyCount['Count'].max()]['Day'][0]
 highestCountDayString=highestCountDay.strftime('%A %B %d, %Y')
+highestCountMonth=monthlyCount[monthlyCount['Count']==monthlyCount['Count'].max()]['Month'][0]
+highestCountMonthString = "The busiest month ever was " + highestCountMonth.strftime('%B %Y')
 
 #Check if the highest day was anything special
 try:
@@ -201,6 +215,7 @@ heatmap = altair.Chart(dailyCount).mark_rect().encode(
     altair.Tooltip('mean(Count)',format=',.0f')
 ).properties(width=200,height=200)
 
+heatmap.save('overallTest.json')
 #open the HTML doc  
 with open (workingDir + '\\counterVisual.html') as counterPage:
     page = bs4.BeautifulSoup(counterPage)
@@ -210,9 +225,9 @@ page.find(id='counterMap').find('script').string.replace_with(mapHTML)
 
 #write out the yesterday string
 page.find(id="counterName").find('p').string.replace_with(countString)
-page.find(id="counterName").find('p').find('li').string.replace_with(countStringYearlyRank)
-page.find(id="counterName").find('p').find('li').find_next_sibling().string.replace_with(countStringDayRank)
-page.find(id="counterName").find('p').find('li').find_next_sibling().find_next_sibling().string.replace_with(countStringOverallRank)
+page.find(id="counterName").find('li').string.replace_with(countStringYearlyRank)
+page.find(id="counterName").find('li').find_next_sibling().string.replace_with(countStringDayRank)
+page.find(id="counterName").find('li').find_next_sibling().find_next_sibling().string.replace_with(countStringOverallRank)
 
 #write out the monthly data
 monthlySpec = "var monthlySpec =" + MonthlyChart.to_json() + "; vegaEmbed('#visMonthly', monthlySpec); "
@@ -227,7 +242,10 @@ page.find(id="yearlyText").find('p').string.replace_with(yearlyCountString)
 #write out overall data
 overallSpec = "var overallSpec =" + heatmap.to_json() + "; vegaEmbed('#visOverall', overallSpec); "
 page.find(id='visOverall').find('script').string.replace_with(overallSpec)
-page.find(id="overallText").find('p').string.replace_with(highestCountDayString)
+page.find(id="overallText").find('p').string.replace_with(totalCountString)
+page.find(id="overallText").find('li').string.replace_with(highestCountDayString)
+page.find(id="overallText").find('li').find_next_sibling().string.replace_with(highestCountMonthString)
+
 
 #write out the HTML
 pageStr = bs4.BeautifulSoup.prettify(page)

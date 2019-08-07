@@ -175,7 +175,7 @@ MonthlyChart = monthlyLineBand + monthlyLine + monthlyLineAvg
 yearlyLine = altair.Chart(dailyCount).mark_line().encode(
     altair.X('DayOfYear:O'),
     altair.Y('YearlyCumSum', axis=altair.Axis(title='Total Bikes')),
-    altair.Color('Day:O', timeUnit='year')  
+    altair.Color('Day:O', timeUnit='year',sort='descending')  
 ).properties(width=200,height=200)
 
 nearest = altair.selection(type='single', nearest=True, on='mouseover',fields=['DayOfYear'], empty='none')

@@ -14728,6 +14728,7 @@ ul {
       "encoding": {
         "color": {
           "field": "Day",
+          "sort": "descending",
           "timeUnit": "year",
           "type": "ordinal"
         },
@@ -14759,7 +14760,7 @@ ul {
       },
       "mark": "point",
       "selection": {
-        "selector007": {
+        "selector011": {
           "empty": "none",
           "fields": [
             "DayOfYear"
@@ -14784,7 +14785,7 @@ ul {
       "transform": [
         {
           "filter": {
-            "selection": "selector007"
+            "selection": "selector011"
           }
         }
       ]
@@ -14793,13 +14794,14 @@ ul {
       "encoding": {
         "color": {
           "field": "Day",
+          "sort": "descending",
           "timeUnit": "year",
           "type": "ordinal"
         },
         "text": {
           "condition": {
             "field": "YearlyCumSum",
-            "selection": "selector007",
+            "selection": "selector011",
             "type": "quantitative"
           },
           "value": " "

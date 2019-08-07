@@ -8,21 +8,21 @@ Monthly
 - Remove tooltip from average
 
 Yearly
-- Change order to have 2019 on top
 - Edit placement of numbers on overlay, make placement fixed
 - Change X legend to use months
+- Edit colours so 2019 is darkest (make other years grey, current year another color)
 
 New Visualizations
 - Add temperature & rain
 - Add bar charts with 
 
 Mapping
-- Change colour of marker to be bike
+- Change colour of marker to be a bike
 - Add overlay of CRD bike map data
 
 Data
--Read in weather data from Environment Canada & Victoria Weather
--Declare timezone to deal with Safari issue
+- Read in weather data from Environment Canada & Victoria Weather
+- Declare timezone to deal with Safari issue
 
 Load Counter
-- Add way to bail out if trying to load the same day twice  
+- Add way to bail out if trying to load the same day twice

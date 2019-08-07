@@ -12,16 +12,15 @@ urlBase = "http://www.eco-public.com/api/cw6Xk4jW4X4R/publicpage/"
 counters=[["CounterID","CounterTitle","Lat","Long","Date"]]
 csvCountersfile=workingDir + '\\countersList.csv'
 
-#100150000
-#100000000,100000001
-
-#100063472
+#Ranges checked
+#100000000-100063472
+#100114000-100124997
 
 #reader in the counter list
 if os.path.exists(csvCountersfile):
     counters = pandas.read_csv(csvCountersfile)
 
-for i in range(100024643,100030145):
+for i in range(100110000,100114000):
     print(i)
     url=urlBase + str(i)
 

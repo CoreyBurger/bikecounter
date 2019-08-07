@@ -4,14 +4,14 @@ from datetime import datetime,date, timedelta
 import json
 import urllib.request
 import os
+import pandas
 
 #define constants
 workingDir = os.getcwd()
 urlBase = "http://www.eco-public.com/api/cw6Xk4jW4X4R/data/periode/"
 
-
 #reader in the counter list
-with open(workingDir + '\\counters.csv') as csvCountersfile:
+with open(workingDir + 'counters.csv') as csvCountersfile:
     csvCountersReader = csv.reader(csvCountersfile, delimiter=',')
     next(csvCountersReader)
     counters = list(csvCountersReader)

@@ -4,16 +4,24 @@ from datetime import datetime,date,timedelta,time
 import json
 import urllib.request
 import os
+import pandas
 
 #define constants
 workingDir = os.getcwd()
 urlBase = "http://www.eco-public.com/api/cw6Xk4jW4X4R/publicpage/"
 counters=[["CounterID","CounterTitle","Lat","Long","Date"]]
+csvCountersfile=workingDir + '\\countersList.csv'
 
 #100150000
 #100000000,100000001
 
-for i in range(100117730,100117732):
+#100063472
+
+#reader in the counter list
+if os.path.exists(csvCountersfile):
+    counters = pandas.read_csv(csvCountersfile)
+
+for i in range(100024643,100030145):
     print(i)
     url=urlBase + str(i)
 
@@ -28,7 +36,11 @@ for i in range(100117730,100117732):
     json_data = response.read()
     if json_data.decode('utf-8') == 'Counter null':
         continue
-    datapoint = json.loads(json_data)
 
-    counter = [i,datapoint['titre'],datapoint['latitude'],datapoint['longitude'],datapoint['date']]
-    counters.append(counter)
+    datapoint = json.loads(json_data)
+    
+    counter = pandas.DataFrame([[i,datapoint['titre'],datapoint['latitude'],datapoint['longitude'],datapoint['date']]])
+    counter.columns=['CounterID','CounterTitle','Lat','Long','Date']
+    counters = pandas.concat([counters,counter])
+
+counters.to_csv(csvCountersfile)

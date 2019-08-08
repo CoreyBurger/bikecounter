@@ -18,6 +18,7 @@ yesterdayDay = yesterdayDate.day
 yesterdayDayName = yesterdayDate.strftime("%A")
 yesterdayMonth = yesterdayDate.month
 yesterdayMonthName =  yesterdayDate.strftime("%B")
+yesterdayYear= yesterdayDate.year
 yesterdayYearName = yesterdayDate.strftime("%Y")
 locale.setlocale(locale.LC_ALL, 'en_CA')
 ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
@@ -133,6 +134,10 @@ else:
 
 yearlyCountString =  yesterdayYearName +  " is " + yearlyCountString + " last year, with " + locale.format_string("%d", yesterdayYearlyCumSum, grouping=True) + " rides so far this year (compared to " + locale.format_string("%d", lastyearYearlyCumSum, grouping=True) + " rides this time last year)"
 
+#Determine how many of the top 10 days were this year
+numHighestDays = len(dailyCount.sort_values('Count',ascending=False).head(10)[dailyCount.sort_values('Count',ascending=False).head(10).index.year==yesterdayYear])
+numHighestDaysString = str(numHighestDays) + " of the top 10 busiest days have been in " + yesterdayYearName
+
 #Determine total counts since beginning of counter
 totalCountString = "Since " + counterList['FirstDate'][0].strftime('%A, %b %d, %Y') + " there have been " + locale.format_string("%d", totalRides, grouping=True) + " rides past the counter"
  
@@ -238,6 +243,7 @@ page.find(id="monthlyText").find('p').string.replace_with(monthlyCountString)
 yearlySpec = "var yearlySpec =" + yearlyLineCombined.to_json() + "; vegaEmbed('#visYearly', yearlySpec); "
 page.find(id='visYearly').find('script').string.replace_with(yearlySpec)
 page.find(id="yearlyText").find('p').string.replace_with(yearlyCountString)
+page.find(id="yearlyText").find('li').string.replace_with(numHighestDaysString)
 
 #write out overall data
 overallSpec = "var overallSpec =" + heatmap.to_json() + "; vegaEmbed('#visOverall', overallSpec); "

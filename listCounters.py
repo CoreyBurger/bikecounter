@@ -14,13 +14,13 @@ csvCountersfile=workingDir + '\\countersList.csv'
 
 #Ranges checked
 #100000000-100063472
-#100114000-100124997
+#100105000-100160000
 
 #reader in the counter list
 if os.path.exists(csvCountersfile):
     counters = pandas.read_csv(csvCountersfile)
 
-for i in range(100110000,100114000):
+for i in range(100110000,100117676):
     print(i)
     url=urlBase + str(i)
 

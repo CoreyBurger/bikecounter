@@ -25,6 +25,8 @@ ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
 
 #read in counters list
 counterList  = pandas.read_csv('counters.csv',parse_dates=['FirstDate','FirstFullYear'])
+counterName = counterList['CounterName'][0]
+counterStartDate = counterList['FirstDate'][0]
 
 #load data
 countFile = "counts-" + str(counterList['CounterID'][0]) + ".csv"
@@ -33,7 +35,7 @@ data = pandas.read_csv(countFile,parse_dates=['Date'])
 specialDateFile = "specialDates.csv"
 specialDateData = pandas.read_csv(specialDateFile,parse_dates=['Date'])
 
-counterStartDate = counterList['FirstDate'][0]
+
 
 #setup counter map
 mapHTML ="var countmap = L.map('counterMap').setView([48.432613, -123.3782], 15);var marker = L.marker([48.432613, -123.37829]).addTo(countmap);var background = L.tileLayer.provider('Stamen.Toner').addTo(countmap);"
@@ -228,6 +230,10 @@ with open (workingDir + '\\counterVisual.html') as counterPage:
 #write out the map
 page.find(id='counterMap').find('script').string.replace_with(mapHTML)
 
+#write out the counter name
+page.find('title').string.replace_with(counterName)
+page.find(id="counterName").find('h1').string.replace_with(counterName)
+
 #write out the yesterday string
 page.find(id="counterName").find('p').string.replace_with(countString)
 page.find(id="counterName").find('li').string.replace_with(countStringYearlyRank)
@@ -251,7 +257,6 @@ page.find(id='visOverall').find('script').string.replace_with(overallSpec)
 page.find(id="overallText").find('p').string.replace_with(totalCountString)
 page.find(id="overallText").find('li').string.replace_with(highestCountDayString)
 page.find(id="overallText").find('li').find_next_sibling().string.replace_with(highestCountMonthString)
-
 
 #write out the HTML
 pageStr = bs4.BeautifulSoup.prettify(page)

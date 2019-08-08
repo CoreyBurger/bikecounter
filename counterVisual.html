@@ -1,4 +1,7 @@
 <html>
+ <title>
+  Galloping Goose at Harbour
+ </title>
  <head>
   <script src="https://cdn.jsdelivr.net/npm/vega@5.4.0">
   </script>
@@ -68,7 +71,7 @@ ul {
    <div class="container" id="firstRow">
     <div class="left" id="counterName">
      <h1 style="text-align:center;">
-      Galloping Goose at Harbour Rd
+      Galloping Goose at Harbour
      </h1>
      <p>
       Yesterday saw 3,568 bike rides,
@@ -14797,7 +14800,7 @@ ul {
       },
       "mark": "point",
       "selection": {
-        "selector004": {
+        "selector002": {
           "empty": "none",
           "fields": [
             "DayOfYear"
@@ -14822,7 +14825,7 @@ ul {
       "transform": [
         {
           "filter": {
-            "selection": "selector004"
+            "selection": "selector002"
           }
         }
       ]
@@ -14838,7 +14841,7 @@ ul {
         "text": {
           "condition": {
             "field": "YearlyCumSum",
-            "selection": "selector004",
+            "selection": "selector002",
             "type": "quantitative"
           },
           "value": " "

@@ -44,6 +44,11 @@ monthlyCount = monthlyCount[(monthlyCount['Month'].dt.month<yesterdayMonth) | (m
 testVisual = altair.Chart(monthlyCount).mark_bar().encode(
     altair.X('yearmonth(Month):T', axis=altair.Axis(title='Months')),
     altair.Y('YoYChange:Q', axis=altair.Axis(title='Year over Year Change')),
+    color=altair.condition(
+        altair.datum.YoYChange > 0,
+        altair.value("steelblue"),  # The positive color
+        altair.value("orange")  # The negative color
+    )
 ).properties(width=200,height=200)
 
 #Daily mean

@@ -86,7 +86,7 @@ else:
 
 #Check if yesterday was anything special
 try:
-    specialDateStringYesterday = "(" + specialDateData[specialDateData['Date']==yesterdayDate].Event.iloc[0] + ")"
+    specialDateStringYesterday = "Yesterday was " + specialDateData[specialDateData['Date']==yesterdayDate].Event.iloc[0] + ""
 except IndexError as error:
     specialDateStringYesterday = None
 
@@ -237,6 +237,7 @@ page.find(id="counterName").find('p').string.replace_with(countString)
 page.find(id="counterName").find('li').string.replace_with(countStringYearlyRank)
 page.find(id="counterName").find('li').find_next_sibling().string.replace_with(countStringDayRank)
 page.find(id="counterName").find('li').find_next_sibling().find_next_sibling().string.replace_with(countStringOverallRank)
+page.find(id="counterName").find('p').find_next_sibling().string.replace_with(specialDateStringYesterday)
 
 #write out the monthly data
 monthlySpec = "var monthlySpec =" + MonthlyChart.to_json() + "; vegaEmbed('#visMonthly', monthlySpec); "

@@ -35,8 +35,6 @@ data = pandas.read_csv(countFile,parse_dates=['Date'])
 specialDateFile = "specialDates.csv"
 specialDateData = pandas.read_csv(specialDateFile,parse_dates=['Date'])
 
-
-
 #setup counter map
 mapHTML ="var countmap = L.map('counterMap').setView([48.432613, -123.3782], 15);var marker = L.marker([48.432613, -123.37829]).addTo(countmap);var background = L.tileLayer.provider('Stamen.Toner').addTo(countmap);"
 

@@ -10,6 +10,7 @@ workingDir = os.getcwd()
 urlBase = "http://www.eco-public.com/api/cw6Xk4jW4X4R/data/periode/"
 
 
+
 #reader in the counter list
 #TODO - change to a Pandas dataframe
 with open(workingDir + '\\counters.csv') as csvCountersfile:

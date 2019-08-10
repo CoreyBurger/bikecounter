@@ -20,7 +20,7 @@ csvCountersfile=workingDir + '\\countersList.csv'
 if os.path.exists(csvCountersfile):
     counters = pandas.read_csv(csvCountersfile)
 
-for i in range(100110000,100117676):
+for i in range(100153372,100154113):
     print(i)
     url=urlBase + str(i)
 

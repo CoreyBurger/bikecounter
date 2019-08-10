@@ -176,6 +176,13 @@ monthlyLineBand = altair.Chart(currentMonth).mark_errorband(extent='stdev',color
 
 MonthlyChart = monthlyLineBand + monthlyLine + monthlyLineAvg
 
+#Daily mean
+dailyMean = altair.Chart(dailyCount).mark_line().encode(
+    altair.X('month(Day):T', axis=altair.Axis(title='Months')),
+    altair.Y('mean(Count):Q', axis=altair.Axis(title='Average Bikes per Day')),
+    altair.Color('Day:O', timeUnit='year', legend=altair.Legend(title='Year'))  
+).properties(width=200,height=200)
+
 #Create yearlycumulative line chart
 yearlyLine = altair.Chart(dailyCount).mark_line().encode(
     altair.X('DayOfYear:O'),
@@ -222,7 +229,7 @@ heatmap = altair.Chart(dailyCount).mark_rect().encode(
 
 heatmap.save('overallTest.json')
 #open the HTML doc  
-with open (workingDir + '\\counterVisual.html') as counterPage:
+with open (workingDir + '\\counterVisualTemplate.html') as counterPage:
     page = bs4.BeautifulSoup(counterPage)
 
 #write out the map
@@ -237,11 +244,13 @@ page.find(id="counterName").find('p').string.replace_with(countString)
 page.find(id="counterName").find('li').string.replace_with(countStringYearlyRank)
 page.find(id="counterName").find('li').find_next_sibling().string.replace_with(countStringDayRank)
 page.find(id="counterName").find('li').find_next_sibling().find_next_sibling().string.replace_with(countStringOverallRank)
-page.find(id="counterName").find('p').find_next_sibling().string.replace_with(specialDateStringYesterday)
+page.find(id="counterName").find('p').find_next_sibling().find_next_sibling().string.replace_with(specialDateStringYesterday)
 
 #write out the monthly data
 monthlySpec = "var monthlySpec =" + MonthlyChart.to_json() + "; vegaEmbed('#visMonthly', monthlySpec); "
+dailyMeanSpec = "var dailyMeanSpec =" + dailyMean.to_json() + "; vegaEmbed('#visMonthly2', dailyMeanSpec); "
 page.find(id='visMonthly').find('script').string.replace_with(monthlySpec)
+page.find(id='visMonthly2').find('script').string.replace_with(dailyMeanSpec)
 page.find(id="monthlyText").find('p').string.replace_with(monthlyCountString)
 
 #write out yearly data

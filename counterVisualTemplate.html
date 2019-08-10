@@ -1,0 +1,162 @@
+<html>
+ <title>
+ </title>
+ <head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.4.0">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.3.0">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@4.2.0">
+  </script>
+  <link crossorigin="" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" rel="stylesheet"/>
+  <script crossorigin="" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js">
+  </script>
+  <script src="leaflet-providers.js">
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=B612" rel="stylesheet"/>
+ </head>
+ <style>
+  body{
+   font-family: 'B612';
+   background-color:#fff;
+}
+@media
+ (min-width: 1400px) {
+  .site-container {
+    max-width: 1345px;
+  }
+}
+@media
+ (min-width: 1200px) {
+  .site-container {
+    max-width: 1140px;
+  }
+}
+@media
+ (min-width: 992px) {
+  .site-container {
+    max-width: 992px;
+  }
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .container > div {
+    flex: 1;
+  }
+}
+.site-container {
+  width: 100%;
+  margin: 0 auto;
+}
+.container {
+  text-align: left;
+  border: 2px dotted #000;
+  padding: 1em;
+}
+.clear {
+  display: none;
+}
+#counterMap {
+  height: 300px;
+}
+ul {
+  list-style-type: none;
+}
+ </style>
+ <body>
+  <div class="site-container">
+   <div class="container" id="firstRow">
+    <div class="left" id="counterName">
+     <h1 style="text-align:center;">
+     </h1>
+     <p>
+     </p>
+     <ul>
+      <li>
+      </li>
+      <li>
+      </li>
+      <li>
+      </li>
+    </ul>
+      <p>
+      </p>
+
+    </div>
+    <div class="left" id="counterMap">
+     <script>
+     </script>
+    </div>
+    <div class="clear">
+    </div>
+   </div>
+   <div class="header" id="monthHeader">
+    <h2>
+     Monthly
+    </h2>
+   </div>
+   <div class="container" id="secondRow">
+    <div class="left" id="monthlyText">
+     <p>
+     </p>
+    </div>
+    <div class="left" id="visMonthly">
+      <script>
+     </script>
+    </div>
+    <div class="left" id="visMonthly2">
+      <script>
+     </script>
+    </div>
+   </div>
+<div class="clear">
+</div>
+<div class="header" id="yearHeader">
+ <h2>
+  Yearly
+ </h2>
+</div>
+<div class="container" id="thirdRow">
+ <div class="left" id="yearlyText">
+  <p>
+  </p>
+  <ul>
+   <li>
+   </li>
+  </ul>
+ </div>
+ <div class="left" id="visYearly">
+  <script>
+  </script>
+ </div>
+ <div class="clear">
+ </div>
+</div>
+<div class="header" id="overallHeader">
+ <h2>
+  Overall
+ </h2>
+</div>
+<div class="container" id="thirdRow">
+ <div class="left" id="overallText">
+  <p>
+  </p>
+  <ul>
+   <li>
+   </li>
+   <li>
+   </li>
+  </ul>
+ </div>
+ <div class="left" id="visOverall">
+  <script>
+  </script>
+ </div>
+ <div class="clear">
+ </div>
+</div>
+</div>
+</body>
+</html>

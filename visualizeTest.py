@@ -46,16 +46,9 @@ testVisual = altair.Chart(monthlyCount).mark_bar().encode(
     altair.Y('YoYChange:Q', axis=altair.Axis(title='Year over Year Change')),
     color=altair.condition(
         altair.datum.YoYChange > 0,
-        altair.value("steelblue"),  # The positive color
-        altair.value("orange")  # The negative color
+        altair.value("green"),  # The positive color
+        altair.value("darkgrey")  # The negative color
     )
 ).properties(width=200,height=200)
-
-#Daily mean
-# testVisual = altair.Chart(countFile).mark_line().encode(
-#     altair.X('month(Date):T', axis=altair.Axis(title='Months')),
-#     altair.Y('mean(Count):Q', axis=altair.Axis(title='Average Bikes per Day')),
-#     altair.Color('Date:O', timeUnit='year', legend=altair.Legend(title='Year'))  
-# ).properties(width=200,height=200)
 
 testVisual.save('testVisual.json')

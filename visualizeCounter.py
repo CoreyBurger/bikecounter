@@ -24,28 +24,29 @@ locale.setlocale(locale.LC_ALL, 'en_CA')
 ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
 
 #read in counters list
-counterList  = pandas.read_csv('counters.csv',parse_dates=['FirstDate','FirstFullYear'])
+counterList  = pandas.read_csv('counters.csv',parse_dates=['FirstDate','FirstFullYear'], dtype={'VictoriaWeatherStation': str})
 counterName = counterList['CounterName'][0]
 counterStartDate = counterList['FirstDate'][0]
 
 #load data
 countFile = "counts-" + str(counterList['CounterID'][0]) + ".csv"
 countExportFile = "counts-" + str(counterList['CounterID'][0]) + "-export.csv"
-data = pandas.read_csv(countFile,parse_dates=['Date'])
+countData = pandas.read_csv(countFile,parse_dates=['Date'])
 specialDateFile = "specialDates.csv"
 specialDateData = pandas.read_csv(specialDateFile,parse_dates=['Date'])
+weatherData = pandas.read_csv('weatherData'+counterList['VictoriaWeatherStation'][0]+'.csv',parse_dates=['Date']).set_index('Date')
 
 #setup counter map
 mapHTML ="var countmap = L.map('counterMap').setView([48.432613, -123.3782], 15);var marker = L.marker([48.432613, -123.37829]).addTo(countmap);var background = L.tileLayer.provider('Stamen.Toner').addTo(countmap);"
 
 #resample to daily count
-dailyCount = data.resample('D',on='Date').sum()
-dailyCount['Day'] = dailyCount.index
+dailyCount = countData.resample('D',on='Date').sum()
 
+#determine total rides
 totalRides = dailyCount['Count'].sum()
 
 #remove all data from partial years
-dailyCount = dailyCount.loc[dailyCount['Day'] >= counterList['FirstFullYear'][0]]
+dailyCount = dailyCount.loc[dailyCount.index >= counterList['FirstFullYear'][0]]
 
 #add columns for monthly & yearly cumulative total, plus weekday and day of the year
 YearlyCumSum = dailyCount.groupby(dailyCount.index.to_period('y')).cumsum()
@@ -54,20 +55,23 @@ MonthlyCumSum = dailyCount.groupby(dailyCount.index.to_period('m')).cumsum()
 MonthlyCumSum.rename(columns={'Count':'MonthlyCumSum'}, inplace=True)
 dailyCount = pandas.merge(dailyCount,YearlyCumSum,on='Date')
 dailyCount = pandas.merge(dailyCount,MonthlyCumSum,on='Date')
-dailyCount['Weekday']=dailyCount['Day'].dt.dayofweek 
-dailyCount['DayOfYear'] = dailyCount['Day'].dt.dayofyear
+dailyCount['Weekday']=dailyCount.index.dayofweek 
+dailyCount['DayOfYear'] = dailyCount.index.dayofyear
+
+#append weather data to dailyCount
+dailyCount = pandas.merge(dailyCount,weatherData,on=['Date'])
 
 #write that list out to a csv file
 dailyCount.to_csv(countExportFile)
 
 #get yesterdays count   
-yesterdayCount = dailyCount.loc[dailyCount['Day']==yesterday]['Count'][0]
+yesterdayCount = dailyCount.loc[dailyCount.index==yesterday]['Count'][0]
 yesterdayCountString = locale.format_string("%d",yesterdayCount, grouping=True)
 
 #determine daily rank
 dailyRankAll = dailyCount.loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
 dailyRankThisYear=dailyCount.loc[dailyCount.index.year==datetime.datetime.now().year].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
-dailyRankDayOnly=dailyCount.loc[dailyCount['Day'].dt.dayofweek==yesterdayDate.weekday()].loc[dailyCount['Count']>yesterdayCount]['Count'].size
+dailyRankDayOnly=dailyCount.loc[dailyCount.index.dayofweek==yesterdayDate.weekday()].loc[dailyCount['Count']>yesterdayCount]['Count'].size
 
 if dailyRankAll==1:
     dailyRankAll=None
@@ -97,7 +101,7 @@ countStringDayRank = "".join(filter(None,("...", dailyRankDayOnly,"busiest ",yes
 countStringOverallRank = "".join(filter(None,("...", dailyRankAll,"busiest day overall")))
 
 #resample to monthly count
-monthlyCount = data.resample('M',on='Date').sum()
+monthlyCount = countData.resample('M',on='Date').sum()
 monthlyCount['Month'] = monthlyCount.index
 monthlyCount = monthlyCount.loc[monthlyCount['Month'] >= '2015-01-31']
 
@@ -142,7 +146,7 @@ numHighestDaysString = str(numHighestDays) + " of the top 10 busiest days have b
 totalCountString = "Since " + counterList['FirstDate'][0].strftime('%A, %b %d, %Y') + " there have been " + locale.format_string("%d", totalRides, grouping=True) + " rides past the counter"
  
 #Determine busiest day and month
-highestCountDay = dailyCount[dailyCount['Count']==dailyCount['Count'].max()]['Day'][0]
+highestCountDay = dailyCount[dailyCount['Count']==dailyCount['Count'].max()].index[0]
 highestCountDayString=highestCountDay.strftime('%A %B %d, %Y')
 highestCountMonth=monthlyCount[monthlyCount['Count']==monthlyCount['Count'].max()]['Month'][0]
 highestCountMonthString = "The busiest month ever was " + highestCountMonth.strftime('%B %Y')
@@ -155,22 +159,31 @@ except IndexError as error:
 
 highestCountDayString = " ".join(filter(None,("The busiest day ever was",highestCountDayString,specialDateStringHighest)))
 
+#Determine weather stats
+dailyCount[dailyCount.index.year==datetime.datetime.now().year].loc[dailyCount['Rain']==0]['Rain'].size
+#Days of sunshine
+#Avg Temp
+
+#reset index to allow use in altair
+dailyCount = dailyCount.reset_index()
+currentMonth = currentMonth.reset_index()
+
 #Create monthly cumulative line chart
 monthlyLine = altair.Chart(currentMonth).mark_line(stroke='#f304d3').encode(
-    altair.X('date(Day):T', axis=altair.Axis(title='Day of the Month')),
+    altair.X('date(Date):T', axis=altair.Axis(title='Day of the Month')),
     altair.Y('MonthlyCumSum', axis=altair.Axis(title='Total Bikes'), scale=altair.Scale(domain=(0,100000))),
-    altair.Color('Day:O', timeUnit='year', legend=altair.Legend(title='Year'))  
+    altair.Color('Date:O', timeUnit='year', legend=altair.Legend(title='Year'))  
 ).transform_filter(
-    altair.FieldEqualPredicate(timeUnit='year',field='Day',equal=datetime.date.today().year)
+    altair.FieldEqualPredicate(timeUnit='year',field='Date',equal=datetime.date.today().year)
 ).properties(width=200,height=200)
 
 monthlyLineAvg = altair.Chart(currentMonth).mark_line(color='grey',strokeDash=[8,8]).encode(
-    altair.X('date(Day):T', axis=altair.Axis(title='')),
+    altair.X('date(Date):T', axis=altair.Axis(title='')),
     altair.Y('mean(MonthlyCumSum)', axis=altair.Axis(title='')),
 ).properties(width=200,height=200)
 
 monthlyLineBand = altair.Chart(currentMonth).mark_errorband(extent='stdev',color='grey').encode(
-    altair.X('date(Day):T', axis=altair.Axis(title='')),
+    altair.X('date(Date):T', axis=altair.Axis(title='')),
     altair.Y('MonthlyCumSum', axis=altair.Axis(title='')),
 ).properties(width=200,height=200)
 
@@ -178,16 +191,16 @@ MonthlyChart = monthlyLineBand + monthlyLine + monthlyLineAvg
 
 #Daily mean
 dailyMean = altair.Chart(dailyCount).mark_line().encode(
-    altair.X('month(Day):T', axis=altair.Axis(title='Months')),
+    altair.X('month(Date):T', axis=altair.Axis(title='Months')),
     altair.Y('mean(Count):Q', axis=altair.Axis(title='Average Bikes per Day')),
-    altair.Color('Day:O', timeUnit='year', legend=altair.Legend(title='Year'))  
+    altair.Color('Date:O', timeUnit='year', legend=altair.Legend(title='Year'))  
 ).properties(width=200,height=200)
 
 #Create yearlycumulative line chart
 yearlyLine = altair.Chart(dailyCount).mark_line().encode(
     altair.X('DayOfYear:O'),
     altair.Y('YearlyCumSum', axis=altair.Axis(title='Total Bikes')),
-    altair.Color('Day:O', timeUnit='year',sort='descending')  
+    altair.Color('Date:O', timeUnit='year',sort='descending')  
 ).properties(width=200,height=200)
 
 nearest = altair.selection(type='single', nearest=True, on='mouseover',fields=['DayOfYear'], empty='none')
@@ -196,14 +209,15 @@ nearest = altair.selection(type='single', nearest=True, on='mouseover',fields=['
 # the x-value of the cursor
 selectors = altair.Chart(dailyCount).mark_point().encode(
     x='DayOfYear:O',
-    opacity=altair.value(0),
+    opacity=altair.value(0)
 ).add_selection(
     nearest
 )
 
 # Draw text labels near the points, and highlight based on selection
-text = yearlyLine.mark_text(align='left', dx=100,dy=-25).encode(
+text = yearlyLine.mark_text(align='left', dx=5,dy=-5).encode(
     text=altair.condition(nearest, 'YearlyCumSum', altair.value(' ')),
+    x=altair.value(200)
 )
 
 # Draw a rule at the location of the selection
@@ -221,13 +235,29 @@ yearlyLineCombined.save('yearlyTest.json')
 
 #Create daily heatmap
 heatmap = altair.Chart(dailyCount).mark_rect().encode(
-    altair.X('day(Day):O', axis=altair.Axis(title='Day of the Week')),
-    altair.Y('Day:O', timeUnit='year', axis=altair.Axis(title='Year')),
+    altair.X('day(Date):O', axis=altair.Axis(title='Day of the Week')),
+    altair.Y('Date:O', timeUnit='year', axis=altair.Axis(title='Year')),
     altair.Color('mean(Count):Q', legend=altair.Legend(title='Mean Total Bikes')),
     altair.Tooltip('mean(Count)',format=',.0f')
 ).properties(width=200,height=200)
 
+# heatmapText = altair.Chart(dailyCount).mark_text().encode(
+#     altair.X('day(Date):O', axis=altair.Axis(title='Day of the Week')),
+#     altair.Y('Date:O', timeUnit='year', axis=altair.Axis(title='Year')),
+#     altair.Text('mean(Count)',format=',.0f')
+# )
+# heatmap = heatmap + heatmapText
+
 heatmap.save('overallTest.json')
+
+#Visual temperature with count volumes
+tempCount = altair.Chart(dailyCount).mark_rect().encode(
+    altair.X('Temp:Q', bin=True),
+    altair.Y('Date:O', timeUnit='year'),
+    altair.Color('mean(Count):Q'),
+    altair.Tooltip('mean(Count)',format=',.0f')
+).properties(width=200,height=200)
+
 #open the HTML doc  
 with open (workingDir + '\\counterVisualTemplate.html') as counterPage:
     page = bs4.BeautifulSoup(counterPage)
@@ -265,6 +295,10 @@ page.find(id='visOverall').find('script').string.replace_with(overallSpec)
 page.find(id="overallText").find('p').string.replace_with(totalCountString)
 page.find(id="overallText").find('li').string.replace_with(highestCountDayString)
 page.find(id="overallText").find('li').find_next_sibling().string.replace_with(highestCountMonthString)
+
+#write out the weather data
+weatherSpec = "var weatherSpec =" + tempCount.to_json() + "; vegaEmbed('#visWeather', weatherSpec); "
+page.find(id='visWeather').find('script').string.replace_with(weatherSpec)
 
 #write out the HTML
 pageStr = bs4.BeautifulSoup.prettify(page)

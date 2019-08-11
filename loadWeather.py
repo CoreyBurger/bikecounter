@@ -23,10 +23,10 @@ rainData = pandas.read_csv(rainUrl)
 
 #get the data needed
 yesterdayTempMean = round(tempData.iloc[:,5].mean(),1)
-yesterdayTotalRain = rainData.iloc[:,5].sum()
+yesterdayTotalRain = round(rainData.iloc[:,5].max(),1)
 
 #read in the weather data
-weatherData = pandas.read_csv()
+weatherData = pandas.read_csv('weatherData'+stationID+'.csv')
 
 #append yesterday's data
 todayData = pandas.Series([yesterday,yesterdayTempMean,yesterdayTotalRain],index=['Date','Temp','Rain'])

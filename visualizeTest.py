@@ -27,28 +27,69 @@ ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
 counterList  = pandas.read_csv('counters.csv',parse_dates=['FirstDate','FirstFullYear'])
 
 #load data
-countFile = "counts-" + str(counterList['CounterID'][0]) + "-export.csv"
-dailyCount = pandas.read_csv(countFile, parse_dates=['Date'])
+# countFile = "counts-" + str(counterList['CounterID'][0]) + "-export.csv"
+# dailyCount = pandas.read_csv(countFile, parse_dates=['Date'])
 
-monthlyCount = dailyCount[['Date','Count']].resample('M',on='Date').sum()
-monthlyCount['Month'] = monthlyCount.index
+# monthlyCount = dailyCount[['Date','Count']].resample('M',on='Date').sum()
+# monthlyCount['Month'] = monthlyCount.index
 
-monthlyMerge = pandas.merge(monthlyCount,monthlyCount,left_on=[monthlyCount['Month'].dt.year,monthlyCount['Month'].dt.month],right_on=[monthlyCount['Month'].dt.year-1,monthlyCount['Month'].dt.month])
-monthlyMerge['YoYChange']=monthlyMerge['Count_y']-monthlyMerge['Count_x']
+# monthlyMerge = pandas.merge(monthlyCount,monthlyCount,left_on=[monthlyCount['Month'].dt.year,monthlyCount['Month'].dt.month],right_on=[monthlyCount['Month'].dt.year-1,monthlyCount['Month'].dt.month])
+# monthlyMerge['YoYChange']=monthlyMerge['Count_y']-monthlyMerge['Count_x']
+# monthlyCount = pandas.merge(monthlyCount,monthlyMerge[['Month_y','YoYChange']],left_on=monthlyCount['Month'],right_on=monthlyMerge['Month_y'])
+# monthlyCount = monthlyCount.drop(columns=['Month_y'])
+# #drop the current month, as it is partial
+# monthlyCount = monthlyCount[(monthlyCount['Month'].dt.month<yesterdayMonth) | (monthlyCount['Month'].dt.year<yesterdayYear)]
 
-monthlyCount = pandas.merge(monthlyCount,monthlyMerge[['Month_y','YoYChange']],left_on=monthlyCount['Month'],right_on=monthlyMerge['Month_y'])
-monthlyCount = monthlyCount.drop(columns=['Month_y'])
-#drop the current month, as it is partial
-monthlyCount = monthlyCount[(monthlyCount['Month'].dt.month<yesterdayMonth) | (monthlyCount['Month'].dt.year<yesterdayYear)]
+# #Year over year by Month
+# testVisual = altair.Chart(monthlyCount).mark_bar().encode(
+#     altair.X('yearmonth(Month):T', axis=altair.Axis(title='Months')),
+#     altair.Y('YoYChange:Q', axis=altair.Axis(title='Year over Year Change')),
+#     color=altair.condition(
+#         altair.datum.YoYChange > 0,
+#         altair.value("green"),  # The positive color
+#         altair.value("darkgrey")  # The negative color
+#     )
+# ).properties(width=200,height=200)
 
-testVisual = altair.Chart(monthlyCount).mark_bar().encode(
-    altair.X('yearmonth(Month):T', axis=altair.Axis(title='Months')),
-    altair.Y('YoYChange:Q', axis=altair.Axis(title='Year over Year Change')),
-    color=altair.condition(
-        altair.datum.YoYChange > 0,
-        altair.value("green"),  # The positive color
-        altair.value("darkgrey")  # The negative color
-    )
+#Count of days, by year and binned to 500
+testVisual = altair.Chart(dailyCount).mark_rect().encode(
+    altair.X('Temp:Q', bin=True),
+    altair.Y('Date:O', timeUnit='year'),
+    altair.Color('mean(Count):Q'),
+    altair.Tooltip('mean(Count)',format=',.0f')
 ).properties(width=200,height=200)
+
+#Count of days, by year and binned to 500
+# testVisual = altair.Chart(dailyCount).mark_circle().encode(
+#     altair.X('Temp:Q', bin=altair.Bin(step=2)), #
+#     altair.Y('Date:O', timeUnit='year'),
+#     altair.Size('count(Count):O')#,
+#     #altair.Color('mean(Count):Q')
+# ).properties(width=200,height=200)
+
+#Temp by count by year
+# testVisual = altair.Chart(dailyCount).mark_circle().encode(
+#     altair.X('Temp:Q', bin=altair.Bin(step=5)), 
+#     altair.Y('Date:O', timeUnit='year'),
+#     altair.Color('mean(Count):Q'),
+#     altair.Size('count(Count):Q'),
+#     altair.Tooltip('mean(Count)',format=',.0f')
+# ).properties(width=200,height=200)
+
+##Count of days by binned by 1000s
+# testVisual = altair.Chart(dailyCount).mark_bar().encode(
+#     altair.X('Date:O', timeUnit='year', axis=altair.Axis(title='Year')), 
+#     altair.Y('count(Count):Q',sort='descending', axis=altair.Axis(title='Days by Total Bikes')),
+#     altair.Color('Count:Q', bin=True)
+#     #altair.Size('count(Count):Q'),
+#     #altair.Tooltip('mean(Count)',format=',.0f')
+# ).transform_filter(
+#     altair.FieldLTPredicate(field='DayOfYear',lt=datetime.datetime.today().timetuple().tm_yday)
+# ).properties(width=200,height=200
+# ).configure_axis(
+#     grid=False
+# ).configure_view(
+#     strokeWidth=0
+# )
 
 testVisual.save('testVisual.json')

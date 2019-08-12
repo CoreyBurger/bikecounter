@@ -5,6 +5,7 @@ import json
 import urllib.request
 import os
 import pandas
+import itertools
 
 #define constants
 workingDir = os.getcwd()
@@ -14,13 +15,23 @@ csvCountersfile=workingDir + '\\countersList.csv'
 
 #Ranges checked
 #100000000-100063472
-#100105000-100160000
+#100069500-100070000
+#100079500-100080500
+#100105000-100162157
+#100180000-100180500
+#100190000-100190500
+#100200000-100200500
+#100210000-100210500
+#100220000-100220500
+#100300000-100300500
 
 #reader in the counter list
 if os.path.exists(csvCountersfile):
     counters = pandas.read_csv(csvCountersfile)
 
-for i in range(100153372,100154113):
+newCounters=pandas.DataFrame(columns=['CounterID','CounterTitle','Lat','Long','Date'])
+
+for i in range(100300000,100300500):
     print(i)
     url=urlBase + str(i)
 
@@ -40,6 +51,10 @@ for i in range(100153372,100154113):
     
     counter = pandas.DataFrame([[i,datapoint['titre'],datapoint['latitude'],datapoint['longitude'],datapoint['date']]])
     counter.columns=['CounterID','CounterTitle','Lat','Long','Date']
-    counters = pandas.concat([counters,counter])
+    newCounters = pandas.concat([newCounters,counter])
 
-counters.to_csv(csvCountersfile)
+newCounters['CounterID'].size
+counters.merge(newCounters, indicator='id', how='outer', on='CounterID').query('id == "both"')['CounterID'].size
+counters.merge(newCounters, indicator='id', how='outer', on='CounterID').query('id == "right_only"').drop('id', 1)
+#newCounters.to_csv(workingDir + '\\countersListNew.csv') 
+#counters.to_csv(csvCountersfile)

@@ -15,7 +15,15 @@ csvCountersfile=workingDir + '\\countersList.csv'
 
 #Ranges checked
 #100000000-100063472
-#100105000-100160000
+#100069500-100070000
+#100079500-100080500
+#100105000-100162157
+#100180000-100180500
+#100190000-100190500
+#100200000-100200500
+#100210000-100210500
+#100220000-100220500
+#100300000-100300500
 
 #reader in the counter list
 if os.path.exists(csvCountersfile):
@@ -23,7 +31,7 @@ if os.path.exists(csvCountersfile):
 
 newCounters=pandas.DataFrame(columns=['CounterID','CounterTitle','Lat','Long','Date'])
 
-for i in range(100126835,100126836):
+for i in range(100300000,100300500):
     print(i)
     url=urlBase + str(i)
 
@@ -45,6 +53,8 @@ for i in range(100126835,100126836):
     counter.columns=['CounterID','CounterTitle','Lat','Long','Date']
     newCounters = pandas.concat([newCounters,counter])
 
+newCounters['CounterID'].size
+counters.merge(newCounters, indicator='id', how='outer', on='CounterID').query('id == "both"')['CounterID'].size
 counters.merge(newCounters, indicator='id', how='outer', on='CounterID').query('id == "right_only"').drop('id', 1)
 #newCounters.to_csv(workingDir + '\\countersListNew.csv') 
 #counters.to_csv(csvCountersfile)

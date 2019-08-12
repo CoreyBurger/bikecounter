@@ -22,6 +22,7 @@ tempData = pandas.read_csv(tempUrl)
 rainData = pandas.read_csv(rainUrl)
 
 #get the data needed
+#TODO - change to read more midnight on
 yesterdayTempMean = round(tempData.iloc[:,5].mean(),1)
 yesterdayTotalRain = round(rainData.iloc[:,5].max(),1)
 

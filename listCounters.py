@@ -5,6 +5,7 @@ import json
 import urllib.request
 import os
 import pandas
+import itertools
 
 #define constants
 workingDir = os.getcwd()
@@ -20,7 +21,9 @@ csvCountersfile=workingDir + '\\countersList.csv'
 if os.path.exists(csvCountersfile):
     counters = pandas.read_csv(csvCountersfile)
 
-for i in range(100153372,100154113):
+newCounters=pandas.DataFrame(columns=['CounterID','CounterTitle','Lat','Long','Date'])
+
+for i in range(100126835,100126836):
     print(i)
     url=urlBase + str(i)
 
@@ -40,6 +43,8 @@ for i in range(100153372,100154113):
     
     counter = pandas.DataFrame([[i,datapoint['titre'],datapoint['latitude'],datapoint['longitude'],datapoint['date']]])
     counter.columns=['CounterID','CounterTitle','Lat','Long','Date']
-    counters = pandas.concat([counters,counter])
+    newCounters = pandas.concat([newCounters,counter])
 
-counters.to_csv(csvCountersfile)
+counters.merge(newCounters, indicator='id', how='outer', on='CounterID').query('id == "right_only"').drop('id', 1)
+#newCounters.to_csv(workingDir + '\\countersListNew.csv') 
+#counters.to_csv(csvCountersfile)

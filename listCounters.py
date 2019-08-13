@@ -14,8 +14,9 @@ counters=[["CounterID","CounterTitle","Lat","Long","Date"]]
 csvCountersfile=workingDir + '\\countersList.csv'
 
 #Ranges checked
-#100000000-100063472
-#100069500-100070000
+#99999500 -100000000
+#100000000-100064000
+#100068500-100070000
 #100079500-100080500
 #100105000-100162157
 #100180000-100180500
@@ -24,6 +25,10 @@ csvCountersfile=workingDir + '\\countersList.csv'
 #100210000-100210500
 #100220000-100220500
 #100300000-100300500
+#100400000-100400500
+
+#These appear to be directional data for counters in the above ranges
+#101000000-101000000
 
 #reader in the counter list
 if os.path.exists(csvCountersfile):
@@ -31,7 +36,7 @@ if os.path.exists(csvCountersfile):
 
 newCounters=pandas.DataFrame(columns=['CounterID','CounterTitle','Lat','Long','Date'])
 
-for i in range(100300000,100300500):
+for i in range(101000000,101000500):
     print(i)
     url=urlBase + str(i)
 

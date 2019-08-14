@@ -10,12 +10,13 @@ import itertools
 #define constants
 workingDir = os.getcwd()
 urlBase = "http://www.eco-public.com/api/cw6Xk4jW4X4R/publicpage/"
-counters=[["CounterID","CounterTitle","Lat","Long","Date"]]
+#counters=[["CounterID","CounterTitle","Lat","Long","Date","DateChecked"]]
 csvCountersfile=workingDir + '\\countersList.csv'
 
 #Ranges checked
-#100000000-100063472
-#100069500-100070000
+#99999500 -100000000
+#100000000-100064000
+#100068500-100070000
 #100079500-100080500
 #100105000-100162157
 #100180000-100180500
@@ -24,14 +25,18 @@ csvCountersfile=workingDir + '\\countersList.csv'
 #100210000-100210500
 #100220000-100220500
 #100300000-100300500
+#100400000-100400500
 
-#reader in the counter list
+#These appear to be directional data for counters in the above ranges
+#101000000-101000000
+
+#read in the counter list
 if os.path.exists(csvCountersfile):
     counters = pandas.read_csv(csvCountersfile)
 
-newCounters=pandas.DataFrame(columns=['CounterID','CounterTitle','Lat','Long','Date'])
+newCounters=pandas.DataFrame(columns=['CounterID','CounterTitle','Lat','Long','Date','DateChecked'])
 
-for i in range(100300000,100300500):
+for i in range(100143814,100149522):
     print(i)
     url=urlBase + str(i)
 
@@ -45,16 +50,21 @@ for i in range(100300000,100300500):
     #read in the JSON data
     json_data = response.read()
     if json_data.decode('utf-8') == 'Counter null':
-        continue
-
-    datapoint = json.loads(json_data)
-    
-    counter = pandas.DataFrame([[i,datapoint['titre'],datapoint['latitude'],datapoint['longitude'],datapoint['date']]])
-    counter.columns=['CounterID','CounterTitle','Lat','Long','Date']
+        counter = pandas.DataFrame([[i,'No Counter','','','',datetime.today().strftime('%Y/%m/%d')]])
+    else:
+        datapoint = json.loads(json_data)
+        counter = pandas.DataFrame([[i,datapoint['titre'],datapoint['latitude'],datapoint['longitude'],datapoint['date'],datetime.today().strftime('%Y/%m/%d')]])
+    counter.columns=['CounterID','CounterTitle','Lat','Long','Date','DateChecked']
     newCounters = pandas.concat([newCounters,counter])
 
-newCounters['CounterID'].size
-counters.merge(newCounters, indicator='id', how='outer', on='CounterID').query('id == "both"')['CounterID'].size
-counters.merge(newCounters, indicator='id', how='outer', on='CounterID').query('id == "right_only"').drop('id', 1)
-#newCounters.to_csv(workingDir + '\\countersListNew.csv') 
-#counters.to_csv(csvCountersfile)
+#check for new counters
+counters.merge(newCounters, indicator='id', how='outer', on='CounterID').query('id == "right_only"').query('CounterTitle_y!="No Counter"')
+
+#list of duplicated counters
+counters.merge(newCounters, indicator='id', how='outer', on='CounterID').query('id == "both"')
+
+#merge the two lists, then sort
+completeCounters = pandas.concat([counters,newCounters],ignore_index=True).sort_values(['CounterID'])
+
+#write out the data
+completeCounters.to_csv(workingDir + '\\countersList.csv',index=False)

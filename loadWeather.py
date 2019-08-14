@@ -9,15 +9,37 @@ import urllib.request
 workingDir = os.getcwd()
 
 stationID ='0012'
+stationIDint = int(stationID)
 yesterdayDate = (datetime.date.today() - datetime.timedelta(1))
 yesterday = yesterdayDate.strftime('%Y-%m-%d')
 yesterdayYearName = yesterdayDate.strftime("%Y")
+yesterdayMonth = yesterdayDate.month
+yesterdayDay = yesterdayDate.day
+yesterdayYear = yesterdayDate.year
 urlBase = "http://www.victoriaweather.ca/data/"+yesterdayYearName+'/'
+primeURLBase = "http://www.victoriaweather.ca/data.php?field="
+
 
 #set the base url
 tempUrl=urlBase+'temperature_'+stationID+'_'+yesterday+'.csv'
 rainUrl=urlBase+'raintotal_'+stationID+'_'+yesterday+'.csv'
 
+#prime the csv creation tool
+primeStationDetails = '&id=' +  str(stationIDint) + '&year=' + str(yesterdayYear) + '&month=' + str(yesterdayMonth) + '&day=' + str(yesterdayDay) + '&notable=1'
+tempPrimeURL = primeURLBase + 'temperature' + primeStationDetails
+rainPrimeURL = primeURLBase + 'raintotal' + primeStationDetails
+
+try:
+    response = urllib.request.urlopen(tempPrimeURL)
+except:
+    pass
+
+try:
+    response = urllib.request.urlopen(rainPrimeURL)
+except:
+    pass
+
+#read the csv
 tempData = pandas.read_csv(tempUrl)
 rainData = pandas.read_csv(rainUrl)
 

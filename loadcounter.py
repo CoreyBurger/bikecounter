@@ -8,6 +8,8 @@ import os
 #define constants
 workingDir = os.getcwd()
 urlBase = "http://www.eco-public.com/api/cw6Xk4jW4X4R/data/periode/"
+yesterdayDate = date.today() - timedelta(1)
+yesterday = yesterdayDate.strftime('%Y%m%d')
 
 #reader in the counter list
 #TODO - change to a Pandas dataframe
@@ -29,12 +31,10 @@ for i in counters:
             next(csvExportReader)
             countsExport = list(csvExportReader)
             #define our dates
-            yesterday = date.today() - timedelta(1)
             lastDate = datetime.date(datetime.strptime(countsExport[-1][1][0:10],'%Y-%m-%d')) + timedelta(1)
             #check the two dates, yesterday and the largest date found, return the largest date if not the same as yesterday
             startDate = lastDate if lastDate != yesterday else yesterday
             #convert both dates to the correct format
-            yesterday = yesterday.strftime('%Y%m%d')
             startDate = startDate.strftime('%Y%m%d')
         counts=[]
     else:

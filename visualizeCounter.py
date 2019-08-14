@@ -71,7 +71,7 @@ yesterdayCountString = locale.format_string("%d",yesterdayCount, grouping=True)
 #determine daily rank
 dailyRankAll = dailyCount.loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
 dailyRankThisYear=dailyCount.loc[dailyCount.index.year==datetime.datetime.now().year].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
-dailyRankDayOnly=dailyCount.loc[dailyCount.index.dayofweek==yesterdayDate.weekday()].loc[dailyCount['Count']>yesterdayCount]['Count'].size
+dailyRankDayOnly=dailyCount.loc[dailyCount.index.dayofweek==yesterdayDate.weekday()].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
 
 if dailyRankAll==1:
     dailyRankAll=None

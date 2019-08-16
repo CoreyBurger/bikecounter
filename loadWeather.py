@@ -19,7 +19,6 @@ yesterdayYear = yesterdayDate.year
 urlBase = "http://www.victoriaweather.ca/data/"+yesterdayYearName+'/'
 primeURLBase = "http://www.victoriaweather.ca/data.php?field="
 
-
 #set the base url
 tempUrl=urlBase+'temperature_'+stationID+'_'+yesterday+'.csv'
 rainUrl=urlBase+'raintotal_'+stationID+'_'+yesterday+'.csv'
@@ -39,7 +38,7 @@ try:
 except:
     pass
 
-#read the csv
+#read the csv from the URL
 tempData = pandas.read_csv(tempUrl)
 rainData = pandas.read_csv(rainUrl)
 

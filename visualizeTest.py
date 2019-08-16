@@ -27,8 +27,8 @@ ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(n//10%10!=1)*(n%10<4)*n%10::4])
 counterList  = pandas.read_csv('counters.csv',parse_dates=['FirstDate','FirstFullYear'])
 
 #load data
-# countFile = "counts-" + str(counterList['CounterID'][0]) + "-export.csv"
-# dailyCount = pandas.read_csv(countFile, parse_dates=['Date'])
+countFile = "counts-" + str(counterList['CounterID'][0]) + "-export.csv"
+dailyCount = pandas.read_csv(countFile, parse_dates=['Date'])
 
 # monthlyCount = dailyCount[['Date','Count']].resample('M',on='Date').sum()
 # monthlyCount['Month'] = monthlyCount.index
@@ -52,14 +52,6 @@ counterList  = pandas.read_csv('counters.csv',parse_dates=['FirstDate','FirstFul
 # ).properties(width=200,height=200)
 
 #Count of days, by year and binned to 500
-testVisual = altair.Chart(dailyCount).mark_rect().encode(
-    altair.X('Temp:Q', bin=True),
-    altair.Y('Date:O', timeUnit='year'),
-    altair.Color('mean(Count):Q'),
-    altair.Tooltip('mean(Count)',format=',.0f')
-).properties(width=200,height=200)
-
-#Count of days, by year and binned to 500
 # testVisual = altair.Chart(dailyCount).mark_circle().encode(
 #     altair.X('Temp:Q', bin=altair.Bin(step=2)), #
 #     altair.Y('Date:O', timeUnit='year'),
@@ -77,19 +69,21 @@ testVisual = altair.Chart(dailyCount).mark_rect().encode(
 # ).properties(width=200,height=200)
 
 ##Count of days by binned by 1000s
-# testVisual = altair.Chart(dailyCount).mark_bar().encode(
-#     altair.X('Date:O', timeUnit='year', axis=altair.Axis(title='Year')), 
-#     altair.Y('count(Count):Q',sort='descending', axis=altair.Axis(title='Days by Total Bikes')),
-#     altair.Color('Count:Q', bin=True)
-#     #altair.Size('count(Count):Q'),
-#     #altair.Tooltip('mean(Count)',format=',.0f')
-# ).transform_filter(
-#     altair.FieldLTPredicate(field='DayOfYear',lt=datetime.datetime.today().timetuple().tm_yday)
-# ).properties(width=200,height=200
-# ).configure_axis(
-#     grid=False
-# ).configure_view(
-#     strokeWidth=0
-# )
+testVisual = altair.Chart(dailyCount).mark_bar().encode(
+    altair.X('Date:O', timeUnit='year', axis=altair.Axis(title=None,domainWidth=0,labelAngle=0,tickWidth=0)), 
+    altair.Y('count(Count):Q',sort='descending', axis=altair.Axis(title='Days by Total Bikes',domainWidth=0)),
+    altair.Color('Count:Q', bin=True)
+    #altair.Size('count(Count):Q'),
+    #altair.Tooltip('mean(Count)',format=',.0f')
+).transform_filter(
+    altair.FieldLTPredicate(field='DayOfYear',lt=datetime.datetime.today().timetuple().tm_yday)
+).properties(width=200,height=200
+).configure_axis(
+    grid=False
+).configure_view(
+    strokeWidth=0
+).configure_legend(
+    labelBaseline='top'
+)
 
 testVisual.save('testVisual.json')

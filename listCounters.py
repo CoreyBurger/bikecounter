@@ -36,7 +36,7 @@ if os.path.exists(csvCountersfile):
 
 newCounters=pandas.DataFrame(columns=['CounterID','CounterTitle','Lat','Long','Date','DateChecked'])
 
-for i in range(100048273,100054198):
+for i in range(100040189,100041857):
     print(i)
     url=urlBase + str(i)
 

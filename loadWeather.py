@@ -4,6 +4,7 @@ import json
 import os
 import pandas
 import urllib.request
+import time
 
 #define constants
 workingDir = os.getcwd()
@@ -29,14 +30,17 @@ tempPrimeURL = primeURLBase + 'temperature' + primeStationDetails
 rainPrimeURL = primeURLBase + 'raintotal' + primeStationDetails
 
 try:
-    response = urllib.request.urlopen(tempPrimeURL)
+    urllib.request.urlopen(tempPrimeURL)
 except:
     pass
 
 try:
-    response = urllib.request.urlopen(rainPrimeURL)
+    urllib.request.urlopen(rainPrimeURL)
 except:
     pass
+
+#give the system time to generate the CSVs
+time.sleep(2)
 
 #read the csv from the URL
 tempData = pandas.read_csv(tempUrl)

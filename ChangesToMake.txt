@@ -1,5 +1,5 @@
 Wording
-- Make clear if busiest day of the week is overall  
+- Make clear if busiest day of the week is overall 
 
 Visualizations
 - Change all colours to green

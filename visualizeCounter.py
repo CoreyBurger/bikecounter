@@ -121,7 +121,9 @@ elif yesterdayMonChange>0.05:
 else:
     monthlyCountString='about as busy same as'
 
-monthlyCountString=  yesterdayMonthName +  " is " + monthlyCountString + " average, with " + locale.format_string("%d", yesterdayMonthlyCumSum, grouping=True) + " rides so far this month"
+monthIsWas = "was" if datetime.date.today().day==1 else "is"
+
+monthlyCountString=  yesterdayMonthName +  " " + monthIsWas + " " + monthlyCountString + " average, with " + locale.format_string("%d", yesterdayMonthlyCumSum, grouping=True) + " rides so far this month"
 
 #Check if we are ahead of last year
 #TODO - deal with leap years
@@ -136,7 +138,9 @@ elif yesterdayYearChange>0.05:
 else:
     yearlyCountString='about as busy same as'
 
-yearlyCountString =  yesterdayYearName +  " is " + yearlyCountString + " last year, with " + locale.format_string("%d", yesterdayYearlyCumSum, grouping=True) + " rides so far this year (compared to " + locale.format_string("%d", lastyearYearlyCumSum, grouping=True) + " rides this time last year)"
+yearIsWas = "was" if (datetime.date.today().day==1 and datetime.date.today().month==1) else "is"
+
+yearlyCountString =  yesterdayYearName +  " " + yearIsWas + " " + yearlyCountString + " last year, with " + locale.format_string("%d", yesterdayYearlyCumSum, grouping=True) + " rides so far this year (compared to " + locale.format_string("%d", lastyearYearlyCumSum, grouping=True) + " rides this time last year)"
 
 #Determine how many of the top 10 days were this year
 numHighestDays = len(dailyCount.sort_values('Count',ascending=False).head(10)[dailyCount.sort_values('Count',ascending=False).head(10).index.year==yesterdayYear])

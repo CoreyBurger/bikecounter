@@ -48,13 +48,17 @@ totalRides = dailyCount['Count'].sum()
 #remove all data from partial years
 dailyCount = dailyCount.loc[dailyCount.index >= counterList['FirstFullYear'][0]]
 
-#add columns for monthly & yearly cumulative total, plus weekday and day of the year
+#add columns for weekly, monthly, and yearly cumulative total, plus weekday and day of the year
 YearlyCumSum = dailyCount.groupby(dailyCount.index.to_period('y')).cumsum()
 YearlyCumSum.rename(columns={'Count':'YearlyCumSum'}, inplace=True)
 MonthlyCumSum = dailyCount.groupby(dailyCount.index.to_period('m')).cumsum()
 MonthlyCumSum.rename(columns={'Count':'MonthlyCumSum'}, inplace=True)
+WeeklyCumSum = dailyCount.groupby(dailyCount.index.strftime('%y%W')).cumsum()
+WeeklyCumSum.rename(columns={'Count':'WeeklyCumSum'}, inplace=True)
 dailyCount = pandas.merge(dailyCount,YearlyCumSum,on='Date')
 dailyCount = pandas.merge(dailyCount,MonthlyCumSum,on='Date')
+dailyCount = pandas.merge(dailyCount,WeeklyCumSum,on='Date')
+dailyCount['WeekNum']=dailyCount.index.strftime('%W')
 dailyCount['Weekday']=dailyCount.index.dayofweek 
 dailyCount['DayOfYear'] = dailyCount.index.dayofyear
 

@@ -16,6 +16,8 @@ yesterdayDate = datetime.date.today() - datetime.timedelta(1)
 yesterday = yesterdayDate.strftime('%Y-%m-%d')
 yesterdayDay = yesterdayDate.day
 yesterdayDayName = yesterdayDate.strftime("%A")
+yesterdayWeekNum = int(yesterdayDate.strftime("%W"))
+yesterdayDayOfWeek = yesterdayDate.weekday()
 yesterdayMonth = yesterdayDate.month
 yesterdayMonthName =  yesterdayDate.strftime("%B")
 yesterdayYear= yesterdayDate.year
@@ -30,9 +32,10 @@ counterList  = pandas.read_csv('counters.csv',parse_dates=['FirstDate','FirstFul
 countFile = "counts-" + str(counterList['CounterID'][0]) + "-export.csv"
 dailyCount = pandas.read_csv(countFile, parse_dates=['Date']).set_index('Date')
 
-#Weekly cumulative sum
-dailyCount['Count'].groupby(dailyCount.index.strftime('%y%W')).cumsum()
+dailyCount.loc[(dailyCount['WeekNum']==yesterdayWeekNum) & (dailyCount['Weekday']==yesterdayDayOfWeek)]
 
+#Mean of weekly cumulative sum to this day of prior weeks
+statistics.mean(dailyCount['WeeklyCumSum'].loc[(dailyCount['WeekNum']==yesterdayWeekNum) & (dailyCount['Weekday']==yesterdayDayOfWeek)])
 
 # monthlyCount = dailyCount[['Date','Count']].resample('M',on='Date').sum()
 # monthlyCount['Month'] = monthlyCount.index

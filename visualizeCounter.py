@@ -112,7 +112,7 @@ monthlyCount = monthlyCount.loc[monthlyCount['Month'] >= '2015-01-31']
 #Pull out the current month
 currentMonth = pandas.DataFrame(dailyCount.loc[dailyCount.index.month==yesterdayMonth])
 
-#check if we are ahead of behind of the average monthly cumulative sum
+#check if we are ahead or behind the average monthly cumulative sum
 #TODO genericize the function to deal with both yearly & monthly
 yesterdayMonthCumSumMean=statistics.mean(dailyCount.loc[(dailyCount.index.month==yesterdayMonth) & (dailyCount.index.day==yesterdayDay)].MonthlyCumSum)
 yesterdayMonthlyCumSum=pandas.DataFrame(dailyCount.loc[dailyCount.index==yesterday]).MonthlyCumSum[0]

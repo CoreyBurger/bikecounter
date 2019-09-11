@@ -76,7 +76,9 @@ yesterdayCountString = locale.format_string("%d",yesterdayCount, grouping=True)
 dailyRankAll = dailyCount.loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
 dailyRankThisYear=dailyCount.loc[dailyCount.index.year==datetime.datetime.now().year].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
 dailyRankDayOnly=dailyCount.loc[dailyCount.index.dayofweek==yesterdayDate.weekday()].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
+dailyRankMonthOnly=dailyCount.loc[dailyCount.index.month==yesterdayMonth].loc[dailyCount['Count']>yesterdayCount]['Count'].size+1
 
+#TODO = genericize
 if dailyRankAll==1:
     dailyRankAll=None
 else:
@@ -92,6 +94,11 @@ if dailyRankDayOnly==1:
 else:
     dailyRankDayOnly = str(ordinal(dailyRankDayOnly)) + " "
 
+if dailyRankMonthOnly==1:
+    dailyRankMonthOnly=None
+else:
+    dailyRankMonthOnly = str(ordinal(dailyRankMonthOnly)) + " "
+
 #Check if yesterday was anything special
 try:
     specialDateStringYesterday = "Yesterday was " + specialDateData[specialDateData['Date']==yesterdayDate].Event.iloc[0] + ""
@@ -101,6 +108,7 @@ except IndexError as error:
 #craft the string for yesterday
 countString ="Yesterday saw " + yesterdayCountString + " bike rides,"
 countStringYearlyRank = "".join(filter(None,("...", dailyRankThisYear,"busiest day of ",yesterdayYearName)))
+countStringMonthlyRank = "".join(filter(None,("...", dailyRankMonthOnly,"busiest day in ",yesterdayMonthName)))
 countStringDayRank = "".join(filter(None,("...", dailyRankDayOnly,"busiest ",yesterdayDayName)))
 countStringOverallRank = "".join(filter(None,("...", dailyRankAll,"busiest day overall")))
 
@@ -278,12 +286,14 @@ page.find('title').string.replace_with(counterName)
 page.find(id="counterName").find('h1').string.replace_with(counterName)
 
 #write out the yesterday string
+#TODO cleanup to walk through list of li
 page.find(id="counterName").find('p').string.replace_with(countString)
 page.find(id="counterName").find('li').string.replace_with(countStringYearlyRank)
-page.find(id="counterName").find('li').find_next_sibling().string.replace_with(countStringDayRank)
-page.find(id="counterName").find('li').find_next_sibling().find_next_sibling().string.replace_with(countStringOverallRank)
+page.find(id="counterName").find('li').find_next_sibling().string.replace_with(countStringMonthlyRank)
+page.find(id="counterName").find('li').find_next_sibling().find_next_sibling().string.replace_with(countStringDayRank)
+page.find(id="counterName").find('li').find_next_sibling().find_next_sibling().find_next_sibling().string.replace_with(countStringOverallRank)
 if specialDateStringYesterday is not None:
-    page.find(id="counterName").find('p').find_next_sibling().find_next_sibling().string.replace_with(specialDateStringYesterday)
+    page.find(id="counterName").find('p').find_next_sibling().find_next_sibling().find_next_sibling().string.replace_with(specialDateStringYesterday)
 
 #write out the monthly data
 monthlySpec = "var monthlySpec =" + MonthlyChart.to_json() + "; vegaEmbed('#visMonthly', monthlySpec); "

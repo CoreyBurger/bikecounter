@@ -7,13 +7,17 @@ import os
 
 #define constants
 workingDir = os.getcwd()
-urlBase = "http://www.eco-public.com/api/cw6Xk4jW4X4R/data/periode/"
+
+#urlBase = "http://www.eco-public.com/api/cw6Xk4jW4X4R/data/periode/"
+urlBase = "https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/data/"
+urlEnd = "&domain=4828&withNull=true"
 yesterdayDate = date.today() - timedelta(1)
 yesterday = yesterdayDate.strftime('%Y%m%d')
+todayDate = date.today().strftime('%Y%m%d')
 
 #reader in the counter list
 #TODO - change to a Pandas dataframe
-with open(workingDir + '\\counters.csv') as csvCountersfile:
+with open(workingDir + '\\countersToVisualize.csv') as csvCountersfile:
     csvCountersReader = csv.reader(csvCountersfile, delimiter=',')
     next(csvCountersReader)
     counters = list(csvCountersReader)
@@ -42,7 +46,7 @@ for i in counters:
         startDate = i[2]
 
     #create the url base with the start date
-    url=urlBase + i[1] + "?begin=" + startDate + "&end=" + yesterday + "&step=2"
+    url=urlBase + i[1] + "?begin=" + startDate + "&end=" + todayDate + "&step=2" + urlEnd + "&t=" + i[6]
 
     #try and load the url
     try:

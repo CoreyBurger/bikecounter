@@ -1,2 +1,9 @@
-CounterName,CounterID,FirstDate,FirstFullYear,VictoriaWeatherStation
-"Galloping Goose at Harbour",100117730,"20141218",2015,"0012"
+CounterName,CounterID,FirstDate,FirstFullYear,VictoriaWeatherStation,Type
+Galloping Goose at Harbour,100117730,20141218,2015,12,BikeOnly
+Pandora St at Vancouver,100059039,20200305,2021,,BikeOnly
+Fort St at Vancouver,100059040,20200305,2021,,BikeOnly
+Wharf St at Government,100058218,20190809,2020,,BikeOnly
+Johnson St. Bridge MUD,100059041,20200526,2021,,BikeOnly
+Lochside South of Mt Newton X Rd,100053583,20191123,2020,,PedAndBike
+E&N West of Wilson St,100057507,20201002,2021,,PedAndBike
+Borden north of McKenzie,100064177,20170614,2018,,

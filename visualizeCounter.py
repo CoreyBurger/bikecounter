@@ -138,7 +138,7 @@ for index,row in counterList.iterrows():
     elif yesterdayMonChange>0.05:
         monthlyCountString='busier than'
     else:
-        monthlyCountString='about as busy same as'
+        monthlyCountString='about as busy as'
 
     monthIsWas = "was" if datetime.date.today().day==1 else "is"
 

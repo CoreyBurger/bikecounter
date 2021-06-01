@@ -1,4 +1,5 @@
-CounterName,CounterID,FirstDate,FirstFullYear,VictoriaWeatherStation,Type,apiKey,Location
-Galloping Goose at Harbour,101058217,20141218,2015,12,BikeOnly,a910c11e9fc713bd374cc1665f8fc22851e48a2d620563da59ef11066daac8a3,"48.432613, -123.3782"
-Wharf St at Government,100058218,20190809,2020,,BikeOnly,1ed151400d27351d46fbd2b1a64bac48851216e096896902d54d2f7dc28fe5ae,"48.42291, -123.36862"
-Borden north of McKenzie,100064177,20170628,2018,,,f64fdc49a2664d37f29c5607998ef7e43d42b28b2157f5a44f1ffdf24dd5cd4b,"48.47097, -123.36108"
+CounterName,CounterID,FirstDate,FirstFullYear,VictoriaWeatherStation,Type,apiKey,Location,BikeDirection1,BikeDirection2
+Galloping Goose at Harbour,101058217,20141218,2015,12,BikeOnly,a910c11e9fc713bd374cc1665f8fc22851e48a2d620563da59ef11066daac8a3,"48.432613, -123.3782",,
+Wharf St at Government,100058218,20190809,2020,,BikeOnly,1ed151400d27351d46fbd2b1a64bac48851216e096896902d54d2f7dc28fe5ae,"48.42291, -123.36862",,
+Borden north of McKenzie,100064177,20170628,2018,,BikeOnly,f64fdc49a2664d37f29c5607998ef7e43d42b28b2157f5a44f1ffdf24dd5cd4b,"48.47097, -123.36108",,
+Lochside South of Mt Newton X Rd,100053583,20191121,2020,,PedAndBike,f704af237cbab78fb53080caaac3b892da65964700563f475129e51074720fa3,"48.59312, -123.39825",103053583,104053583

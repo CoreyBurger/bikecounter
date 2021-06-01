@@ -4,6 +4,7 @@ from datetime import datetime,date, timedelta
 import json
 import urllib.request
 import os
+import pandas
 
 #define constants
 workingDir = os.getcwd()
@@ -46,27 +47,70 @@ for i in counters:
         startDate = i[2]
 
     #create the url base with the start date
-    url=urlBase + i[1] + "?begin=" + startDate + "&end=" + todayDate + "&step=2" + urlEnd + "&t=" + i[6]
+    
 
-    #try and load the url
-    try:
-        print(url)
-        response = urllib.request.urlopen(url)
-    except:
-        pass
+    if i[5] == 'BikeOnly':
+        url=urlBase + i[1] + "?begin=" + startDate + "&end=" + todayDate + "&step=2" + urlEnd + "&t=" + i[6]
+        #try and load the url
+        try:
+            print(url)
+            response = urllib.request.urlopen(url)
+        except:
+            pass
 
-    #read in the JSON data
-    json_data = response.read()
-    datapoints = json.loads(json_data)
+        #read in the JSON data
+        json_data = response.read()
+        datapoints = json.loads(json_data)
 
-    #for each data point, read it into a list
-    for datapoint in datapoints:
-        if datapoint['comptage'] is None:
-            continue
-        #countdatetime = datetime.strptime(datapoint['date'],'%Y-%m-%d %H:%M:%S.%f')
-        count = [datapoint['comptage'], datapoint['date']]
-        counts.append(count)
+        #for each data point, read it into a list
+        for datapoint in datapoints:
+            if datapoint['comptage'] is None:
+                continue
+            #countdatetime = datetime.strptime(datapoint['date'],'%Y-%m-%d %H:%M:%S.%f')
+            count = [datapoint['comptage'], datapoint['date']]
+            counts.append(count)
+    elif i[5] == 'PedAndBike':
+        counts3=[]
+        counts4=[]
 
+        url3=urlBase + i[8] + "?begin=" + startDate + "&end=" + todayDate + "&step=2" + urlEnd + "&t=" + i[6]
+        url4=urlBase + i[9] + "?begin=" + startDate + "&end=" + todayDate + "&step=2" + urlEnd + "&t=" + i[6]
+        try:
+            print(url)
+            response3 = urllib.request.urlopen(url3)
+            response4 = urllib.request.urlopen(url4)
+        except:
+            pass
+
+        #read in the JSON data
+        json_data3 = response3.read()
+        datapoints3 = json.loads(json_data3)
+
+        json_data4 = response4.read()
+        datapoints4 = json.loads(json_data4)
+
+        #for each data point, read it into a list
+        for datapoint in datapoints3:
+            if datapoint['comptage'] is None:
+                continue
+            #countdatetime = datetime.strptime(datapoint['date'],'%Y-%m-%d %H:%M:%S.%f')
+            count = [datapoint['comptage'], datapoint['date']]
+            counts3.append(count)
+        
+        #for each data point, read it into a list
+        for datapoint in datapoints4:
+            if datapoint['comptage'] is None:
+                continue
+            #countdatetime = datetime.strptime(datapoint['date'],'%Y-%m-%d %H:%M:%S.%f')
+            count = [datapoint['comptage'], datapoint['date']]
+            counts4.append(count)
+        
+        #combine the two
+        countsAll = [j + k for j, k in zip(counts3, counts4)]
+        for count in countsAll:
+            countAppend = [count[0]+count[2],count[1]] 
+            counts.append(countAppend)
+        
     #write that list out to a csv file
     with open(csvExportName, "a", newline="") as f:
         writer = csv.writer(f)

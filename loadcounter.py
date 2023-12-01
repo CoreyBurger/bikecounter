@@ -47,10 +47,8 @@ for i in counters:
         startDate = i[2]
 
     #create the url base with the start date
-    
-
     if i[5] == 'BikeOnly':
-        url=urlBase + i[1] + "?begin=" + startDate + "&end=" + todayDate + "&step=2" + urlEnd + "&t=" + i[6]
+        url=urlBase + i[1] + "?begin=" + startDate + "&end=" + todayDate + "&step=3" + urlEnd + "&t=" + i[6]
         #try and load the url
         try:
             print(url)
@@ -73,10 +71,11 @@ for i in counters:
         counts3=[]
         counts4=[]
 
-        url3=urlBase + i[8] + "?begin=" + startDate + "&end=" + todayDate + "&step=2" + urlEnd + "&t=" + i[6]
-        url4=urlBase + i[9] + "?begin=" + startDate + "&end=" + todayDate + "&step=2" + urlEnd + "&t=" + i[6]
+        url3=urlBase + i[8] + "?begin=" + startDate + "&end=" + todayDate + "&step=3" + urlEnd + "&t=" + i[6]
+        url4=urlBase + i[9] + "?begin=" + startDate + "&end=" + todayDate + "&step=3" + urlEnd + "&t=" + i[6]
         try:
-            print(url)
+            print(url3)
+            print(url4)
             response3 = urllib.request.urlopen(url3)
             response4 = urllib.request.urlopen(url4)
         except:

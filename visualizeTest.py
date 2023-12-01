@@ -35,7 +35,7 @@ dailyCount = pandas.read_csv(countFile, parse_dates=['Date']).set_index('Date')
 dailyCount.loc[(dailyCount['WeekNum']==yesterdayWeekNum) & (dailyCount['Weekday']==yesterdayDayOfWeek)]
 
 #Mean of weekly cumulative sum to this day of prior weeks
-statistics.mean(dailyCount['WeeklyCumSum'].loc[(dailyCount['WeekNum']==yesterdayWeekNum) & (dailyCount['Weekday']==yesterdayDayOfWeek)])
+# statistics.mean(dailyCount['WeeklyCumSum'].loc[(dailyCount['WeekNum']==yesterdayWeekNum) & (dailyCount['Weekday']==yesterdayDayOfWeek)])
 
 # monthlyCount = dailyCount[['Date','Count']].resample('M',on='Date').sum()
 # monthlyCount['Month'] = monthlyCount.index
@@ -75,22 +75,22 @@ statistics.mean(dailyCount['WeeklyCumSum'].loc[(dailyCount['WeekNum']==yesterday
 #     altair.Tooltip('mean(Count)',format=',.0f')
 # ).properties(width=200,height=200)
 
-##Count of days by binned by 1000s
-# testVisual = altair.Chart(dailyCount).mark_bar().encode(
-#     altair.X('Date:O', timeUnit='year', axis=altair.Axis(title=None,domainWidth=0,labelAngle=0,tickWidth=0)), 
-#     altair.Y('count(Count):Q',sort='descending', axis=altair.Axis(title='Days by Total Bikes',domainWidth=0)),
-#     altair.Color('Count:Q', bin=True)
-#     #altair.Size('count(Count):Q'),
-#     #altair.Tooltip('mean(Count)',format=',.0f')
-# ).transform_filter(
-#     altair.FieldLTPredicate(field='DayOfYear',lt=datetime.datetime.today().timetuple().tm_yday)
-# ).properties(width=200,height=200
-# ).configure_axis(
-#     grid=False
-# ).configure_view(
-#     strokeWidth=0
-# ).configure_legend(
-#     labelBaseline='top'
-# )
+#Count of days by binned by 1000s
+testVisual = altair.Chart(dailyCount).mark_bar().encode(
+    altair.X('Date:O', timeUnit='year', axis=altair.Axis(title=None,domainWidth=0,labelAngle=0,tickWidth=0)), 
+    altair.Y('count(Count):Q',sort='descending', axis=altair.Axis(title='Days by Total Bikes',domainWidth=0)),
+    altair.Color('Count:Q', bin=True)
+    #altair.Size('count(Count):Q'),
+    #altair.Tooltip('mean(Count)',format=',.0f')
+).transform_filter(
+    altair.FieldLTPredicate(field='DayOfYear',lt=datetime.datetime.today().timetuple().tm_yday)
+).properties(width=200,height=200
+).configure_axis(
+    grid=False
+).configure_view(
+    strokeWidth=0
+).configure_legend(
+    labelBaseline='top'
+)
 
 testVisual.save('testVisual.json')

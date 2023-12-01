@@ -1,0 +1,186 @@
+<html>
+ <title>
+ </title>
+ <head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.4.0">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.3.0">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@4.2.0">
+  </script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=B612" rel="stylesheet"/>
+ </head>
+ <style>
+  body{
+   font-family: 'B612';
+   background-color:#fff;
+}
+@media
+ (min-width: 1400px) {
+  .site-container {
+    max-width: 1345px;
+  }
+}
+@media
+ (min-width: 1200px) {
+  .site-container {
+    max-width: 1140px;
+  }
+}
+@media
+ (min-width: 992px) {
+  .site-container {
+    max-width: 992px;
+  }
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .container > div {
+    flex: 1;
+  }
+}
+.site-container {
+  width: 100%;
+  margin: 0 auto;
+}
+.container {
+  text-align: left;
+  border: 2px dotted #000;
+  padding: 1em;
+}
+.clear {
+  display: none;
+}
+#counterMap {
+  height: 300px;
+}
+ul {
+  list-style-type: none;
+}
+ </style>
+ <body>
+  <div class="site-container">
+   <div class="container" id="firstRow">
+    <div class="left" id="counterName">
+     <h1 style="text-align:center;">
+     </h1>
+     <p>
+     </p>
+     <ul>
+      <li>
+      </li>
+      <li>
+      </li>
+      <li>
+      </li>
+      <li>
+      </li>
+    </ul>
+      <p>
+      </p>
+
+    </div>
+    <div class="left" id="counterMap">
+     <script>
+      var countmap = L.map('counterMap').setView([48.4610483889553, -123.31418395042421], 15);var marker = L.marker([48.4610483889553, -123.31418395042421]).addTo(countmap);var background = L.tileLayer.provider('Stadia.StamenToner').addTo(countmap);
+     </script>
+    </div>
+    <div class="clear">
+    </div>
+   </div>
+   <div class="header" id="monthHeader">
+    <h2>
+     Monthly
+    </h2>
+   </div>
+   <div class="container" id="secondRow">
+    <div class="left" id="monthlyText">
+     <p>
+     </p>
+    </div>
+    <div class="left" id="visMonthly">
+      <script>
+     </script>
+    </div>
+    <div class="left" id="visMonthly2">
+      <script>
+     </script>
+    </div>
+   </div>
+<div class="clear">
+</div>
+<div class="header" id="yearHeader">
+ <h2>
+  Yearly
+ </h2>
+</div>
+<div class="container" id="thirdRow">
+ <div class="left" id="yearlyText">
+  <p>
+  </p>
+  <ul>
+   <li>
+   </li>
+  </ul>
+ </div>
+ <div class="left" id="visYearly">
+  <script>
+  </script>
+ </div>
+ <div class="clear">
+ </div>
+</div>
+<div class="header" id="overallHeader">
+ <h2>
+  Overall
+ </h2>
+</div>
+<div class="container" id="fourthRow">
+ <div class="left" id="overallText">
+  <p>
+  </p>
+  <ul>
+   <li>
+   </li>
+   <li>
+   </li>
+  </ul>
+ </div>
+ <div class="left" id="visOverall">
+  <script>
+  </script>
+ </div>
+ <div class="clear">
+ </div>
+</div>
+ <div class="header" id="weatherHeader">
+  <h2>
+   Rain and Sunshine
+  </h2>
+ </div>
+ <div class="container" id="fifthRow">
+  <div class="left" id="weatherText">
+   <p>
+   </p>
+   <ul>
+    <li>
+    </li>
+    <li>
+    </li>
+   </ul>
+  </div>
+  <div class="left" id="visWeather">
+   <script>
+   </script>
+  </div>
+  <div class="clear">
+  </div>
+
+</div>
+</body>
+</html>

@@ -43,17 +43,23 @@ for index,row in counterList.iterrows():
     specialDateData = pandas.read_csv(specialDateFile,parse_dates=['Date'])
 
     #setup counter map
-    mapHTML ="var countmap = L.map('counterMap').setView([" + row[['Location']][0] + "], 15);var marker = L.marker(["  + row[['Location']][0] +  "]).addTo(countmap);var background = L.tileLayer.provider('Stamen.Toner').addTo(countmap);"
+    mapHTML ="var countmap = L.map('counterMap').setView([" + row[['Location']][0] + "], 15);var marker = L.marker(["  + row[['Location']][0] +  "]).addTo(countmap);var background = L.tileLayer.provider('CyclOSM').addTo(countmap);"
 
     #resample to daily count
     dailyCount = countData.resample('D',on='Date').sum()
 
+    #resample to hourly count
+    hourlyCount = countData.resample('H',on='Date').sum()
+    hourlyCount['Hour'] = hourlyCount.index.hour
+    hourlyCount['Year'] = hourlyCount.index.year
+    hourlyCount['DayoftheWeek'] = hourlyCount.index.dayofweek
+    
     #determine total rides
     totalRides = dailyCount['Count'].sum()
 
     #remove all data from partial years
     dailyCount = dailyCount.loc[dailyCount.index >= row[['FirstFullYear']][0]]
-    
+    hourlyCount = hourlyCount.loc[hourlyCount.index >= row[['FirstFullYear']][0]]
 
     #add columns for weekly, monthly, and yearly cumulative total, plus weekday and day of the year
     YearlyCumSum = dailyCount.groupby(dailyCount.index.to_period('y')).cumsum()
@@ -75,8 +81,12 @@ for index,row in counterList.iterrows():
     #write that list out to a csv file
     dailyCount.to_csv(countExportFile)
 
-    #get yesterdays count   
-    yesterdayCount = dailyCount.loc[dailyCount.index==yesterday]['Count'][0]
+    #get yesterdays count
+    try:  
+        yesterdayCount = dailyCount.loc[dailyCount.index==yesterday]['Count'][0]
+    except IndexError as error:
+        continue
+    
     yesterdayCountString = locale.format_string("%d",yesterdayCount, grouping=True)
 
     #determine daily rank
@@ -155,7 +165,7 @@ for index,row in counterList.iterrows():
     elif yesterdayYearChange>0.05:
         yearlyCountString='busier than'
     else:
-        yearlyCountString='about as busy same as'
+        yearlyCountString='about as busy as'
 
     yearIsWas = "was" if (datetime.date.today().day==1 and datetime.date.today().month==1) else "is"
 
@@ -275,15 +285,15 @@ for index,row in counterList.iterrows():
 
     #Visual temperature with count volumes
     tempCount = altair.Chart(dailyCount).mark_rect().encode(
-        altair.X('Temp:Q', bin=True),
-        altair.Y('Date:O', timeUnit='year'),
-        altair.Color('mean(Count):Q'),
+        altair.X('Temp:Q', bin=True, axis=altair.Axis(title='Temperature')),
+        altair.Y('Date:O', timeUnit='year', axis=altair.Axis(title='Year')),
+        altair.Color('mean(Count):Q', legend=altair.Legend(title='Mean Total Bikes')),
         altair.Tooltip('mean(Count)',format=',.0f')
     ).properties(width=200,height=200)
 
     #open the HTML doc  
     with open (workingDir + '\\counterVisualTemplate.html') as counterPage:
-        page = bs4.BeautifulSoup(counterPage)
+        page = bs4.BeautifulSoup(counterPage, features="html.parser")
 
     #write out the map
     page.find(id='counterMap').find('script').string.replace_with(mapHTML)

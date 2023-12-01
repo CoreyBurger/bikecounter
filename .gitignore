@@ -1,2 +1,9 @@
 BikeCounter.code-workspace
 *.json
+counts-*.csv
+counterVisual-*.html
+114-2021.csv
+114-2022.csv
+114-2023.csv
+weatherData0012.csv
+weatherData114.csv

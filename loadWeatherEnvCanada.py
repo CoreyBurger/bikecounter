@@ -24,8 +24,8 @@ if os.path.isfile(weatherDataFile)==True:
     weatherData["Date"] = pandas.to_datetime(weatherData["Date"]).dt.date
     maxDate = weatherData["Date"].max()
 else:
-    weatherDate=["Date","Temp","Rain"]
-    maxDate = datetime.datetime.strptime('2015-01-01','%Y-%m-%d').dt.date
+    weatherData=["Date","Temp","Rain"]
+    maxDate = datetime.datetime.strptime('2015-01-01','%Y-%m-%d').date
 
 #download the data
 for year in range(weatherData["Date"].max().year,yesterdayYear+1):

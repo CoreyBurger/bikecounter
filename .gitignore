@@ -2,11 +2,12 @@ BikeCounter.code-workspace
 *.json
 counts-*.csv
 counterVisual-*.html
-114-2021.csv
-114-2022.csv
-114-2023.csv
+114-*.csv
+counts-*.html
+counterVisual-*.html
 weatherData0012.csv
 weatherData114.csv
 visualizeTest.py
 TestVisualization.ipynb
 Key Cascadia Stats.xlsx
+

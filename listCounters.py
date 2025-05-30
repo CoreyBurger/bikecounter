@@ -9,7 +9,8 @@ import itertools
 
 #define constants
 workingDir = os.getcwd()
-urlBase = "http://www.eco-public.com/api/cw6Xk4jW4X4R/publicpage/"
+#urlBase = "http://www.eco-public.com/api/cw6Xk4jW4X4R/publicpage/"
+urlBase = 'https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/'
 #counters=[["CounterID","CounterTitle","Lat","Long","Date","DateChecked"]]
 csvCountersfile=workingDir + '\\countersList.csv'
 
@@ -36,9 +37,9 @@ if os.path.exists(csvCountersfile):
 
 newCounters=pandas.DataFrame(columns=['CounterID','CounterTitle','Lat','Long','Date','DateChecked'])
 
-for i in range(100040189,100041857):
+for i in range(300040000,300045000):
     print(i)
-    url=urlBase + str(i)
+    url=urlBase + str(i) + '?withNull=true'
 
     #try and load the url
     try:

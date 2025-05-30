@@ -8,8 +8,6 @@ import time
 
 #define constants
 workingDir = os.getcwd()
-print(workingDir)
-
 stationID ='114'
 yesterdayDate = (datetime.date.today() - datetime.timedelta(1))
 todayDate = datetime.date.today()
@@ -18,17 +16,21 @@ urlBase = "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=cs
 #&Year=${year}&Month=${month}&Day=14&timeframe=2&submit= Download+Data
 
 #read in the current weather data
-weatherDataFile = 'weatherData'+stationID+'.csv'
+weatherDataFile = workingDir+'\\weatherData'+stationID+'.csv'
 if os.path.isfile(weatherDataFile)==True:
     weatherData = pandas.read_csv(weatherDataFile)
     weatherData["Date"] = pandas.to_datetime(weatherData["Date"]).dt.date
     maxDate = weatherData["Date"].max()
+    maxYear = weatherData["Date"].max().year
+
 else:
-    weatherData=["Date","Temp","Rain"]
+    weatherData=pandas.DataFrame(columns=["Date","Temp","Rain"])
+    weatherData["Date"]= pandas.to_datetime(weatherData["Date"]).dt.date
     maxDate = datetime.datetime.strptime('2015-01-01','%Y-%m-%d').date
+    maxYear = 2015
 
 #download the data
-for year in range(weatherData["Date"].max().year,yesterdayYear+1):
+for year in range(maxYear,yesterdayYear+1):
     weatherURL = urlBase + stationID + "&Year=" + str(year) + "&Month=1&Day=14&timeframe=2&submit=Download+Data"
     print(weatherURL)
     try:
@@ -39,11 +41,15 @@ for year in range(weatherData["Date"].max().year,yesterdayYear+1):
         newWeatherData["Date/Time"] = pandas.to_datetime(newWeatherData["Date/Time"]).dt.date
 
         #append the new data to the existing data
-        newData = newWeatherData.loc[(newWeatherData["Date/Time"]>maxDate) & (newWeatherData["Date/Time"]<todayDate),["Date/Time","Mean Temp (°C)","Total Precip (mm)"]].rename(columns={"Date/Time": "Date", "Mean Temp (°C)": "Temp","Total Precip (mm)":"Rain"})
-        weatherData = weatherData.append(newData,ignore_index=True)
+        if os.path.isfile(weatherDataFile)==True:
+            newData = newWeatherData.loc[(newWeatherData["Date/Time"]>maxDate) & (newWeatherData["Date/Time"]<todayDate),["Date/Time","Mean Temp (°C)","Total Precip (mm)"]].rename(columns={"Date/Time": "Date", "Mean Temp (°C)": "Temp","Total Precip (mm)":"Rain"})
+            weatherData = pandas.concat([weatherData,newData],ignore_index=True)
+        else:
+            weatherData = newWeatherData.loc[newWeatherData["Date/Time"]<todayDate,["Date/Time","Mean Temp (°C)","Total Precip (mm)"]].rename(columns={"Date/Time": "Date", "Mean Temp (°C)": "Temp","Total Precip (mm)":"Rain"})
 
         #write out the data
         weatherData.to_csv(weatherDataFile, index=False)
 
-    except:
+    except IndexError as error:
+        print(error)
         pass

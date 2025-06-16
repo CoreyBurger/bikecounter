@@ -297,7 +297,7 @@ for index,row in counterList.iterrows():
         yearlyLine = altair.Chart(dailyCount).mark_line().encode(
             altair.X('DayOfYear:O'),
             altair.Y('YearlyCumSum', axis=altair.Axis(title='Total Bikes')),
-            altair.Color('Date:O', timeUnit='year',sort='descending')
+            altair.Color('Date:O', timeUnit='year')
         ).properties(width=200,height=200)
 
         #TODo - Fix this

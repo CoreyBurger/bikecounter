@@ -16,6 +16,10 @@ workingDir = os.getcwd()
 todayYear = datetime.date.today().strftime('%Y')
 yesterdayDate = datetime.date.today() - datetime.timedelta(1)
 yesterday = yesterdayDate.strftime('%Y-%m-%d')
+try:
+    yesterdayLastYear = yesterdayDate.replace(year=datetime.date.today().year-1).strftime('%Y-%m-%d')
+except ValueError:
+    yesterdayLastYear = yesterdayDate.replace(year=datetime.date.today().year-1, day=yesterdayDate-1).strftime('%Y-%m-%d')
 yesterdayDay = yesterdayDate.day
 yesterdayDayName = yesterdayDate.strftime("%A")
 yesterdayMonth = yesterdayDate.month
@@ -149,8 +153,10 @@ for index,row in counterList.iterrows():
         #TODO genericize the function to deal with both yearly & monthly
         yesterdayMonthCumSumMean=numpy.nanmean(dailyCount.loc[(dailyCount.index.month==yesterdayMonth) & (dailyCount.index.day==yesterdayDay)].MonthlyCumSum)
         yesterdayMonthlyCumSum=pandas.DataFrame(dailyCount.loc[dailyCount.index==yesterday]).MonthlyCumSum.iloc[0]
+        lastyearMonthlyCumSum=pandas.DataFrame(dailyCount.loc[dailyCount.index==yesterdayLastYear]).MonthlyCumSum.iloc[0]
         yesterdayMonChange=(yesterdayMonthlyCumSum-yesterdayMonthCumSumMean)/yesterdayMonthCumSumMean
 
+        #compare this year to average
         if yesterdayMonChange<-0.05:
             monthlyCountString='less busy than'
         elif yesterdayMonChange>0.05:
@@ -160,9 +166,8 @@ for index,row in counterList.iterrows():
 
         monthIsWas = "was" if datetime.date.today().day==1 else "is"
 
-        monthlyCountString=  yesterdayMonthName +  " " + monthIsWas + " " + monthlyCountString + " average, with " + locale.format_string("%d", yesterdayMonthlyCumSum, grouping=True) + " rides so far this month"
+        monthlyCountString=  yesterdayMonthName +  " " + monthIsWas + " " + monthlyCountString + " average, with " + locale.format_string("%d", yesterdayMonthlyCumSum, grouping=True) + " rides so far this month, as compared to " + locale.format_string("%d", lastyearMonthlyCumSum, grouping=True) + " last year and " + locale.format_string("%d", yesterdayMonthCumSumMean, grouping=True) + " on average" 
 
-        #Check if we are ahead of last year
         #TODO - deal with leap years
         yesterdayYearlyCumSum=dailyCount[dailyCount.index==yesterday]['YearlyCumSum'].iloc[0]
         lastyearYearlyCumSum=dailyCount[dailyCount.index==(datetime.date.today() - datetime.timedelta(365)).strftime('%Y-%m-%d')]['YearlyCumSum'].iloc[0]
